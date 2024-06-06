@@ -1,5 +1,4 @@
 @charset "utf-8";
-*{}
 
 *{
     scroll-behavior: smooth;
@@ -31,6 +30,7 @@
     
         /* TAMAÑOS */
         --tamaño-max: 1440px;
+        --default-radio: 24px;
     }
   }
 
@@ -110,8 +110,8 @@ h2{
 h3{
     font-family: Onest;
     font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }
 
 .cta{
@@ -130,8 +130,22 @@ h3{
     text-shadow: 0 0 .01px var(--fondo);
     transition: 300ms;
 }
-
-
+.cta-sec{
+    color: var(--complementario);
+    font-weight: 700;
+    width: fit-content;
+}
+.cta-sec:hover{
+    color: var(--complementario-c);
+    transition: 300ms;
+}
+.cta-sec::after{
+    /* content: "\2192"; */
+    content: url('/imagenes/icosecarrow.svg');
+    display: inline-block;
+    width: 1.125rem;
+    margin-left: 5px;
+}
 
 
 
@@ -296,12 +310,37 @@ header nav ul a:hover{
         url(/imagenes/hero-banner.png) ;
     background-position: center;
     background-size: auto 120%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .hero.top100{
     background-image: linear-gradient(-45deg, var(--prinicpal), var(--analogo));
     align-content: center;
     text-align: center;
 }
+.hero.home div{
+    padding: 1rem;
+    background-color: var(--fondo);
+    border-radius: var(--default-radio);
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap:1rem 1.5rem;
+}
+.hero.home img{
+    max-width: 2.5rem;
+    align-self: center;
+    justify-self: center;
+}
+.hero.home p{
+    max-width: 25ch;
+}
+.hero.home a{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
 .hero.top100 > *{
     margin: auto;
 }
@@ -312,7 +351,7 @@ header nav ul a:hover{
 .timer{
     background-color: var(--fondo);
     padding: 1rem;
-    border-radius: 24px;
+    border-radius: var(--default-radio);
     max-width: 30rem;
 
     display: flex;
@@ -378,13 +417,20 @@ header nav ul a:hover{
 .talleres-home{
     background-color: var(--contraste-menor-c);
 
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 3rem 2rem;
 }
-
 .talleres-home h2{
     color: var(--fondo);
-    
+}
+.talleres-home >a{
+    background-color: var(--fondo);
+    border-radius: 10rem;
+    height: fit-content;
+    width: fit-content;
+    padding: 0.75rem 1.25rem;
+    order: 1;
+    align-items: end;
 }
 
 
@@ -399,7 +445,7 @@ header nav ul a:hover{
 .card-taller{
     background-color: var(--fondo);
     padding: 1rem;
-    border-radius: 24px;
+    border-radius: var(--default-radio);
 
     display: grid;
     gap: 1.5rem;
@@ -415,16 +461,46 @@ header nav ul a:hover{
 }
 .card-taller figure{
     grid-row: span 2;
-    border-radius: 24px 24px 0 0 ;
+    border-radius: var(--default-radio) var(--default-radio) 0 0 ;
     overflow: hidden;
-    
+    height: 20rem;
+    background-image: url(/imagenes/taller-home-card-top100.png);
+    background-size: cover;
+    background-position: center;
 }
 .card-taller figure img{
-    display: block;
-    grid-row: span 2;
+   
+    height: 20rem;
+    width:auto;
+    max-width: fit-content
 };
 
 
+.coaches{
+    
+}
+.coaches{
+    min-height: 90vh;
+    background-color: var(--fondo-menor-c);
+}
+.reviews{
+    min-height: 20vh;
+    background-color: var(--fondo);
+}
+.suscripcion{
+    min-height: 90vh;
+    background-image: url(/imagenes/planes-home.png);
+    background-size: cover;
+    background-position: center;
+}
+.marcas{
+    min-height: 25vh;
+    background-color: var(--contraste-menor-c);
+}
+.faqs{
+    min-height: 90vh;
+    background-color: var(--fondo);
+}
 
 
 
@@ -622,15 +698,14 @@ footer h6{
         display: block;
     }
     
-    header nav ul a:hover, header nav ul button:hover {
+    header nav ul a:hover{
         text-shadow: 0 0 .01px var(--contraste), 0 0 .01px var(--contraste);
+        color: var(--contraste);
         transition-duration: 300ms;
     }
     .navegacion .cta a{
         color: var(--fondo);
-
     }
-    
 
     /* HERO */
     
@@ -638,7 +713,7 @@ footer h6{
 
 
 
-    
+    /* TALLERES */
     .talleres-home {
         padding: 2rem 2rem 4rem;    
         margin: auto;
@@ -649,21 +724,68 @@ footer h6{
         gap: 2rem 1rem;
     }
     .talleres-home h2{
-        grid-column: span 3;
+        grid-column: span 2;
+    }
+    .talleres-home >a{
+        order:inherit;
+        align-items: inherit;
     }
     .talleres-home .card-taller{
         display: flex;
         flex-direction: column;
         gap: 0;
         padding: 0;
+        position: relative;
+    }
+    
+    .destacado::before{
+        /* content: "\2192"; */
+        content: url('/imagenes/icodest.svg');
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 5px;
+    }
+    .destacado{
+        display: flex;
+        align-items: center;
+
+        position: absolute ;
+        top: 1rem;
+        right: 1rem;
+        
+        font-weight: 700;
+        color: var(--contraste-menor-c);
+        background-image: linear-gradient(-45deg, var(--prinicpal), var(--analogo));
+
+        padding: .25rem .75rem;
+        border-radius: 10rem;
+        width: fit-content;
     }
 
-        
     .card-data{
         padding: 1rem;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
+        height: 100%;
+        gap: .5rem;
     }
-
-
+    .detalle{
+        flex-grow: 1;
+    }
+    .promo{
+        color: var(--analogo-contraste);
+        font-size: 1rem;
+        font-weight: 600;
+        padding-inline-start: .5rem;
+    }
+    .ctas-card{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    .ctas-card a{
+        width: fit-content;
+    }
 }
