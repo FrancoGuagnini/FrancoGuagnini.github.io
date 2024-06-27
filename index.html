@@ -1,75 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!--Este es un comentario de HTML-->
-<!--Los comentarios no se renderizan en el navegador, son únicamente para quienes inspeccionan el código-->
-
-
-<!--Declaración de tipo de documento-->
-    <!DOCTYPE html>
-
-<!--Declaración de idioma de la página-->
-    <html lang="es">
-
-<!--Etiqueta <head> con información para el navegador, los usuarios no van a ver esta información publicada.
-    Es únicamente para funcionamiento del navegador-->
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Esta es la "metadata", que permite insertar información para los buscadores y el navegador-->
-
-        <!--Set de caracteres utilizados. UTF-8 incluye ñ y acentos, es el más usado-->
-            <meta charset="UTF-8">
-        <!--Declaración de vista de compatibilidad-->
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--Seteo de la pantalla para que la escala sea 1/1-->
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--Acá va el título de la página, que aparece en la pestaña-->
-            <title>Plantilla para modificar de HTML y CSS</title>
-        <!--Declaración de estilos en CSS-->
-        <link rel="stylesheet" href="estilos.css">
-        <!--Declaración de favicon (Icono de Favoritos)-->
-        <link  rel="icon"   href="media/logo_B.png" type="image/png" />
-        <!--Declaración de información de la página-->
-        <meta name="description" content="Esta es la descripción que aparecerá al buscar o encontrar la página en un navegador o buscador">
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>SendaZen</title>
+    <link rel="icon" href="imagenes/favico.svg">
+    
+    <link rel="stylesheet" href="estilos/stylesheet.css">
+    <script src="js/menu.js" defer=""></script>
+    
+    <!-- FUENTES: INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<!--Etiqueta <body> que incluye todo el contenido de la página.
-    La mayoría de lo escrito acá adentro se refleja en la pantalla que verá el usuario.-->
+
+
+
 <body>
-    <!--Barra de navegación con links-->
-    <!--Este es un elemento de navegación (nav) que debe ser único por página HTML. Tiene una clase "row"-->
-    <nav class="row">
-        <!--Este es un link (a) que lleva hacia otra página (href)-->
-        <a href="home.html">Inicio</a>
-        <a href="home.html">Entregas</a>
-        <!--Esta es una división con id único "logo" que contiene la imagen del logo-->
-        <div id="logo"><img src="media/logo_B.png" alt="Esta es la descripción del logo por si no carga correctamente"></div>
-        <a href="home.html">TP 2</a>
-        <a href="home.html">Contacto</a>
-    </nav>
-
-    <!--Banner con información dentro-->
-    <!-- Esta es una división o contenedor de página (div) con las clases "banner" y "colb"-->
-    <div class="banner colb">
-        <!--Esta es una división o contenedor de página con clase "banner_info"-->
-        <div class="banner_info">
-            <div class="colores">
-                <!--Esta división tiene un id único "color#" que debe ser único por documento html-->
-                <div id="color1" class="color"><img class="icon" src="media/icon1.png" alt="Esta es la descripción del icono por si no carga correctamente"></div>
-                <div id="color2" class="color"><img class="icon" src="media/icon2.png" alt="Esta es la descripción del icono por si no carga correctamente"></div>
-                <div id="color3" class="color"><img class="icon" src="media/icon3.png" alt="Esta es la descripción del icono por si no carga correctamente"></div>
-                <div id="color4" class="color"><img class="icon" src="media/icon4.png" alt="Esta es la descripción del icono por si no carga correctamente"></div>
+    <!-- HEADER -->
+    <header>
+        <div class="botonera">
+            <div class="logo-navbar">
+                <img src="imagenes/logo.svg" alt="logo powersa">
             </div>
-            <!--Este es un título de clase 1 (El más importante)-->
-            <h1>Cambiemos colores, textos, tipografía
-                <!--Salto de línea--><br>
-                 e imagenes en esta página.</h1>
-            <!--Este es un párrafo de texto-->
-            <p>¡Inspecciona el código para ver que es cada cosa!</p>
-            <a href="home.html" class="btn">Ir al sitio web</a>
+            <button id="menu">
+                <img id="menu-hamb"  alt="">
+            </button>
         </div>
-    </div>
 
-    <!--Cierra body (contenido)-->
+        <nav class="navegacion">
+            <ul>
+                <li class="pag-act"><a href="index.html">Home</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Planes</a></li>
+                <li><a href="#home-tall">Quienes somos</a></li>
+                <li class="cta"><a href="taller-top100.html">Comunidad</a></li>
+            </ul>
+        </nav>
+        
+        
+    </header>
+
+
+
+    <!------------
+    ---- MAIN ----
+    ------------->
+    <main>
+        <article class="hero home">
+            <section>
+                <h1>Descubrí la ciencia de la motivación</h1>
+                <p class="bajada-reg">Nuestro conocimiento al servicio de tus metas</p>
+                <div class="sombra">
+                    <img src="imagenes/descargaico56.svg" alt="">
+                    <p>Registrate y obtene gratis nuestra <strong>guia para optimizar tu rutina</strong></p>
+                    <a href="#" class="cta">Unirse gratis</a>
+                </div></section>
+        </article>
+
+        <article class="aboutus fullarticle">
+            <h2>¿Que es <img src="/imagenes/logo-tipo.svg" alt="">?</h2>
+            <p class="bajada-reg">Somos coaches y miembros que comparte una misma filosofia: Ser mejor que ayer</p>
+            <figure><img src="" alt=""></figure>
+            <p>SendaZen nacio en 2006 con un grupo de profesionales diverso, que busca impulsar y potenciar a los miembros de nuestra comunidad. Hoy somos mas de 50K y nos ayudamos en 32 paises.
+                </p><p>
+                Nos instalamos en Argentina en 2014 con nuestros primeros cursos de coaching y fitness y rapidamente crecimos hasta instalarnos como la principal cadena de Bienestar Integral del pais.</p>
+                <div>
+                    <p>Miles de argentinos ya nos eligieron</p>
+                    <a href="" class="cta">Unite a la comunidad</a>
+                </div>
+        </article>
+
+        
+        <article class="marcas">
+            <p class="bajada-big">Forma parte de la comunidad y consegui beneficios</p>
+            <ul>
+                <li><img src="imagenes/marca1.svg" alt=""></li>
+                <li><img src="imagenes/marca2.svg" alt=""></li>
+                <li><img src="imagenes/marca3.svg" alt=""></li>
+                <li><img src="imagenes/marca4.svg" alt=""></li>
+                <li><img src="imagenes/marca5.svg" alt=""></li>
+            </ul> 
+        </article>
+        
+        <article class="edificio fullarticle">
+            <div class="maxwidth">
+                <div class="foto-edificio redondeado">
+                    <div class="sombra">
+                        <p class="bajada-big">12</p>
+                        <p>sucursales <br>en BSAS</p>
+                    </div>
+                </div>
+                <h2>Todas las prestaciones que necesitas</h2>
+                <p>Tenemos desde gimancios, a laboratorios medico, nutricionista a centros de terapia fisica. Tambien contamos con auditorios y sala de conferencias para nuestros cursos presenciales</p>
+                <a href="" class="cta-sec">Descubrí que plan se adapta a tus necesidades</a>
+    
+                <div class="card redondeado sombra">
+                    <h3>Algunos de los beneficios de nuestros cursos presenciales</h3>
+                    <p>Los cursos se dictan en neustra instalacion principal que cuenta con:
+                        <ul>
+                            <li>Todas las instalaciones necesarias se encuentran dentro del edificio pricpal.</li>
+                            <li>Sauna, vestuarios y lockers disponibles.</li>
+                            <li>Estacionamiento gratis</li>
+                        </ul>
+                    </p>
+                    <a href="#home-tall" class="cta">Mirá los cursos disponibles</a>
+                </div>
+
+            </div>
+
+        </article>
+
+       
+
+        <article id="home-tall" class="talleres-home">
+            <div class="banner redondeado">
+                    <h2>Nuestros <br> Talleres</h2>
+                    <a class="cta-sec" href="#">Mira todos los talleres</a>
+                
+            </div>
+            <section class="talleres-cards">
+                
+            <div class="maxwidth">
+                <div class="card-taller tallerdest sombra">
+                      <h3>TOP 100</h3>
+                      <p class="detalle">Curso presencial de fitness y bienesta integral integral, inlcuye entrenamiento fisico, tecnicas de yoga y enfoque de vida saludable. Conocimeinto integral sobre todos los angulos: mente y cuerpo, sueño y rutina.</p>
+                      <p class="promo">Antes: <s>$28.000</s></p>
+                      <div class="ctas-card">
+                        <a href="" class="cta-sec">Ver detalles de Top 100</a>
+                        <a class="cta" href="1/index.html">Anotate por $19.000</a>
+                  </div>
+                  <p class="destacado sombra">Curso destacado</p>
+                </div>
+        
+                <div class="card-taller sombra">
+                        <h3>Domina tu cuerpo</h3>
+                        <p class="detalle">Aprende a generar una rutina de ejercicio y los metodos para seguirla. Transforma tu vida a travez de tu cuerpo.</p>
+                        <div class="ctas-card">
+                          <a href="" class="cta-sec">Ver taller</a></div>
+                    
+                </div>
+        
+                <div class="card-taller sombra">
+                    <h3>Tigere Mentality</h3>
+                    <p class="detalle">Descibri los metodos de la neurociencia y sicologia y usalos a tu ventaja para lograr tus metas.</p>
+                    <div class="ctas-card">
+                      <a href="" class="cta-sec">Ver taller</a>
+                    
+                </div>
+                </div>
+            </section>
+    
+        </article>
+
+        <article class="cita-home">
+            <P class="bajada-big">El progreso sostenible requiere de conocimiento comprobado</P>
+            <p class="">Creemos que para lograr tus objetivos hay que hacerlo de forma <mark class="">inteligente</mark></p>
+        </article>
+
+        <article class="coaches">
+            <section class="detalle-coaches">
+                <h2>Conocé a <br>los coaches</h2>
+                <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
+                <div>
+                    <p>¿Querés integrarte al equipo?</p>
+                    <a href="" class="cta-sec">Envia tu aplicacion</a>
+                </div>
+            </section>
+            
+            <section class="coaches-imagen">
+                <div class="sombra">
+                    <p class="coaches-numero">28</p>
+                    <p>Profesionales <br>capacitados</p>
+                </div>
+                <div class="sombra">
+                    <p class="coaches-numero">+500</p>
+                    <p>Alumnos <br>contentos</p>
+                </div>
+            </section>
+        </article>
+
+
+
+        <article class="reviews">
+            <section class="sombra">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi officiis id sapiente pariatur error quas.</p>
+                <div>
+                    <img src="" alt="">
+                    <p><b>Ludmila</b>, 28 años</p>
+                </div>
+            </section>
+            <section class="sombra">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi officiis id sapiente pariatur error quas.</p>
+                <div>
+                    <img src="" alt="">
+                    <p><b>Ludmila</b>, 28 años</p>
+                </div>
+            </section>
+            <section class="sombra">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi officiis id sapiente pariatur error quas.</p>
+                <div>
+                    <img src="" alt="">
+                    <p><b>Ludmila</b>, 28 años</p>
+                </div>
+            </section>
+            <section class="sombra">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi officiis id sapiente pariatur error quas.</p>
+                <div>
+                    <img src="" alt="">
+                    <p><b>Ludmila</b>, 28 años</p>
+                </div>
+            </section>
+        </article>
+
+        <article class="comunidad fullarticle">
+
+        </article>
+
+
+
+
+        <article class="suscripcion">
+            <h2>Planes de suscripción</h2>
+        </article>
+        
+        <article class="promos">
+            <h2>Suscribite y 50% OFF</h2>
+
+        </article>
+
+        <article class="faqs">
+            <h2>Preguntas frecuentes</h2>
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="529" height="429" id="gmap_canvas" src="https://maps.google.com/maps?q=av+libertador+2387&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://online.stopwatch-timer.net/">timer for kids</a><br><a href="https://textcaseconvert.com/"></a><br><style>.mapouter{position: relative;text-align: right;height: 429px;width: 529px;}</style><a href="https://www.mapembed.net">google maps embed iframe</a><style>.gmap_canvas{overflow: hidden;background: none !important;height: 429px;width: 529px;}</style></div></div>
+        </article>
+        
+        <article class="contacto">
+            <h2>contacto</h2>
+        </article>
+
+    </main>
+
+
+   <!--############
+    #### FOOTER ####
+    #############-->
+    <footer>
+
+        <div >
+
+
+
+        </div>
+        <section class="empresa">
+            <img class="logo-footer" src="imagenes/logo.svg" alt="">
+        <ul>
+            <li>
+                <h6>SendaZen S.A.</h6>
+                <a href="">Av. del Libertador 2387, Ciudad Autonoma de Buenos Aires B1414, Argentina
+</a>
+            </li>
+            <li class="afip">
+                <a href=https://servicios1.afip.gov.ar/clavefiscal/qr/response.aspx?qr=o84py5zN84wQoaE8N8FcZw>
+                    <img src="imagenes/logoDataFiscal.jpg" alt="">
+                </A>
+            </li>
+        </ul>  
+        </section>
+
+
+        <section class="contacto-footer">
+            <ul class="newsletter">
+                <h6>¡Suscribite a nuestro newsletter!</h6>
+                <li class="casillero">
+                    <input type="email" placeholder="ingresa tu email">
+                </li>
+                <li><a class="cta" href="#">suscribirse</a></li>
+            </ul>
+            
+            <ul class="redes">
+            <p>O seguinos en las redes</p>
+            <li>
+                <a href="#">
+                    <img src="" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="" alt="">
+                </a>
+            </li>
+        </ul>
+        </section>
+
+
+        <nav class="navegacion-footer">
+            <h6>Mapa del sitio</h6>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Cursos</a></li>
+                <li><a href="">Planes</a></li>
+                <li><a href="">Quienes somos</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+        </nav>
+
+        
+
+
+        <div class="legales">
+            <p>
+                Copyright © 2024 SendaZen S.A. - Todos los derechos reservados
+            </p>
+            <p>
+                <a href="">Privacidad</a>/
+                <a href="">Cookies</a>/
+                <a href="">Legales</a>
+            </p>
+        </div>
+
+
+    </footer>
 </body>
-<!--Fin del documento HTML-->
 </html>
