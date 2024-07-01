@@ -55,10 +55,12 @@
 :root{
     /* TAMAÑOS */
     --tamaño-max: 1440px;
-    --fullheight: 80vh;
+    --fullheight: 100vh;
     --default-radio: 24px;
     
     --padding-art: 2.5rem 1rem 4rem;
+
+    --fuentetitulos: "Red Hat display";
 }
 p{
     max-width: 45ch;
@@ -74,53 +76,45 @@ header, main {
 ul, ol{
     list-style: none;
 }
-.pag-act{
-    background-image: linear-gradient(var(--prinicpal), var(--prinicpal));
-    background-position: 0% 18px;
-    background-size: 100% 2px;
-    background-repeat: no-repeat;
-    /* text-decoration: underline solid 3px var(--prinicpal); */
-    
-}
 img{
     width: 100%;
     max-width: 100%;
     height: auto;
 }
 h1{
-    font-family: Onest;
+    font-family: var(--fuentetitulos);
     font-weight: bold;
     font-size: 3rem;
     line-height: 3rem;
     max-width: 12ch;
 }
 h2{
-    font-family: Onest;
+    font-family: var(--fuentetitulos);
     font-weight: bold;
     font-size: 2.5rem;
     line-height: 2.5rem;
     max-width: 12ch;
 }
 h3{
-    font-family: Onest;
+    font-family: var(--fuentetitulos);
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 1.5rem;
 }
 
 .bajada-big{
-    font-family: Onest;
-    font-weight: 300;
+    font-family: var(--fuentetitulos);
+    font-weight: 400;
     font-size: 2.5rem;
 }
 .bajada-reg{
-    font-family: Onest;
-    font-weight: 300;
+    font-family: var(--fuentetitulos);
+    font-weight: 400;
     font-size: 1.8rem;
 }
 .bajada-small{
-    font-family: Onest;
-    font-weight: 300;
+    font-family: var(--fuentetitulos);
+    font-weight: 400;
 }
 mark{
     padding:-0px 8px 2px;
@@ -136,11 +130,11 @@ article{
     margin: auto;
 }
 .fullarticle{
-    min-height: 90vh;
+    min-height: var(--fullheight);
 }
 .container{
     height: 100%;
-    width: 1440px;
+    width: var(--tamaño-max);
     margin: auto;
 }
 
@@ -148,24 +142,25 @@ article{
     color: var(--fondo) !important; 
     background-color: var(--complementario) !important;
 
-    font-size: 1rem;
     font-weight: 600;
 
     padding: .25rem .75rem;
-    border-radius: 10rem;
+    border-radius: var(--default-radio);
     width: fit-content;
     transition: 400ms;
 }
 .cta:hover{
     background-color: var(--complementario-c) !important;
     text-shadow: 0 0 .01px var(--fondo);
-    border-radius: 4px;
+    border-radius: 2rem;
+    padding: .25rem .75rem .25rem 2rem;
 }
 .cta-sec{
     color: var(--complementario);
     font-weight: 700;
     width: fit-content;
     transition: 400ms;
+    
 }
 .cta-sec:hover{
     color: var(--complementario-c);
@@ -174,18 +169,36 @@ article{
     /* content: "\2192"; */
     content: url('/imagenes/icosecarrow.svg');
     display: inline-block;
-    width: 1.125rem;
+    width: 1rem;
     margin-left: 5px;
+}
+.caption{
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--contraste-menor-c);
 }
 
 .sombra{
     box-shadow: 0px 0px 10px #1a1a1a35;
 }
 .redondeado{
-    border-radius: 24px;
+    border-radius: var(--default-radio);
+}
+.underline {
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-position: bottom;
+    background-size: 100% 0rem;
+    background-repeat: no-repeat;
+    transition: 500ms;
+}
+.underline:hover{
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-position: bottom;
+    background-size: 100% 1rem;
+    background-repeat: no-repeat;
 }
 
-
+.card{}
 
 
 
@@ -293,6 +306,19 @@ header nav ul{
     font-size: 1.75rem;
     color: var(--fondo-menor-c);
 }
+.pag-act{
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-position: bottom;
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    transition: 300ms;
+    /* text-decoration: underline solid 3px var(--prinicpal); */
+}
+.pag-act a{
+    text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo);
+    color: var(--fondo);
+    transition-duration: 400ms;
+}
 header nav ul a:hover{
     text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo);
     color: var(--fondo);
@@ -301,7 +327,7 @@ header nav ul a:hover{
 .navegacion .contacto{
     background-color: var(--fondo);
     padding: .5rem;
-    border-radius: 1px;
+    border-radius: 4px;
 }
 .navegacion .contacto a{
     color: var(--prinicpal);
@@ -312,7 +338,7 @@ header nav ul a:hover{
 
 /* ================== HEROS ================== */
 .hero{
-    height: 90vh;
+    height: 95vh;
 }
 
 /* ================== FOOTER ================== */
@@ -484,15 +510,37 @@ footer h6{
 
 
 /* ABOUTUS */
+.aboutus{
+    display: grid;
+}
 .aboutus h2 img{
     display: inline;
     height: 1.8rem;
     width: inherit;
 }
+.aboutus > div{
+    height: 100%;
+    display: grid;
+    gap: 1rem 3rem;
+    grid-template-columns: 30% 1fr 1fr;
+    
+    grid-template-rows: auto 1fr auto;
+}
+.aboutus figure {
+    grid-area: 1/2/3/4;
+    background-color: var(--contraste-menor-c);
+}
+.aboutus .ctaycaption{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-self: flex-end;
+}
 
 
 /* MARCAS */
 .marcas{
+    padding-top: 2rem;
     min-height: 25vh;
     background-color: var(--fondo);
     display: flex ;
@@ -540,16 +588,15 @@ footer h6{
     background-repeat: no-repeat;
 }
 .edificio .maxwidth{
-    min-height: var(--fullheight);
+    min-height: 80vh;
     display: grid;
-    grid-template-columns: 45% max-content;
+    grid-template-columns: 40% 1fr;
     grid-template-rows: auto 1fr auto auto;
     justify-content: center;
     margin: auto;
     
     gap: 1rem 3rem;
 
-    max-width: 1440px;
 }
 .foto-edificio{
     background-color: var(--contraste);
@@ -567,7 +614,7 @@ footer h6{
     width: fit-content;
     margin-left: auto;
 
-    font-family: Onest;
+    font-family: var(--fuentetitulos);
     color: var(--contraste-menor-c);
 
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
@@ -627,7 +674,9 @@ footer h6{
 }
 .card-taller{
     background-color: var(--fondo);
+
     padding: 1rem;
+    padding-bottom: 2rem;
     border-radius: var(--default-radio);
 
     display: grid;
@@ -653,10 +702,227 @@ footer h6{
     background-position: center;
 }
 .card-taller figure img{
-   
     width:auto;
-    max-width: fit-content
-};
+    max-width: fit-content;
+}
+
+/* QUOTE */
+.cita-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+
+    background-color: var(--fondo-menor-c);
+    padding: var(--padding-art);
+}
+.cita-home p{
+    color: var(--contraste-menor-c);
+    max-width: 29ch;
+}
+.cita-home .bajada-big{
+    max-width: 30ch;
+}
+
+
+
+/* COACHES */
+.coaches{
+    display: grid;
+    min-height: var(--fullheight);
+    background-color: var(--fondo);
+}
+.coaches .maxwidth{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: space-between;
+    height: 100%;
+}
+.detalle-coaches{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.detalle-coaches > p{
+    flex-grow: 1;
+    max-width: 28ch;
+}
+.detalle-coaches > div p{
+    font-size: 1rem;
+    color: var(--contraste-menor-c);
+    font-weight: 700;
+}
+.coaches-imagenes{
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: min-content auto auto min-content;
+    grid-template-columns: 3fr 3fr 2fr;
+    
+    gap: 1rem;
+
+    padding: 1rem;
+    max-width: 65rem;
+}
+.coaches-imagenes div{
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
+    border-radius: var(--default-radio);
+    padding: 1rem;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+
+    font-family: var(--fuentetitulos);
+    color: var(--contraste-menor-c);
+}
+.coaches-numero{
+    font-family: var(--fuentetitulos);
+    font-size: 2.5rem;
+}
+.coaches-imagenes img{
+    border-radius: var(--default-radio);
+    background-color: rgba(7, 41, 45);
+}
+.coaches-imagenes :nth-child(1){
+    grid-area: 1/ 1 / 2/ 2
+}
+.coaches-imagenes :nth-child(2){
+    grid-area: 4/ 2 / 5 / 3
+}
+.coaches-imagenes :nth-child(3){
+    grid-area: 2/ 1 / 5/ 2;
+}
+.coaches-imagenes :nth-child(4){
+    grid-area: 1/ 2 / 3/ 4;
+}
+.coaches-imagenes :nth-child(5){
+    grid-area: 3/ 2 / 4/ 3;
+}
+.coaches-imagenes :nth-child(6){
+    grid-area: 3/ 3 / 5/ 4;
+}
+
+
+
+/* REVIEWS */
+.reviews{
+    min-height: 20vh;
+    background-color: var(--fondo);
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    gap: 1rem;
+    padding-top: 2rem;
+}
+.reviews section{
+    background-color: var(--fondo-menor-c);
+    color: var(--contraste-menor-c);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    height: 13rem;
+    width: 22%;
+    min-width: 20rem;
+    padding: 1.5rem;
+}
+.reviews section::before{
+    content: url(/imagenes/quoteico.svg);
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+.reviews section p{
+    flex-grow: 1;
+}
+.reviews section div{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.reviews section div img{
+    background-color: var(--contraste);
+    border-radius: 50%;
+    
+    height: 2rem;
+    width: 2rem;
+}
+.reviews section div p{
+    width: 100%;
+}
+
+
+/* COMUNIDAD */
+.comunidad{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 0;
+    /* background-image: url(/imagenes/AdobeStock_373694965.jpeg);
+    background-size: cover;
+    background-position: top -10rem center;
+    background-repeat: no-repeat; */
+
+    background-color: var(--fondo-menor-c);
+}
+.comunidad .fondo{
+    background-image: url(/imagenes/AdobeStock_373694965.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.comunidad .maxwidth{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr min-content;
+    gap: 1rem 3rem;
+
+    height: 100%;
+    padding: 2rem 2rem 5rem;
+}
+.comunidad .bajada-big{
+    max-width: 18ch;
+}
+.comunidad .card{
+    background-color: var(--fondo);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    min-width: 25rem;
+    grid-area: 1/2/4/3;
+    padding: 1rem;
+}
+.comunidad .card div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+}
+.flexgrow{
+    flex-grow: 1;
+}
+.redes-comunidad{
+    display: flex;
+    gap: .5rem;
+}
+.redes-comunidad li{
+    background-color: var(--contraste-menor-c);
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+
+}
+
 
 
 
@@ -690,7 +956,7 @@ footer h6{
 #newcountdown{
     color: var(--contraste-menor-c);
     font-size: 2rem;
-    font: Onest;
+    font: var(--fuentetitulos);
     font-weight: 300;
     width: fit-content;
 }
@@ -704,122 +970,77 @@ footer h6{
 
 
 
-
-
-
-.cita-home{
+#home-planes{
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+.promos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+.promos .bajada-big{
     text-align: center;
-
+    max-width: 23ch;
+}
+.promos .bajada-big mark{
+    padding: 0px 1.25rem ;
+    border-radius: 3rem;
     background-color: var(--fondo);
-    padding: var(--padding-art);
+    background-image: unset ;
+    font-size: inherit;
+    font-family: inherit;
 }
-.cita-home p{
-    color: var(--contraste-menor-c);
-    max-width: 29ch;
-}
-.cita-home .bajada-big{
-    max-width: 30ch;
-}
-
-
-
-.coaches{
-
-}
-.coaches{
+.promos ul{
+    max-width: 33ch;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    min-height: 80vh;
-    background-color: var(--fondo-menor-c);
-    justify-content: space-between;
+    align-items: center;
+    gap: 1rem 2rem;
 }
-.detalle-coaches{
+.promos ul p{
+    text-align: center;
+    flex-basis: 100%;
+}
+.promos ul input{
+    border-radius: 2rem;
+    padding: .25rem .75rem;
+    flex-grow: 1;
+}
+.suscripcion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 1rem;
+}
+.suscripcion h2{
+    text-align: center;
+    margin: auto;
+    max-width: 100%;
+    flex-basis: 100%;
+}
+.suscripcion .card{
     display: flex;
     flex-direction: column;
     gap: .5rem;
-}
-.detalle-coaches > p{
-    flex-grow: 1;
-    max-width: 28ch;
-}
-.detalle-coaches > div p{
-    font-size: 1rem;
-    color: var(--contraste-menor-c);
-    font-weight: 700;
-}
-.coaches-imagen{
-    flex-grow: 1;
-    background-color: var(--contraste-menor-c);
-    border-radius: var(--default-radio);
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 1rem;
-
-    padding: 1rem;
-    max-width: 65rem;
-}
-.coaches-imagen div{
-    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
-    border-radius: var(--default-radio);
-    padding: 1rem;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    gap:1rem;
-
-    font-family: Onest;
-    color: var(--contraste-menor-c);
-}
-.coaches-numero{
-    font-family: Onest;
-    font-size: 2.5rem;
-}
-
-
-.reviews{
-    min-height: 20vh;
     background-color: var(--fondo);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    padding: 1rem;
 }
-.reviews section{
-    padding: 1.5rem;
-    background-color: var(--fondo-menor-c);
-    border-radius: var(--default-radio);
-    text-align: center;
-    color: var(--contraste-menor-c);
-}
-.reviews section::before{
-    content: url(/imagenes/quoteico.svg);
-    display: inline-block;
-    height: 2rem;
-    width: 2rem;
-}
-.reviews section div{
-    display: flex;
-    gap: 1rem;
-    margin: auto;
-}
-.reviews section div p{
-    width: 100%;
+.suscripcion .card ul{
+    list-style: inherit;
+    list-style-position: inside;
+    margin-bottom: 2rem;
+    flex-grow: 1;
 }
 
 
-.suscripcion{
-    min-height: 90vh;
-    background-image: url(/imagenes/planes-home.png);
-    background-size: cover;
-    background-position: center;
-}
+
+
+
 .faqs{
     min-height: 300vh;
     background-color: var(--fondo);
@@ -848,7 +1069,7 @@ footer h6{
         font-size: 1.125rem;
     }
     :root{
-        --padding-art: 4rem 2rem 5rem;
+        --padding-art: 8rem 2rem 9rem;
     }
     a {
         color: var(--contraste);
@@ -861,14 +1082,6 @@ footer h6{
     ul, ol{
         list-style: none;
     }
-    .pag-act{
-        background-image: linear-gradient(var(--prinicpal), var(--prinicpal));
-        background-position: 0% 18px;
-        background-size: 100% 2px;
-        background-repeat: no-repeat;
-        /* text-decoration: underline solid 3px var(--prinicpal); */
-        
-    }
     img{
         width: 100%;
         max-width: 100%;
@@ -879,20 +1092,25 @@ footer h6{
         line-height: 4.5rem;
     }
     h2{
-        font-family: Onest;
+        font-family: var(--fuentetitulos);
         font-weight: bold;
         font-size: 2.5rem;
         line-height: 2.5rem;
         max-width: 12ch;
     }
     h3{
-        font-family: Onest;
+        font-family: var(--fuentetitulos);
         font-weight: bold;
         font-size: 1.5rem;
         line-height: 1.5rem;
     }
     .cita{
         font-size: 2.5rem;
+    }
+    .maxwidth{
+        max-width: var(--tamaño-max);
+        margin: auto;
+        width: 100%;
     }
 
 
@@ -941,6 +1159,14 @@ footer h6{
         justify-content: end;
         height: fit-content;
     }
+    
+    .navegacion ul li{
+        padding: .25rem .75rem;
+        height: 100%;
+    }
+    /* .pag-act:hover{
+        background-size: 100% 100%;
+    } */
     .navegacion ul li a, button{
         font-size: 1.125rem;
         color: var(--contraste);
@@ -993,24 +1219,31 @@ footer h6{
         height: 100%;
         min-height: 25vw;
 
-        width: 100%;
+        width: calc(100% - 3rem);
         max-width: var(--tamaño-max);
 
         display: flex;
         justify-content: space-between;
         background-image: linear-gradient(90deg, #234142cc 20%, #23414200 40%);
     }
+    .banner .cta-sec{
+        height: fit-content;
+        padding: .75rem 1.25rem  ;
+        background-color: var(--fondo);
+    }
     .talleres-cards{
         width: 100%;
-        align-items: center;
         background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+        display: grid;
+        justify-content: center;
     }
-    .maxwidth{
-        padding: 2rem 1rem 4rem;
+    .talleres-cards .maxwidth{
+        padding: 2rem  0 4rem;
         display: flex;
         margin: auto;
         gap: 1rem;
-        width: 100%;
+        margin-inline: 1.5rem;
+        width: calc(100% - 3rem);
         max-width: var(--tamaño-max);
     }
     .talleres-home >a{
@@ -1019,6 +1252,7 @@ footer h6{
     }
     .talleres-cards .card-taller{
         padding: 1.5rem;
+        padding-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
         gap: .5rem;
@@ -1071,6 +1305,7 @@ footer h6{
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse;
+        align-items: center;
     }
     .ctas-card a{
         width: fit-content;
