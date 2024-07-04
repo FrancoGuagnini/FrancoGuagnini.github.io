@@ -1,402 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--Este es un comentario de HTML-->
+<!--Los comentarios no se renderizan en el navegador, son únicamente para quienes inspeccionan el código-->
 
+
+<!--Declaración de tipo de documento-->
+    <!DOCTYPE html>
+
+<!--Declaración de idioma de la página-->
+    <html lang="es">
+
+<!--Etiqueta <head> con información para el navegador, los usuarios no van a ver esta información publicada.
+    Es únicamente para funcionamiento del navegador-->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SendaZen</title>
-    <link rel="icon" href="imagenes/favico.svg">
-    
-    <link rel="stylesheet" href="estilos/stylesheet.css">
-    <script src="js/menu.js" defer=""></script>
-    
-    <!-- FUENTES: INTER -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!--Esta es la "metadata", que permite insertar información para los buscadores y el navegador-->
+
+        <!--Set de caracteres utilizados. UTF-8 incluye ñ y acentos, es el más usado-->
+            <meta charset="UTF-8">
+        <!--Declaración de vista de compatibilidad-->
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--Seteo de la pantalla para que la escala sea 1/1-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Acá va el título de la página, que aparece en la pestaña-->
+            <title>Plantilla para modificar de HTML y CSS</title>
+        <!--Declaración de estilos en CSS-->
+        <!--Declaración de favicon (Icono de Favoritos)-->
+        <link  rel="icon"   href="logo_B.png" type="image/png" />
+        <!--Declaración de información de la página-->
+        <meta name="description" content="Esta es la descripción que aparecerá al buscar o encontrar la página en un navegador o buscador">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 
-
-
-
+<!--Etiqueta <body> que incluye todo el contenido de la página.
+    La mayoría de lo escrito acá adentro se refleja en la pantalla que verá el usuario.-->
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="botonera">
-            <div class="logo-navbar">
-                <img src="imagenes/logo.svg" alt="logo powersa">
-            </div>
-            <button id="menu">
-                <img id="menu-hamb"  alt="">
-            </button>
-        </div>
+    <!--Barra de navegación con links-->
+    <!--Este es un elemento de navegación (nav) que debe ser único por página HTML. Tiene una clase "row"-->
+    <nav class="row">
+        <!--Este es un link (a) que lleva hacia otra página (href)-->
+        <a href="home.html">Inicio</a>
+        <a href="home.html">Entregas</a>
+        <!--Esta es una división con id único "logo" que contiene la imagen del logo-->
+        <div id="logo"><img src="logo_B.png" alt="Esta es la descripción del logo por si no carga correctamente"></div>
+        <a href="home.html">TP 2</a>
+        <a href="home.html">Contacto</a>
+    </nav>
 
-        <nav class="navegacion">
-            <ul>
-                <li class="pag-act"><a href="index.html">Home</a></li>
-                <li><a href="#">Cursos</a></li>
-                <li><a href="#">Planes</a></li>
-                <li><a href="#home-tall">Quienes somos</a></li>
-                <li class="cta"><a href="taller-top100.html">Comunidad</a></li>
-            </ul>
-        </nav>
-        
-        
-    </header>
-
-
-
-    <!------------
-    ---- MAIN ----
-    ------------->
-    <main>
-        <article class="hero home">
-            <section>
-                <h1>Descubrí la ciencia de la motivación</h1>
-                <p class="bajada-reg">Nuestro conocimiento al servicio de tus metas</p>
-                <div class="sombra">
-                    <img src="imagenes/descargaico56.svg" alt="">
-                    <p>Registrate y obtene gratis nuestra <strong>guia para optimizar tu rutina</strong></p>
-                    <a href="#" class="cta">Unirse gratis</a>
-                </div></section>
-        </article>
-
-        <article class="aboutus fullarticle">
-            <div class="maxwidth">
-
-                <h2>¿Que es <img src="/imagenes/logo-tipo.svg" alt="">?</h2>
-                <p class="bajada-reg">Somos coaches y miembros que comparte una misma filosofia: Ser mejor que ayer</p>
-                <figure class="redondeado"><img src="" alt=""></figure>
-                <div class="ctaycaption">
-                    <p class="caption">Miles de argentinos ya nos eligieron</p>
-                    <a href="#" class="cta">Unite a la comunidad</a>
-                </div>
-                <p>SendaZen nacio en 2006 con un grupo de profesionales diverso, que busca impulsar y potenciar a los miembros de nuestra comunidad. Hoy somos mas de 50K y nos ayudamos en 32 paises.
-                </p>
-                <p> Nos instalamos en Argentina en 2014 con nuestros primeros cursos de coaching y fitness y rapidamente crecimos hasta instalarnos como la principal cadena de Bienestar Integral del pais.</p>
-                    
-            </div>
-        </article>
-
-        
-        <article class="marcas">
-            <p class="bajada-big">Forma parte de la comunidad y consegui beneficios</p>
-            <ul>
-                <li><img src="imagenes/marca1.svg" alt=""></li>
-                <li><img src="imagenes/marca2.svg" alt=""></li>
-                <li><img src="imagenes/marca3.svg" alt=""></li>
-                <li><img src="imagenes/marca4.svg" alt=""></li>
-                <li><img src="imagenes/marca5.svg" alt=""></li>
-            </ul> 
-        </article>
-        
-        <article class="edificio fullarticle">
-            <div class="maxwidth">
-                <div class="foto-edificio redondeado">
-                    <div class="sombra">
-                        <p class="bajada-big">12</p>
-                        <p>sucursales <br>en BSAS</p>
-                    </div>
-                </div>
-                <h2>Todas las prestaciones que necesitas</h2>
-                <p>Tenemos desde gimancios, a laboratorios medico, nutricionista a centros de terapia fisica. Tambien contamos con auditorios y sala de conferencias para nuestros cursos presenciales</p>
-                <a href="" class="cta-sec">Descubrí que plan se adapta a tus necesidades</a>
-    
-                <div class="card redondeado sombra">
-                    <h3>Algunos de los beneficios de nuestros cursos presenciales</h3>
-                    <p>Los cursos se dictan en neustra instalacion principal que cuenta con:
-                        <ul>
-                            <li>Todas las instalaciones necesarias se encuentran dentro del edificio pricpal.</li>
-                            <li>Sauna, vestuarios y lockers disponibles.</li>
-                            <li>Estacionamiento gratis</li>
-                        </ul>
-                    </p>
-                    <a href="#home-tall" class="cta">Mirá los cursos disponibles</a>
-                </div>
-
-            </div>
-
-        </article>
-
-       
-
-        <article id="home-tall" class="talleres-home">
-            <div class="banner redondeado">
-                    <h2>Nuestros <br> Talleres</h2>
-                    <a class="cta-sec redondeado" href="#">Mira todos los talleres</a>
-                
-            </div>
-            <section class="talleres-cards">
-                
-            <div class="maxwidth">
-                <div class="card-taller tallerdest sombra">
-                      <h3>TOP 100</h3>
-                      <p class="detalle">Curso presencial de fitness y bienesta integral integral, inlcuye entrenamiento fisico, tecnicas de yoga y enfoque de vida saludable. Conocimeinto integral sobre todos los angulos: mente y cuerpo, sueño y rutina.</p>
-                      <p class="promo">Antes: <s>$28.000</s></p>
-                      <div class="ctas-card">
-                        <a href="" class="cta-sec">Ver detalles de Top 100</a>
-                        <a class="cta" href="1/index.html">Anotate por $19.000</a>
-                  </div>
-                  <p class="destacado sombra">Curso destacado</p>
-                </div>
-        
-                <div class="card-taller sombra underline">
-                        <h3>Domina tu cuerpo</h3>
-                        <p class="detalle">Aprende a generar una rutina de ejercicio y los metodos para seguirla. Transforma tu vida a travez de tu cuerpo.</p>
-                        <div class="ctas-card">
-                          <a href="" class="cta-sec">Ver taller</a></div>
-                    
-                </div>
-        
-                <div class="card-taller sombra">
-                    <h3>Tigere Mentality</h3>
-                    <p class="detalle">Descibri los metodos de la neurociencia y sicologia y usalos a tu ventaja para lograr tus metas.</p>
-                    <div class="ctas-card">
-                      <a href="" class="cta-sec">Ver taller</a>
-                    
-                </div>
-                </div>
-            </section>
-    
-        </article>
-
-        <article class="cita-home">
-            <P class="bajada-big">El progreso sostenible requiere de conocimiento comprobado</P>
-            <p class="">Creemos que para lograr tus objetivos hay que hacerlo de forma <mark class="">inteligente</mark></p>
-        </article>
-
-        <article class="coaches">
-            <div class="maxwidth">
-
-                <section class="detalle-coaches">
-                    <h2>Conocé a <br>los coaches</h2>
-                    <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
-                    <div>
-                        <p>¿Querés integrarte al equipo?</p>
-                        <a href="" class="cta-sec">Envia tu aplicacion</a>
-                    </div>
-                </section>
-                
-                <section class="coaches-imagenes">
-                    <div class="sombra">
-                        <p class="coaches-numero">+100</p>
-                        <p>Profesionales <br>capacitados</p>
-                    </div>
-                    <div class="sombra">
-                        <p class="coaches-numero">+500</p>
-                        <p>Reseñas<br>positivas</p>
-                    </div>
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </section>
-                
-            </div>
-        </article>
-
-
-
-        <article class="reviews">
-            <section class="sombra redondeado">
-                <p>Las profes son unas genias, siempre tienen buena onda y muucha paciencia. 💖</p>
-                <div>
-                    <img src="" alt="">
-                    <p><b>Ludmila</b>, 28 años.</p>
-                </div>
-            </section>
-            <section class="sombra redondeado">
-                <p>Los instructores son muy amables y fueron muy atentos conmigo.</p>
-                <div>
-                    <img src="" alt="">
-                    <p><b>Sonia</b>, 52 años.</p>
-                </div>
-            </section>
-            <section class="sombra redondeado">
-                <p>Por fin encontre un lugar con esa gente que siempre te motiva a mejorar</p>
-                <div>
-                    <img src="" alt="">
-                    <p><b>Javier</b>, 33 años.</p>
-                </div>
-            </section>
-        </article>
-
-        
-        <article class="comunidad fullarticle">
-            <div class="fondo"></div>
-            <div class="maxwidth">
-                <p class="bajada-big">Comenza hoy tu camino hacia tu mejor versión</p>
-                <p>Podemos ayudarte a lograr tus objetivos, no importa tu edad nuestra comunidad de coaches esta abierta a todos los que buscan mejorar. </p>
-                <a href="#home-planes" class="cta-sec">Encontra el plan que mas se adapte a vos</a>
-                <div class="card redondeado sombra">
-                    <h3>No te quedes afuera</h3>
-                    <p class="flexgrow">Unirte a la comunidad es gratis, podes recibir noticias y participar en nuestras redes.</p>
-                    <a href="" class="cta">Unite gratis a la comunidad</a>
-                    <div>
-                        <p class="caption">O seguinos en redes</p>
-                        <ul class="redes-comunidad">
-                            <li><a href=""><img src="" alt=""></a></li>
-                            <li><a href=""><img src="" alt=""></a></li>
-                            <li><a href=""><img src="" alt=""></a></li>
-                            <li><a href=""><img src="" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-
-        <article id="home-planes">
-            <section class="promos">
-                <p class="bajada-big">Anotate con un amigo y consigan un <mark class="">50% OFF</mark> en la primer cuota</p>
-                
-                <ul class="">
-                    <p>Anota su email y cunado se suscriba al plan recibiran el reintegro de la cuota</p>
-                    <li class="casillero">
-                        <input type="email" placeholder="ingresa el email">
-                    </li>
-                    <li><a class="cta" href="#">suscribirse</a></li>
-                </ul>
-            </section>
-            <section class="suscripcion maxwidth">
-                <h2>Planes de suscripción</h2>
-                <div class="card sombra redondeado">
-                    <h3>Membresia premium</h3>
-                    <p>Unite al grupo de miembros para obtener acceso a todos los articulos y cursos no presenciales como seguimiento y asistencia personal de nuestro staff1. Incluye pase libre a los seminarios.</p>
-                    <ul>
-                        <li>Beneficios nuemerosso</li>
-                        <li>Pase libre  alas intslaciones</li>
-                        <li>Otro beneficio</li>
-                        <li>Kinesiologia, nutricion y demas</li>
-                    </ul>
-                    <div class="ctas-card">
-                        <a href="" class="cta-sec">Ver detalles de Top 100</a>
-                        <a class="cta" href="1/index.html">Anotate por $19.000</a>
-                     </div>
-                </div>
-                <div class="card sombra redondeado">
-                    <h3>Plan regular</h3>
-                    <p>Accede a todos los articulos y material de estudio, encontrate con coaches en sessiones grupales mensuales y accede a los seminarios virtuales.</p>
-                    <ul>
-                        <li>Beneficios pero no tan numerosos</li>
-                        <li>Pase a los espacios comunes</li>
-                        <li>Otro beneficio</li>
-                        <li>Nutricionisat</li>
-                    </ul>
-                    <div class="ctas-card">
-                        <a href="" class="cta-sec">Ver detalles de Top 100</a>
-                        <a class="cta" href="1/index.html">Anotate por $19.000</a>
-                     </div>
-                </div>
-            </section>
-        </article>
-        
-        
-
-        <article class="faqs">
-            <h2>Preguntas frecuentes</h2>
-            <div class="mapouter"><div class="gmap_canvas"><iframe width="529" height="429" id="gmap_canvas" src="https://maps.google.com/maps?q=av+libertador+2387&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://online.stopwatch-timer.net/">timer for kids</a><br><a href="https://textcaseconvert.com/"></a><br><style>.mapouter{position: relative;text-align: right;height: 429px;width: 529px;}</style><a href="https://www.mapembed.net">google maps embed iframe</a><style>.gmap_canvas{overflow: hidden;background: none !important;height: 429px;width: 529px;}</style></div></div>
-        </article>
-        
-        <article class="contacto">
-            <h2>contacto</h2>
-        </article>
-
-    </main>
-
-
-   <!--############
-    #### FOOTER ####
-    #############-->
-    <footer>
-
-        <div >
-
-
-
-        </div>
-        <section class="empresa">
-            <img class="logo-footer" src="imagenes/logo.svg" alt="">
-        <ul>
-            <li>
-                <h6>SendaZen S.A.</h6>
-                <a href="">Av. del Libertador 2387, Ciudad Autonoma de Buenos Aires B1414, Argentina
-</a>
-            </li>
-            <li class="afip">
-                <a href=https://servicios1.afip.gov.ar/clavefiscal/qr/response.aspx?qr=o84py5zN84wQoaE8N8FcZw>
-                    <img src="imagenes/logoDataFiscal.jpg" alt="">
-                </A>
-            </li>
-        </ul>  
-        </section>
-
-
-        <section class="contacto-footer">
-            <ul class="newsletter">
-                <h6>¡Suscribite a nuestro newsletter!</h6>
-                <li class="casillero">
-                    <input type="email" placeholder="ingresa tu email">
-                </li>
-                <li><a class="cta" href="#">suscribirse</a></li>
-            </ul>
-            
-            <ul class="redes">
-            <p>O seguinos en las redes</p>
-            <li>
-                <a href="#">
-                    <img src="" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="" alt="">
-                </a>
-            </li>
-        </ul>
-        </section>
-
-
-        <nav class="navegacion-footer">
-            <h6>Mapa del sitio</h6>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Cursos</a></li>
-                <li><a href="">Planes</a></li>
-                <li><a href="">Quienes somos</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-        </nav>
-
-        
-
-
-        <div class="legales">
-            <p>
-                Copyright © 2024 SendaZen S.A. - Todos los derechos reservados
+    <!--Banner con información dentro-->
+    <!-- Esta es una división o contenedor de página (div) con las clases "banner" y "colb"-->
+    <div class="banner colb">
+        <!--Esta es una división o contenedor de página con clase "banner_info"-->
+        <div class="banner_info">
+            <!--Este es un título de clase 1 (El más importante)-->
+            <h1>Trabajo practico 2: Diseño web</h1>
+            <!--Este es un párrafo de texto-->
+            <p>Franco Tobías Guagnini
+                <br>
+                Tema:SendaZen
             </p>
-            <p>
-                <a href="">Privacidad</a>/
-                <a href="">Cookies</a>/
-                <a href="">Legales</a>
-            </p>
+            <a href="/SendaZen/index.html" class="btn">Home</a>
+            <a href="/SendaZen/taller-top100.html" class="btn">Pagina de taller</a>
         </div>
+    </div>
 
-
-    </footer>
+    <!--Cierra body (contenido)-->
 </body>
+<!--Fin del documento HTML-->
+<style>
+    /*Este es un comentario de CSS*/
+/*Los comentarios de CSS no se renderizan en la página*/
+/*Todas las declaraciones de estilo se encuentran en el CSS, el HTML es para contenido únicamente*/
+
+/*Reseteo de márgenes de todos los elementos para todos los navegadores*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Importar tipografía de google fonts vía @import (sin etiquetas <style>)*/
+@import url('"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+/*Esto me permite utilizar la tipografía en todo el contenido de body. Como standard vamos a usar la 100*/
+
+body {
+    /*Declaración de tipografía*/
+    font-family: 'IBM Plex Mono', Arial, Helvetica, sans-serif;
+    /*Declaración de peso de Tipografía*/
+    font-weight: 100;
+    /*Declaración de color de fondo del body*/
+    background-color: black;
+    /*Declaración del color de la tipografía en el body*/
+    color: grey;
+}
+
+/*ESTILOS DE CUADRADOS DE COLORES*/
+
+/*Este es un id único en el HTML, representado por #nombre*/
+/*Este color está declarado en #Hex*/
+#color1 {
+    background-color: #abaee6;
+    border-radius: 10px;
+}
+
+/*Este color está declarado con una palabra clave*/
+#color2 {
+    background-color: rgb(209, 144, 132);
+    border-radius: 10px;
+}
+
+/*Este color está declarado con valores RGB (XX, XX, XX)*/
+#color3 {
+    background-color: rgb(213, 224, 151);
+    border-radius: 10px;
+}
+
+/*Este color está declarado en RGB, y tiene transparencia de 0.705*/
+#color4 {
+    background-color: rgb(236, 153, 225);
+    border-radius: 10px;
+}
+
+/*ESTILOS DE BARRA DE NAVEGACIÓN*/
+nav {
+    padding-top: 1rem;
+    /*Color de texto declarado en #Hex*/
+    color: #ffffff;
+}
+
+/*ESTILOS LINKS EN BARRA DE NAVEGACIÓN*/
+nav a {
+    /*Color te texto*/
+    color: #191919;
+    /*Decoración de texto: subrayado | tachado | etc.*/
+    text-decoration: none;
+    /*Tipografía*/
+    font-family: 'IBM Plex Mono', Arial, Helvetica, sans-serif;
+    /*Peso de la tipografía (tiene que estar linkeada la variable)*/
+    font-weight: 700;
+    /*Espaciado interno*/
+    padding: 25px;
+    /*Tiempo de transición animaciones de hover (mirar abajo)*/
+    transition: color 1s;
+    /*Transformar texto a Mayúsculas*/
+    text-transform: uppercase;
+}
+
+/*Cambios al pasar el mouse sobre el elemento (hover)*/
+nav a:hover {
+    /*Cambio de color*/
+    color: red;
+}
+
+/*ESTILOS LOGO BARRA DE NAVEGACIÓN*/
+#logo img {
+    display: block;
+    /*Altura de imagen relativa al espacio disponible: "100% del espacio"*/
+    height: auto;
+    /*Altura máxima que puede alcanzar la imagen: 80px*/
+    max-height: 2rem;
+    /*Posicionamiento 10px abajo de dónde debería estar*/
+    position: relative;
+}
+
+/*ESTILOS DE BANNER*/
+.banner {
+    /*Imagen de fondo*/
+    background-image: url(backgorundimg.png);
+    background-size:contain;
+    /*Posición del fondo x|y*/
+    background-position: center bottom;
+    /*¿Repetir fondo? (tramas)*/
+    background-repeat: repeat;
+    /*Tamaño de fondo: cubrir todo el espacio*/
+    /*Ancho: cubrir el 100%*/
+    width: auto;
+    /*Alto: cubrir el 100% de la pantalla que o visualiza*/
+    height: 100vh;
+    padding: 2rem;
+}
+
+.banner_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /*Color de texto*/
+    color: #191919;
+    /*Centrar texto*/
+    text-align: center;
+    /*Transformar texto a mayúsuclas*/
+    /*Sombra: offset-x | offset-y | blur-radius | color */
+    /*Espaciado interior*/
+    padding-bottom: 5rem;
+
+}
+
+/*ESTILOS DEL BOTON*/
+.btn {
+    width: fit-content;
+    /*Color de fondo*/
+    background-color: rgb(255, 72, 0);
+    /*Color de tipografía*/
+    color: #191919;
+    /*Decoracion del texto*/
+    text-decoration: none;
+    /*Alineación del texto*/
+    text-align: center;
+    /*Borde redondeado*/
+    border-radius: 10rem;
+    /*Tamaño de fuente*/
+    font-size: 0.8rem;
+    /*PEso de fuente*/
+    font-weight: 600;
+    /*Espaciado interno*/
+    padding: 5px 15px;
+    /*Cambios al hover por tiempo (1s)*/
+    transition: all 1s;
+}
+
+/*Al pasar el mouse por arriba*/
+.btn:hover {
+    /*Cambio de color de fondo*/
+    background-color: rgb(255, 90, 25);
+    text-shadow: 0px 0px 10px #fafafaff;
+}
+
+
+
+
+
+
+
+
+
+
+/*ESTRUCTURA de la plantilla | Tocar bajo su propio riesgo*/
+.col {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center
+}
+
+.colb {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 99%
+}
+
+.colores {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center
+}
+
+.color {
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center
+}
+
+h1 {
+    margin-bottom: 10px
+}
+
+p {
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.icon {
+    width: 70%
+}
+
+@media only screen and (max-width:600px) {
+    nav a {
+        display: none
+    }
+}   
+</style>
 </html>
