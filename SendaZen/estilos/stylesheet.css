@@ -62,10 +62,10 @@
 :root{
     /* TAMAÑOS */
     --tamaño-max: 1280px;
-    --fullheight: 100vh;
+    --fullheight: 90vh;
     --default-radio: 24px;
 
-    --padding-art: 2.5rem 1rem 4rem;
+    --padding-art: 4rem 1.5rem 6rem;
 
     --fuentetitulos: "Onest";
 }
@@ -177,6 +177,9 @@ article{
     width: fit-content;
     transition: 400ms;
 
+    
+    display: flex;
+    align-items: center;
 }
 .cta-sec:hover{
     color: var(--complementario-c);
@@ -188,7 +191,6 @@ article{
     width: 1.125rem;
     margin-left: 5px;
     position: relative;
-    top: 3px;
 }
 
 .caption{
@@ -206,6 +208,9 @@ article{
 .gradient{
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
 }
+.flexgrow{
+    flex-grow: 1;
+}
 .underline {
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
     background-position: bottom;
@@ -218,9 +223,12 @@ article{
 }
 
 .card{
-    padding: 1.5rem;
+    padding: 1rem;
 }
-
+input 
+{
+       border: 0;
+}
 
 
 
@@ -281,6 +289,8 @@ header .logo-navbar img{
     height: 2rem;
     width: 2rem;
     overflow: hidden;
+    background-color: transparent;
+    border: 0;
 }
 #menu #menu-hamb{
     background-image: url(../imagenes/ico-menu.svg);
@@ -291,6 +301,8 @@ header .logo-navbar img{
     width: 100%;
 
     transition: background-position .4s steps(11, end);
+    background-color: transparent;
+    border: none;
 }
 #menu .menu-hamb-activ{
     background-image: url(../imagenes/ico-menu.svg) !important;
@@ -308,7 +320,7 @@ header .logo-navbar img{
     width: 100%;
     top: -100vh;
     transition: all 0.4s cubic-bezier(0.40, 0, 0, 1);
-    z-index: -1;
+    z-index: -100;
 }
 .navegacion-visible{
     top: 0vh;
@@ -325,7 +337,7 @@ header nav ul{
     flex-direction: column;
     gap: 1rem;
 }
-.navegacion a, button {
+.navegacion a, .navegacion button{
     text-align: inherit;
     background: none;
     border: none;
@@ -370,13 +382,11 @@ header nav ul a:hover{
 /* ================== FOOTER ================== */
 footer{
     display: flex;
-}
-footer{
+    flex-direction: column;
 
-        display: grid;
     background-color: var(--contraste);
+
     padding: 2rem 2rem 1.5rem;
-    grid-template-columns: repeat(12, 1fr);
     gap: 4rem 1rem;
 }
 footer *{
@@ -387,15 +397,17 @@ footer h6{
     font-size: .9rem;
 }
 .logo-footer{
-    height: 1.5rem;
-    width: auto;
+    height: auto;
+    width: 100%;
+    max-width: 15rem;
 }
 .empresa{
-    grid-row: 1;
-    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 .empresa ul{
-    padding-top: .5rem;
     display: flex;
     gap: 1.5rem;
 }
@@ -404,16 +416,10 @@ footer h6{
     width: 50%;
     max-width: 2.5rem;
 }
-
-
 .contacto-footer{
-    grid-row: 1;
-    grid-column-start: 5;
-    grid-column-end: 9;
-
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 .casillero {
     flex-grow: 1;
@@ -429,6 +435,7 @@ footer h6{
 .newsletter{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: .5rem 1rem ;
 }
@@ -437,11 +444,13 @@ footer h6{
 }
 .newsletter h6{
     width: 100%;
+    text-align: center;
 }
 .redes{
     font-size: 0.75rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 .redes p{
@@ -453,26 +462,24 @@ footer h6{
     height: 1.5rem;
     width: 1.5rem;
 }
-
 .navegacion-footer{
-    grid-row: 1;
-    grid-column-start: 11;
-    grid-column-end: 13;
+    text-align: center;
 }
 .navegacion-footer a{
     text-decoration:underline;
 }
 
 .legales{
-    grid-row: 2;
-    grid-column: span 12;
-
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
 }
 .legales *{
     font-size: .75rem;
     color: var(--contraste-menor-c);
+    text-align: center;
 }
 .legales a{
     text-decoration:underline;
@@ -541,29 +548,46 @@ footer h6{
 .aboutus{
     display: grid;
 }
+.aboutus .maxwidth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.aboutus h2{
+    text-align: center;
+}
+.aboutus .bajada-reg{
+    text-align: center;
+}
 .aboutus h2 img{
     display: inline;
-    height: 1.8rem;
+    height: 1.5rem;
     width: inherit;
 }
-.aboutus > div{
-    height: 100%;
-    display: grid;
-    gap: 1rem 3rem;
-    grid-template-columns: 30% 1fr 1fr;
-
-    grid-template-rows: auto 1fr auto;
-}
 .aboutus figure {
-    grid-area: 1/2/3/4;
-    background-color: var(--contraste-menor-c);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    background-color: var(--contraste);
 }
-.ctaycaption{
+.aboutus .ctaycaption{
     display: flex;
     flex-direction: column;
     gap: .25rem;
-    align-self: flex-end;
+    align-items: center;
 }
+.ctaycaption{
+    order: 99;
+    align-self: auto;
+}
+.aboutus .maxwidth :nth-child(6){
+    flex-grow: 1;
+}
+
+
+
+
 
 
 /* MARCAS */
@@ -606,6 +630,7 @@ footer h6{
 }
 
 
+
 /* INSTALACIONES */
 .instalaciones {
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
@@ -617,9 +642,8 @@ footer h6{
 .instalaciones .maxwidth{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: min-content 1fr;
-    gap: 3rem 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 .instalaciones h2{
     max-width: 23ch;
@@ -630,97 +654,134 @@ footer h6{
     flex-direction: column;
     gap: .5rem;
 
-    max-width: 28rem;
+    max-width: 100%;
     height: fit-content;
+    grid-column: span 2;
+    order: 99;
 }
 .titulo{
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    grid-column: span 2;
+    padding-bottom: 2rem;
 }
 .imagenes-instalaciones{
+    display: contents;
+}
+.imagenes-instalaciones img{
+    aspect-ratio: 4/3;
+}
+.imagenes-instalaciones :nth-child(1){
     grid-column: span 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 45%;
-    gap: 1rem;
-
-    height: 100%;
-    min-height: 35rem;
 }
-.imagenes-instalaciones :nth-child(1), .imagenes-instalaciones :nth-child(3){
-    grid-row: span 2;
+.imagenes-instalaciones :nth-child(4){
+    display: none;
 }
-
 
 
 /* TALLERES */
 .talleres-home{
     padding: 0;
-    background-color: var(--contraste-menor-c);
-
-    min-height: 70vh;
 
     background-image: url(../imagenes/Home-talleres.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom ;
+    
+    background-size: auto 65vh;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+.talleres-home > *{
+    padding: 1.5rem;
+}
+.talleres-home .banner{
+    min-height: calc(60vh - 3rem);
+    width: calc(100% - 3rem);
+    margin: 1.5rem;
+    background-image: linear-gradient( #f7fcfacc 20%, #f7fcfa00 40%);
 }
 .talleres-home h2{
     /* color: var(--fondo); */
 }
-.talleres-home >a{
-    background-color: var(--fondo);
-    border-radius: 10rem;
-    height: fit-content;
-    width: fit-content;
-    padding: 0.75rem 1.25rem;
-    order: 1;
-    justify-self: end;
-    align-self: end;
+
+.talleres-cards{
+    width: 100%;
+    /* background-color: #f7fcfa3d; */
+    background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec) );
+    /* background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)); */
 }
-
-
-.talleres-home {
-    padding: 1rem;
-    padding-bottom: 3rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.talleres-cards .maxwidth{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem   ;
 }
 .talleres-home .card{
     background-color: var(--fondo);
 
-    padding-bottom: 2rem;
     border-radius: var(--default-radio);
 
-    display: grid;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr min-content ;
-
-/*
+    position: relative;
+    /*
     background-image: url("../imagenes/taller-home-card-top100.png");
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat; */
 }
-.talleres-home .card figure{
-    grid-row: span 2;
-    border-radius: var(--default-radio) var(--default-radio) 0 0 ;
-    overflow: hidden;
-    height: 50%;
-    min-height: 10rem;
-    background-image: url(../imagenes/taller-home-card-top100.png);
-    background-size: cover;
-    background-position: center;
+.talleres-cards .card h3{
+    margin-block: 1.5px;
 }
-.talleres-home .card figure img{
-    width:auto;
-    max-width: fit-content;
+.talleres-home .card p{
+    flex-grow: 1;
 }
+.ctas-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+.tallerdest{
+    grid-column: span 2;
+}
+.destacado::before{
+    /* content: "\2192"; */
+    content: url('../imagenes/icodest.svg');
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px;
+}
+.destacado{
+    display: flex;
+    align-items: center;
+
+    position: absolute ;
+    top: 1rem;
+    right: 1rem;
+
+    font-weight: 700;
+    color: var(--contraste-menor-c);
+    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+
+    padding: .25rem .75rem;
+    border-radius: 10rem;
+    width: fit-content;
+}
+
+
 
 /* QUOTE */
 .cita-home{
@@ -747,12 +808,11 @@ footer h6{
 .coaches{
     display: grid;
     min-height: var(--fullheight);
-    background-color: var(--fondo);
 }
 .coaches .maxwidth{
     display: flex;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 2rem 4rem;
     justify-content: space-between;
     height: 100%;
 }
@@ -760,26 +820,23 @@ footer h6{
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    height: fit-content;
 }
 .detalle-coaches > p{
     flex-grow: 1;
-    max-width: 28ch;
-}
-.detalle-coaches > div p{
-    font-size: 1rem;
-    color: var(--contraste-menor-c);
-    font-weight: 700;
+    padding-bottom: 2rem;
 }
 .coaches-imagenes{
     flex-grow: 1;
     display: grid;
-    grid-template-rows: min-content auto auto min-content;
-    grid-template-columns: 3fr 3fr 2fr;
+    grid-template-rows: min-content auto min-content;
+    grid-template-columns: 1fr 45%;
 
     gap: 1rem;
 
     padding: 1rem;
-    max-width: 65rem;
+    max-width: 50rem;
+    min-height: 60vh;
 }
 .coaches-imagenes div{
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
@@ -787,6 +844,7 @@ footer h6{
     padding: 1rem;
     height: fit-content;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap:1rem;
@@ -796,7 +854,7 @@ footer h6{
 }
 .coaches-numero{
     font-family: var(--fuentetitulos);
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 .coaches-imagenes img{
     border-radius: var(--default-radio);
@@ -806,19 +864,13 @@ footer h6{
     grid-area: 1/ 1 / 2/ 2
 }
 .coaches-imagenes :nth-child(2){
-    grid-area: 4/ 2 / 5 / 3
+    grid-area: 3/ 2 / 4 / 3
 }
 .coaches-imagenes :nth-child(3){
-    grid-area: 2/ 1 / 5/ 2;
+    grid-area: 2/ 1 / 4/ 2;
 }
 .coaches-imagenes :nth-child(4){
-    grid-area: 1/ 2 / 3/ 4;
-}
-.coaches-imagenes :nth-child(5){
-    grid-area: 3/ 2 / 4/ 3;
-}
-.coaches-imagenes :nth-child(6){
-    grid-area: 3/ 3 / 5/ 4;
+    grid-area: 1/ 2 / 3/ 3;
 }
 
 
@@ -879,7 +931,7 @@ footer h6{
 /* COMUNIDAD */
 .comunidad{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 40vh 1fr;
     padding: 0;
     /* background-image: url(../imagenes/AdobeStock_373694965.jpeg);
     background-size: cover;
@@ -895,13 +947,13 @@ footer h6{
     background-repeat: no-repeat;
 }
 .comunidad .maxwidth{
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr min-content;
+    display: flex;
+    flex-direction: column;
     gap: 1rem 3rem;
 
     height: 100%;
-    padding: 2rem 2rem 5rem;
+    padding: 1.5rem;
+    padding-bottom: 6rem;
 }
 .comunidad .bajada-big{
     max-width: 18ch;
@@ -911,9 +963,6 @@ footer h6{
     display: flex;
     flex-direction: column;
     gap: .5rem;
-
-    min-width: 25rem;
-    grid-area: 1/2/4/3;
 }
 .comunidad .card div{
     display: flex;
@@ -921,13 +970,10 @@ footer h6{
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-
-}
-.flexgrow{
-    flex-grow: 1;
 }
 .redes-comunidad{
     display: flex;
+    flex-wrap: wrap;
     gap: .5rem;
 }
 .redes-comunidad li{
@@ -938,14 +984,14 @@ footer h6{
 }
 
 
+
 /* PLANES */
-
-
 #home-planes{
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 6rem;
+    padding: var(--padding-art);
 }
 .promos{
     display: flex;
@@ -1000,7 +1046,6 @@ footer h6{
     gap: .5rem;
 
     background-color: var(--fondo);
-    max-width: 40%;
 }
 .suscripcion .card ul{
     list-style: inherit;
@@ -1014,12 +1059,9 @@ footer h6{
 .faqs{
 }
 .faqs .maxwidth{
-    display: grid;
-    grid-template-columns: 40% 1fr;
-    grid-template-rows: min-content 1fr min-content;
-    gap: .5rem 4rem;
-
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 .faqs .maxwidth > p{
     max-width: 35ch;
@@ -1031,9 +1073,6 @@ footer h6{
     flex-direction: column;
     gap: 1rem;
 }
-.faqs iframe{
-    border-radius: 24px;
-}
 .accordion{
     display: flex;
     flex-direction: column-reverse;
@@ -1044,6 +1083,9 @@ footer h6{
     padding: 1rem;
     width: 100%;
     transition: 0.4s;
+
+    text-align: inherit;
+    background: none;
 }
 .accordion.active{
     gap: 1rem;
@@ -1076,9 +1118,12 @@ footer h6{
     max-height: 0px;
 }
 .panel.visible{
-    max-height: 10rem;
+    max-height: 14rem;
 
     padding: 0 1rem 1rem 1rem;
+}
+.faqs .ctaycaption{
+    order: 99;
 }
 
 
@@ -1467,6 +1512,7 @@ footer h6{
     }
     :root{
         --padding-art: 8rem 2rem 9rem;
+        --fullheight: 100vh;
     }
     a {
         color: var(--contraste);
@@ -1509,6 +1555,9 @@ footer h6{
         margin: auto;
         width: 100%;
     }
+    .card{
+        padding: 1.5rem;
+    }
 
 
 
@@ -1546,7 +1595,7 @@ footer h6{
         top: auto;
         width: fit-content;
         max-width: 100%;
-        flex-grow: 1;
+        flex-grow: 0;
     }
     .solidheader .navegacion{
         max-width: calc(var(--tamaño-max) - 170px - 1rem) !important;
@@ -1566,7 +1615,7 @@ footer h6{
     /* .pag-act:hover{
         background-size: 100% 100%;
     } */
-    .navegacion ul li a, button{
+    .navegacion ul li a, .navegacion ul li button{
         font-size: 1.125rem;
         color: var(--contraste);
     }
@@ -1579,6 +1628,78 @@ footer h6{
         color: var(--fondo);
     }
 
+
+    /* FOOTER */
+    footer{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+    footer *{
+    }
+    footer h6{
+    }
+    .logo-footer{
+        height: 1.5rem;
+        width: auto;
+    }
+    .empresa{
+        grid-row: 1;
+        grid-column: span 3;
+
+        align-items:flex-start;
+    }
+    .empresa ul{
+        padding-top: .5rem;
+    }
+    .afip{
+    }
+    .contacto-footer{
+        grid-row: 1;
+        grid-column-start: 5;
+        grid-column-end: 9;
+
+        gap: 1rem;
+    }
+    .casillero {
+    }
+    .contacto-footer input{
+    }
+    .newsletter{
+    }
+    .newsletter .cta{
+    }
+    .newsletter h6{
+        text-align: left;
+    }
+    .redes{
+        justify-content: left;
+    }
+    .redes p{
+    }
+    .redes a{
+    }
+    .navegacion-footer{
+        grid-row: 1;
+        grid-column-start: 11;
+        grid-column-end: 13;
+        text-align: left;
+    }
+    .navegacion-footer a{
+    }
+    .legales{
+        grid-row: 2;
+        grid-column: span 12;
+    }
+    .legales *{
+        text-align: left;
+    }
+
+
+
+
+
+
+    /* ================== HOME ================== */  
     /* HERO */
     .hero.home{
         padding: 2rem;
@@ -1604,49 +1725,118 @@ footer h6{
         background-image: linear-gradient(180deg, #f7fcfa55 20%, #f7fcfa00 80%);
     }
 
-    /* COACHES */
-    .detalle-coaches{
-        padding-block: 1rem;
+    
+    /* ABOUTUS */
+    .aboutus .maxwidth{
+        height: 100%;
+        display: grid;
+        grid-template-columns: 30% 1fr 1fr;
+    
+        grid-template-rows: auto 1fr auto;
+        gap: 1rem 3rem;
     }
+    .aboutus *{
+        align-self: start;
+    }
+    .aboutus h2{
+        text-align: left;
+    }
+    .aboutus .bajada-reg{
+        text-align: left;
+    }
+    .aboutus figure {
+        grid-area: 1/2/3/4;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+    .aboutus .ctaycaption{
+        align-self: flex-end;
+        order: inherit;
+    }
+
+    
+    /* MARCAS */
+
+
+    
+    /* INSTALACIONES */
+    .instalaciones {
+    }
+    .instalaciones .maxwidth{
+        grid-template-columns: 1fr auto;
+        grid-template-rows: min-content 1fr;
+        gap: 3rem 4rem;
+    }
+    .instalaciones h2{
+    }
+    .instalaciones .card{
+        max-width: 28rem;
+        grid-column: span 1;
+        order: initial;
+    }
+    .titulo{
+        grid-column: span 1;
+        padding-bottom: 0;
+    }
+    .imagenes-instalaciones{
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 45%;
+        gap: 1rem;
+        height: 100%;
+    }
+    .imagenes-instalaciones img{  
+        grid-column: span 1 !important;
+        aspect-ratio: initial;
+    }
+    .imagenes-instalaciones :nth-child(1), .imagenes-instalaciones :nth-child(3){
+        grid-row: span 2;
+    }
+    .imagenes-instalaciones :nth-child(4){
+        display: inherit;
+    }
+        
 
     /* TALLERES */
     .talleres-home {
         min-height: 95vh;
-        padding: 0;
         justify-content: space-between;
-        gap: 0;
         align-items: center;
+            
+        display: flex;
+        flex-direction: column;
+
+        
+        background-size: cover;
+        background-position: center bottom ;
     }
     .talleres-home .banner{
         flex-grow: 1;
 
-        margin: 1.5rem;
         padding: 1.5rem;
         height: 100%;
         min-height: 25vw;
 
-        width: calc(100% - 3rem);
         max-width: var(--tamaño-max);
 
         display: flex;
         justify-content: space-between;
+        
         background-image: linear-gradient(90deg, #f7fcfacc 20%, #f7fcfa00 40%);
     }
     .banner .cta-sec{
-        height: fit-content;
+        height: min-content;
         padding: .75rem 1.25rem  ;
         background-color: var(--fondo);
     }
+
     .talleres-cards{
-        width: 100%;
-        /* background-color: #f7fcfa3d; */
-        background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec) );
-        /* background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)); */
         display: grid;
         justify-content: center;
     }
     .talleres-cards .maxwidth{
-        padding: 2rem  0 4rem;
+        padding: 2rem 0 4rem;
         display: flex;
         margin: auto;
         gap: 1rem;
@@ -1654,68 +1844,109 @@ footer h6{
         width: calc(100% - 3rem);
         max-width: var(--tamaño-max);
     }
-    .talleres-home >a{
-        order:inherit;
-        align-self: inherit;
-    }
     .talleres-cards .card{
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        position: relative;
+        gap: 1rem;
     }
     .talleres-cards .card h3{
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
     }
-    .talleres-cards .tallerdest{
-        min-width: 50%;
-    }
-
-    .destacado::before{
-        /* content: "\2192"; */
-        content: url('../imagenes/icodest.svg');
-        display: block;
-        width: 1rem;
-        height: 1rem;
-        margin-right: 5px;
-    }
-    .destacado{
-        display: flex;
-        align-items: center;
-
-        position: absolute ;
-        top: 1.5rem;
-        right: 1.5rem;
-
-        font-weight: 700;
-        color: var(--contraste-menor-c);
-        background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
-
-        padding: .25rem .75rem;
-        border-radius: 10rem;
-        width: fit-content;
-    }
-    .detalle{
-        flex-grow: 1;
-        padding-bottom: 2rem;
-    }
-
-
-    .promo{
-        color: var(--contraste-menor-c);
-        font-size: 1rem;
-        font-weight: 600;
-        padding-inline-start: .5rem;
+    .talleres-home .card p{
     }
     .ctas-card{
+    }
+    .tallerdest{
+        min-width: 50%;
+    }
+    .destacado{
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    
+    /* COACHES */
+    .coaches{
+        background-color: var(--fondo);
+    }
+    .detalle-coaches{
+        padding-block: 1rem;
+    }
+    .detalle-coaches > p{
+        max-width: 28ch;
+    }
+    .coaches-numero{
+        font-size: 2.5rem;
+    }
+
+
+    /* COMUNIDAD */
+    .comunidad{
+    }
+    .comunidad .fondo{
+    }
+    .comunidad .maxwidth{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr min-content;
+
+        padding: 2rem 2rem 5rem;
+    }
+    .comunidad .bajada-big{
+    }
+    .comunidad .card{
+        min-width: 25rem;
+        grid-area: 1/2/4/3;
+    }
+
+
+    /* PLANES */
+    #home-planes{
+        gap: 8rem;
+    }
+    .suscripcion .card{
+        max-width: 40%;
+    }
+
+
+    
+    /* FAQS */
+    .faqs{
+    }
+    .faqs .maxwidth{
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: min-content 1fr min-content;
+        gap: .5rem 4rem;
+
+        height: 100%;
+    }
+    .faqs .maxwidth > p{
+        max-width: 35ch;
+    }
+    .faqs .preguntas{
+        grid-area: 1/2/4/3;
+
         display: flex;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
     }
-    .ctas-card a{
-        width: fit-content;
+    .accordion{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0em;
+
+        border:1px solid var(--contraste-menor-c);
+        cursor: pointer;
+        padding: 1rem;
+        width: 100%;
+        transition: 0.4s;
+
+        text-align: inherit;
+        background: none;
     }
+    .faqs .ctaycaption{
+        order: initial;
+    }
+
 
 
     /* DETALLES CURSO */
@@ -1846,6 +2077,9 @@ footer h6{
     header{
         display: flex;
         gap: 1rem;
+    }
+    header .navegacion{
+        flex-grow: 1;
     }
     header .navegacion ul{
         gap: 2rem;
