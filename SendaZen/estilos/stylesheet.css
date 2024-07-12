@@ -11,6 +11,7 @@
 }
 
 
+
 /*
 ===============
 == ROOTS ==
@@ -23,8 +24,8 @@
         --prinicpal: #73ffbc;
         --analogo: #abf9ff;
 
-        --compgra: #ffab91;
-        --compgra-sec: #ffeba1;
+        --compgra: #ffcbba;
+        --compgra-sec: #fff0b8;
 
 
         --complementario: #ff5522;
@@ -65,9 +66,12 @@
     --fullheight: 90vh;
     --default-radio: 24px;
 
-    --padding-art: 4rem 1.5rem 6rem;
+    --padding-art: 2rem 1.5rem;
 
-    --fuentetitulos: "Onest";
+    --fuentetitulos: "Cairo";
+    --pesobold: 650;
+    --pesoreg: 400;
+    --pesolight: 200;
 }
 p{
     /* max-width: 45ch; */
@@ -91,51 +95,55 @@ img{
 }
 h1{
     font-family: var(--fuentetitulos);
-    font-weight: bold;
+    font-weight: var(--pesobold);
     font-size: 3rem;
     line-height: 3rem;
     max-width: 12ch;
 }
 h2{
     font-family: var(--fuentetitulos);
-    font-weight: bold;
-    font-size: 2rem;
+    font-weight: var(--pesobold);
+    font-size:  2.25rem;
     line-height: 2.25rem;
     max-width: 12ch;
 }
 h3{
     font-family: var(--fuentetitulos);
-    font-weight: bold;
-    font-size: 1.25rem;
+    font-weight: var(--pesobold);
+    font-size: 1.5rem;
     line-height: 1.5rem;
 }
 h4{
     font-family: var(--fuentetitulos);
-    font-weight: bold;
+    font-weight: var(--pesobold);
     font-size: 1.25rem;
     line-height: 1.25rem;
 }
 
 .bajada-big{
-    font-family: var(--fuentetitulos);
-    font-weight: 400;
-    font-size: 2.25rem;
+    /* font-family: var(--fuentetitulos); */
+    font-weight: var(--pesolight);
+    font-size: 2rem;
+    line-height: 2rem;
 }
 .bajada-reg{
-    font-family: var(--fuentetitulos);
-    font-weight: 400;
+    /* font-family: var(--fuentetitulos); */
+    font-weight: var(--pesolight);
     font-size: 1.5rem;
+    line-height: 1.5rem;
 }
 .bajada-small{
-    font-family: var(--fuentetitulos);
-    font-weight: 400;
+    /* font-family: var(--fuentetitulos); */
+    font-weight: var(--pesolight);
     font-size: 1.25rem;
+    line-height: 1.25rem;
 }
 mark{
     padding: 2px 8px 2px;
     border-radius: 1rem;
+
     background-color: unset;
-    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
+    background-image: linear-gradient(45deg, var(--fondo), var(--fondo)) ;
     background-position: bottom;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -159,7 +167,7 @@ article{
     color: var(--fondo) !important;
     background-color: var(--complementario) !important;
 
-    font-weight: 600;
+    font-weight: var(--pesobold);
 
     padding: .25rem .75rem;
     border-radius: var(--default-radio);
@@ -173,11 +181,11 @@ article{
 }
 .cta-sec{
     color: var(--complementario);
-    font-weight: 700;
+    font-weight: var(--pesobold);
     width: fit-content;
     transition: 400ms;
 
-    
+
     display: flex;
     align-items: center;
 }
@@ -195,7 +203,7 @@ article{
 
 .caption{
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: var(--pesobold);
     color: var(--contraste-menor-c);
 }
 
@@ -224,10 +232,27 @@ article{
 
 .card{
     padding: 1rem;
+    background-color: var(--fondo);
 }
-input 
+input
 {
        border: 0;
+}
+
+
+
+
+.divisor{
+    height: 8rem;
+}
+.divisor.div1{
+    background-image: linear-gradient(var(--fondo), var(--fondo-menor-c)) ;
+}
+.divisor.div2{
+    background-image: linear-gradient(var(--compgra-sec), var(--fondo)) ;
+}
+.divisor.div3{
+    background-image: linear-gradient(var(--fondo-menor-c), var(--compgra)) ;
 }
 
 
@@ -245,6 +270,10 @@ input
 ==================== UNIVERSALES ====================
 ======================================================
 */
+body{
+    background-color: var(--fondo);
+
+}
 main{
     background-color: var(--fondo);
     color: var(--contraste);
@@ -278,11 +307,11 @@ header.solidheader {
 }
 header .logo-navbar{
     width:auto;
-    height: 1.5rem
+    display: grid;
 }
 header .logo-navbar img{
     height: auto;
-    max-height: 100%;
+    max-height: 1.2rem;
 }
 #menu{
     cursor: pointer;
@@ -311,7 +340,7 @@ header .logo-navbar img{
     transition: background-position .4s steps(11, end) ;
 }
 .navegacion{
-        /* height: 90vh; */
+    height: 100vh;
     background-color: var(--main);
     padding: 1rem;
     padding-top: calc(80px + 2rem);
@@ -336,18 +365,19 @@ header nav ul{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: 100%;
 }
 .navegacion a, .navegacion button{
     text-align: inherit;
     background: none;
     border: none;
-    font-size: 1.75rem;
+    font-size: 1.2rem;
     color: var(--fondo-menor-c);
 }
-.pag-act{
+.pag-act a{
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
     background-position: bottom;
-    background-size: 100% 4px;
+    background-size: 100% 2px;
     background-repeat: no-repeat;
     transition: 300ms;
     /* text-decoration: underline solid 3px var(--prinicpal); */
@@ -369,7 +399,7 @@ header nav ul a:hover{
 }
 .navegacion .contacto a{
     color: var(--prinicpal);
-    font-weight: 600;
+    font-weight: var(--pesobold);
 }
 
 
@@ -547,6 +577,7 @@ footer h6{
 /* ABOUTUS */
 .aboutus{
     display: grid;
+    margin-block: 8rem;
 }
 .aboutus .maxwidth{
     display: flex;
@@ -576,6 +607,7 @@ footer h6{
     flex-direction: column;
     gap: .25rem;
     align-items: center;
+    margin-top: 3rem;
 }
 .ctaycaption{
     order: 99;
@@ -611,7 +643,6 @@ footer h6{
 
     margin-inline: auto;
     display: flex;
-    justify-content: center;
     /* flex-wrap: wrap; */
     gap: 2rem;
 
@@ -630,9 +661,10 @@ footer h6{
 }
 
 
-
 /* INSTALACIONES */
 .instalaciones {
+    background-color: var(--fondo-menor-c);
+    padding-bottom: 9rem;
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
     background-position: bottom;
     background-size: 100% 1rem;
@@ -684,36 +716,37 @@ footer h6{
 .talleres-home{
     padding: 0;
 
-    background-image: url(../imagenes/Home-talleres.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom ;
-    
+/*
     background-size: auto 65vh;
     background-repeat: no-repeat;
-    background-position: center top;
-    
+    background-position: center top; */
+
     display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 1rem;
+    grid-template-rows: 45vh 1fr;
+
+    background-image: linear-gradient(var(--compgra) 45%, var(--compgra-sec)) ;
 }
 .talleres-home > *{
     padding: 1.5rem;
 }
 .talleres-home .banner{
-    min-height: calc(60vh - 3rem);
-    width: calc(100% - 3rem);
-    margin: 1.5rem;
-    background-image: linear-gradient( #f7fcfacc 20%, #f7fcfa00 40%);
+
+    background-image: url(../imagenes/Home-talleres.png);
+    background-size: auto 65vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom ;
 }
 .talleres-home h2{
-    /* color: var(--fondo); */
+    max-width: initial;
 }
 
 .talleres-cards{
+    display: grid;
+    gap: 1.5rem;
     width: 100%;
     /* background-color: #f7fcfa3d; */
-    background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec) );
+
     /* background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)); */
 }
 .talleres-cards .maxwidth{
@@ -772,9 +805,9 @@ footer h6{
     top: 1rem;
     right: 1rem;
 
-    font-weight: 700;
+    font-weight: var(--pesobold);
     color: var(--contraste-menor-c);
-    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-image: linear-gradient(90deg, var(--compgra), var(--compgra-sec));
 
     padding: .25rem .75rem;
     border-radius: 10rem;
@@ -791,8 +824,8 @@ footer h6{
     gap: 1rem;
     text-align: center;
 
-    background-color: var(--fondo-menor-c);
     padding: var(--padding-art);
+    margin-top: 6rem;
 }
 .cita-home p{
     color: var(--contraste-menor-c);
@@ -807,12 +840,12 @@ footer h6{
 /* COACHES */
 .coaches{
     display: grid;
-    min-height: var(--fullheight);
+    /* min-height: var(--fullheight); */
 }
 .coaches .maxwidth{
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem 4rem;
+    gap: 3rem 4rem;
     justify-content: space-between;
     height: 100%;
 }
@@ -824,19 +857,16 @@ footer h6{
 }
 .detalle-coaches > p{
     flex-grow: 1;
-    padding-bottom: 2rem;
 }
 .coaches-imagenes{
     flex-grow: 1;
     display: grid;
-    grid-template-rows: min-content auto min-content;
-    grid-template-columns: 1fr 45%;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-columns: 1fr 1fr;
 
     gap: 1rem;
 
-    padding: 1rem;
-    max-width: 50rem;
-    min-height: 60vh;
+    /* max-width: 50rem; */
 }
 .coaches-imagenes div{
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
@@ -847,7 +877,7 @@ footer h6{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap:1rem;
+    gap:0rem 1rem;
 
     font-family: var(--fuentetitulos);
     color: var(--contraste-menor-c);
@@ -859,6 +889,7 @@ footer h6{
 .coaches-imagenes img{
     border-radius: var(--default-radio);
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
+    aspect-ratio: 9/16;
 }
 .coaches-imagenes :nth-child(1){
     grid-area: 1/ 1 / 2/ 2
@@ -880,13 +911,14 @@ footer h6{
     min-height: 20vh;
     background-color: var(--fondo);
     display: flex;
-    justify-content: center;
     overflow: scroll;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
-    gap: 1rem;
+    gap: 2rem;
     padding-top: 2rem;
+    
+    margin-block: 8rem;
 }
 .reviews section{
     background-color: var(--fondo-menor-c);
@@ -898,8 +930,7 @@ footer h6{
     text-align: center;
 
     height: 13rem;
-    width: 22%;
-    min-width: 20rem;
+    min-width: calc(100vw - 4rem - 2rem);
     padding: 1.5rem;
 }
 .reviews section::before{
@@ -926,6 +957,15 @@ footer h6{
 .reviews section div p{
     width: 100%;
 }
+.reviews > :first-child{
+    margin-left: 1rem;
+}
+.reviews > :last-child{
+    margin-right: 1rem;
+}
+
+
+
 
 
 /* COMUNIDAD */
@@ -953,7 +993,6 @@ footer h6{
 
     height: 100%;
     padding: 1.5rem;
-    padding-bottom: 6rem;
 }
 .comunidad .bajada-big{
     max-width: 18ch;
@@ -987,21 +1026,23 @@ footer h6{
 
 /* PLANES */
 #home-planes{
-    background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
+    background-image: linear-gradient(var(--compgra), var(--compgra-sec)) ;
     display: flex;
     flex-direction: column;
-    gap: 6rem;
-    padding: var(--padding-art);
+    gap: 8rem;
+    padding: 0;
 }
 .promos{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    padding: 1.5rem;
 }
 .promos .bajada-big{
     text-align: center;
     max-width: 23ch;
+    line-height: normal;
 }
 .promos .bajada-big mark{
     padding: 0px 1.25rem ;
@@ -1039,6 +1080,7 @@ footer h6{
     margin: auto;
     max-width: 100%;
     flex-basis: 100%;
+    padding-inline: 1.5rem;
 }
 .suscripcion .card{
     display: flex;
@@ -1053,10 +1095,27 @@ footer h6{
     margin-bottom: 2rem;
     flex-grow: 1;
 }
+.suscripcion .container{
+    display: flex;
+    overflow: scroll;
+    gap: 1rem;
+
+    
+    display: flex;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    padding: 2.5rem;
+}
+.suscripcion .container > *{
+    min-width: calc(100vw - 4rem - 2rem);
+}
 
 
 /* FAQS */
 .faqs{
+    margin-bottom: 8rem;
 }
 .faqs .maxwidth{
     display: flex;
@@ -1179,14 +1238,14 @@ footer h6{
 .timer p{
     color: var(--contraste-menor-c);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: var(--pesobold);
     width: 100%;
 }
 #newcountdown{
     color: var(--contraste-menor-c);
     font-size: 2rem;
     font: var(--fuentetitulos);
-    font-weight: 300;
+    font-weight: var(--pesolight);
     width: fit-content;
 }
 
@@ -1536,14 +1595,14 @@ footer h6{
     }
     /* h2{
         font-family: var(--fuentetitulos);
-        font-weight: bold;
+        font-weight: var(--pesobold);
         font-size: 2.5rem;
         line-height: 2.5rem;
         max-width: 12ch;
     }
     h3{
         font-family: var(--fuentetitulos);
-        font-weight: bold;
+        font-weight: var(--pesobold);
         font-size: 1.5rem;
         line-height: 1.5rem;
     } */
@@ -1559,7 +1618,9 @@ footer h6{
         padding: 1.5rem;
     }
 
-
+    .divisor{
+        height: 10rem;
+    }
 
 
 
@@ -1590,11 +1651,15 @@ footer h6{
     }
 
     .navegacion{
+        height: min-content;
         position: initial;
         padding: 0;
         top: auto;
         width: fit-content;
         max-width: 100%;
+        flex-grow: 0;
+    }
+    .navegacion .flexgrow{
         flex-grow: 0;
     }
     .solidheader .navegacion{
@@ -1699,7 +1764,7 @@ footer h6{
 
 
 
-    /* ================== HOME ================== */  
+    /* ================== HOME ================== */
     /* HERO */
     .hero.home{
         padding: 2rem;
@@ -1725,13 +1790,13 @@ footer h6{
         background-image: linear-gradient(180deg, #f7fcfa55 20%, #f7fcfa00 80%);
     }
 
-    
+
     /* ABOUTUS */
     .aboutus .maxwidth{
         height: 100%;
         display: grid;
         grid-template-columns: 30% 1fr 1fr;
-    
+
         grid-template-rows: auto 1fr auto;
         gap: 1rem 3rem;
     }
@@ -1754,11 +1819,11 @@ footer h6{
         order: inherit;
     }
 
-    
+
     /* MARCAS */
 
 
-    
+
     /* INSTALACIONES */
     .instalaciones {
     }
@@ -1786,7 +1851,7 @@ footer h6{
         gap: 1rem;
         height: 100%;
     }
-    .imagenes-instalaciones img{  
+    .imagenes-instalaciones img{
         grid-column: span 1 !important;
         aspect-ratio: initial;
     }
@@ -1796,18 +1861,18 @@ footer h6{
     .imagenes-instalaciones :nth-child(4){
         display: inherit;
     }
-        
+
 
     /* TALLERES */
     .talleres-home {
         min-height: 95vh;
         justify-content: space-between;
         align-items: center;
-            
+
         display: flex;
         flex-direction: column;
 
-        
+
         background-size: cover;
         background-position: center bottom ;
     }
@@ -1822,7 +1887,7 @@ footer h6{
 
         display: flex;
         justify-content: space-between;
-        
+
         background-image: linear-gradient(90deg, #f7fcfacc 20%, #f7fcfa00 40%);
     }
     .banner .cta-sec{
@@ -1862,7 +1927,7 @@ footer h6{
         right: 1.5rem;
     }
 
-    
+
     /* COACHES */
     .coaches{
         background-color: var(--fondo);
@@ -1875,6 +1940,25 @@ footer h6{
     }
     .coaches-numero{
         font-size: 2.5rem;
+    }
+    .coaches .maxwidth{
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: 1fr min-content;
+    }
+    .coaches-imagenes{
+        grid-row: span 2;
+    }
+
+
+
+    /* REVIEWS */
+    .reviews{
+        justify-content: center;
+    }
+    .reviews section{
+        width: 22%;
+        min-width: 20rem;
     }
 
 
@@ -1905,9 +1989,15 @@ footer h6{
     .suscripcion .card{
         max-width: 40%;
     }
+    #home-planes .container{
+        display: contents;
+    }
+    .suscripcion .container > *{
+        min-width: initial;
+    }
 
 
-    
+
     /* FAQS */
     .faqs{
     }
@@ -2054,7 +2144,7 @@ footer h6{
         width: 100%;
     }
     .cont-dest .pill{
-        font-weight: 500;
+        font-weight: var(--pesoreg);
         padding: .25rem 1rem;
         border: 2px solid var(--contraste-menor-c);
     }
