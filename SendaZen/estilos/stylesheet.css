@@ -139,16 +139,17 @@ h4{
     line-height: 1.25rem;
 }
 mark{
-    padding: 2px 8px 2px;
-    border-radius: 1rem;
+    /* padding: 2px 8px 2px; */
+    /* border-radius: 1rem; */
 
     background-color: unset;
-    background-image: linear-gradient(45deg, var(--fondo), var(--fondo)) ;
+    /* background-image: linear-gradient(45deg, var(--fondo), var(--fondo)) ; */
     background-position: bottom;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     font-size: inherit;
     font-family: inherit;
+    font-weight: var(--pesobold);
 }
 article{
     padding: var(--padding-art);
@@ -526,15 +527,15 @@ footer h6{
 
 /* ================== HOME ================== */
 .hero.home{
-    background: url(../imagenes/hero-banner.png) ;
-    background-position: 68rem;
+    background-image: url(../imagenes/home-hero2.jpg) ;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 1rem;
-    padding-top: 7rem;
+    padding: 0;
+    padding-top: 5rem;
 }
 .hero.home section{
     height: fit-content;
@@ -542,9 +543,8 @@ footer h6{
     flex-direction: column;
     gap: .5rem;
     max-width: auto;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: var(--default-radio);
-    background-image: linear-gradient(180deg, #f7fcfacc 50%, #f7fcfa00 80%);
 }
 .hero.top100{
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
@@ -552,13 +552,13 @@ footer h6{
     text-align: center;
 }
 .hero.home div{
-    padding: 1rem;
-    background-color: var(--fondo);
-    border-radius: var(--default-radio);
-    width: fit-content;
+    background-image: linear-gradient(transparent, var(--fondo) );
+
+    min-height: 8rem;
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap:1rem 1.5rem;
+
+    justify-content: center;
+    align-items: center;
 }
 .hero.home img{
     max-width: 2.5rem;
@@ -773,7 +773,7 @@ footer h6{
     background-repeat: no-repeat; */
 }
 .talleres-cards .card h3{
-    margin-block: 1.5px;
+    margin-block: 2.4px;
 }
 .talleres-home .card p{
     flex-grow: 1;
@@ -789,7 +789,7 @@ footer h6{
 .tallerdest{
     grid-column: span 2;
 }
-.destacado::before{
+.destacado p::before{
     /* content: "\2192"; */
     content: url('../imagenes/icodest.svg');
     display: block;
@@ -797,21 +797,33 @@ footer h6{
     height: 1rem;
     margin-right: 5px;
 }
+.coaches-imagenes .border{
+    background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
+    border-radius: var(--default-radio);
+    padding: 2px;
+}
 .destacado{
-    display: flex;
-    align-items: center;
-
+    background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
+    border-radius: var(--default-radio);
+    padding: 2px;
+    
     position: absolute ;
     top: 1rem;
     right: 1rem;
+}
+.destacado p{
+    display: flex;
+    align-items: center;
+
 
     font-weight: var(--pesobold);
     color: var(--contraste-menor-c);
-    background-image: linear-gradient(90deg, var(--compgra), var(--compgra-sec));
+    background-color: var(--fondo);
 
-    padding: .25rem .75rem;
-    border-radius: 10rem;
+    padding: .2rem .7rem;
+    border-radius: var(--default-radio);
     width: fit-content;
+    
 }
 
 
@@ -868,9 +880,17 @@ footer h6{
 
     /* max-width: 50rem; */
 }
-.coaches-imagenes div{
+
+.coaches-imagenes .border{
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
     border-radius: var(--default-radio);
+    padding: 2px;
+}
+.coaches-imagenes .border > div {
+    border-radius: var(--default-radio);
+    background-color: var(--fondo);
+
+    
     padding: 1rem;
     height: fit-content;
     display: flex;
@@ -1045,7 +1065,7 @@ footer h6{
     line-height: normal;
 }
 .promos .bajada-big mark{
-    padding: 0px 1.25rem ;
+    /* padding: 0px 1.25rem ; */
     border-radius: 3rem;
 }
 .promos ul{
@@ -1767,13 +1787,14 @@ footer h6{
     /* ================== HOME ================== */
     /* HERO */
     .hero.home{
-        padding: 2rem;
+        background-image: url(../imagenes/home-hero-desk.jpg) ;
+        padding: 0;
         padding-top: 6rem;
         background-position: center;
         flex-direction: column;
     }
     .hero.home h1{
-        max-width: 14ch;
+        max-width: 16ch;
     }
     .hero.home .bajada-reg{
         max-width: 42ch;
@@ -1787,7 +1808,6 @@ footer h6{
         flex-direction: column;
         gap: .5rem;
         padding: 2rem;
-        background-image: linear-gradient(180deg, #f7fcfa55 20%, #f7fcfa00 80%);
     }
 
 
@@ -1821,7 +1841,9 @@ footer h6{
 
 
     /* MARCAS */
-
+    .marcas ul{
+        justify-content: center;
+    }
 
 
     /* INSTALACIONES */
