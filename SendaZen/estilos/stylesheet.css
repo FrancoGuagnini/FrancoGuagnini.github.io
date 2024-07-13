@@ -1,5 +1,4 @@
-﻿@charset "utf-8";
-
+@charset "utf-8";
 
 *{
     scroll-behavior: smooth;
@@ -10,9 +9,6 @@
     font-family: 'Figtree', sans-serif;
     font-size: 1rem;
 }
-
-
-
 
 
 
@@ -28,27 +24,18 @@
         --prinicpal: #73ffbc;
         --analogo: #abf9ff;
 
-
         --compgra: #ffcbba;
         --compgra-sec: #fff0b8;
-
-
 
 
         --complementario: #ff5522;
         --complementario-c: #e0400f;
 
-
         --fondo: #f7fcfa;
         --fondo-menor-c: #ede7d8;
 
-
         --contraste: #07292b;
         --contraste-menor-c: #3d4b4d;
-
-
-
-
 
 
 
@@ -62,31 +49,24 @@
         --analogo: #abf9ff;
 
 
-
-
         --complementario: #ff5522;
         --complementario-c: #e0400f;
 
-
         --fondo: #07292b;
         --fondo-menor-c: #3d4b4d;
-
 
         --contraste: #f7fcfa ;
         --contraste-menor-c: #d8f0e2;
     }
 }
 
-
 :root{
     /* TAMAÑOS */
     --tamaño-max: 1280px;
-    --fullheight: 90dvh;
+    --fullheight: 90vh;
     --default-radio: 24px;
 
-
     --padding-art: 2rem 1.5rem;
-
 
     --fuentetitulos: "Cairo";
     --pesobold: 650;
@@ -140,7 +120,6 @@ h4{
     line-height: 1.25rem;
 }
 
-
 .bajada-big{
     /* font-family: var(--fuentetitulos); */
     font-weight: var(--pesolight);
@@ -162,7 +141,6 @@ h4{
 mark{
     /* padding: 2px 8px 2px; */
     /* border-radius: 1rem; */
-
 
     background-color: unset;
     /* background-image: linear-gradient(45deg, var(--fondo), var(--fondo)) ; */
@@ -186,14 +164,11 @@ article{
     margin: auto;
 }
 
-
 .cta{
     color: var(--fondo) !important;
     background-color: var(--complementario) !important;
 
-
     font-weight: var(--pesobold);
-
 
     padding: .25rem .75rem;
     border-radius: var(--default-radio);
@@ -212,8 +187,6 @@ article{
     transition: 400ms;
 
 
-
-
     display: flex;
     align-items: center;
 }
@@ -229,13 +202,11 @@ article{
     position: relative;
 }
 
-
 .caption{
     font-size: 1rem;
     font-weight: var(--pesobold);
     color: var(--contraste-menor-c);
 }
-
 
 .sombra{
     box-shadow: 0px 0px 10px #1a1a1a35;
@@ -260,7 +231,6 @@ article{
     background-size: 100% .5rem;
 }
 
-
 .card{
     padding: 1rem;
     background-color: var(--fondo);
@@ -269,10 +239,6 @@ input
 {
        border: 0;
 }
-
-
-
-
 
 
 
@@ -300,17 +266,6 @@ input
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /*
 ======================================================
 ==================== UNIVERSALES ====================
@@ -319,16 +274,12 @@ input
 body{
     background-color: var(--fondo);
 
-
 }
 main{
     background-color: var(--fondo);
     color: var(--contraste);
-    min-height: 200dvh;
+    min-height: 200vh;
 }
-
-
-
 
 
 
@@ -353,7 +304,6 @@ header.solidheader {
     align-items: center;
     padding: 1.5rem 1rem;
 
-
     z-index: 100;
 }
 header .logo-navbar{
@@ -377,10 +327,8 @@ header .logo-navbar img{
     background-repeat: no-repeat;
     background-size: cover;
 
-
     height: 100%;
     width: 100%;
-
 
     transition: background-position .4s steps(11, end);
     background-color: transparent;
@@ -388,7 +336,6 @@ header .logo-navbar img{
 }
 #menu .menu-hamb-activ{
     background-image: url(../imagenes/ico-menu.svg) !important;
-
 
     background-position: -22rem;
     transition: background-position .4s steps(11, end) ;
@@ -406,10 +353,9 @@ header .logo-navbar img{
     z-index: -100;
 }
 .navegacion-visible{
-    top: 0dvh;
+    top: 0vh;
     position: absolute;
     z-index: -1;
-
 
     display: block;
     background-color: var(--contraste-menor-c);
@@ -427,7 +373,9 @@ header nav ul{
     background: none;
     border: none;
     font-size: 1.2rem;
-    color: var(--fondo-menor-c);
+    color: var(--fondo);
+    transition-duration: 400ms;
+    font-weight: var(--pesoreg);
 }
 .pag-act a{
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
@@ -435,17 +383,17 @@ header nav ul{
     background-size: 100% 2px;
     background-repeat: no-repeat;
     transition: 300ms;
+    font-weight: var(--pesobold);
     /* text-decoration: underline solid 3px var(--prinicpal); */
 }
 .pag-act a{
-    text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo);
+    /* text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo); */
     color: var(--fondo);
     transition-duration: 400ms;
 }
 header nav ul a:hover{
-    text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo);
     color: var(--fondo);
-    transition-duration: 400ms;
+    font-weight: var(--pesobold);
 }
 .navegacion .contacto{
     background-color: var(--fondo);
@@ -459,23 +407,17 @@ header nav ul a:hover{
 
 
 
-
-
-
 /* ================== HEROS ================== */
 .hero{
     height: 100dvh;
 }
-
 
 /* ================== FOOTER ================== */
 footer{
     display: flex;
     flex-direction: column;
 
-
     background-color: var(--contraste);
-
 
     padding: 2rem 2rem 1.5rem;
     gap: 4rem 1rem;
@@ -520,7 +462,6 @@ footer h6{
     color: var(--fondo);
     background-color: var(--contraste-menor-c);
 
-
     padding: .25rem .75rem;
     border-radius: 10rem;
 }
@@ -561,7 +502,6 @@ footer h6{
     text-decoration:underline;
 }
 
-
 .legales{
     display: flex;
     justify-content: space-between;
@@ -580,16 +520,11 @@ footer h6{
 
 
 
-
-
-
 /*
 ======================================================
 ==================== PARTICULARES ====================
 ======================================================
 */
-
-
 
 
 /* ================== HOME ================== */
@@ -621,10 +556,8 @@ footer h6{
 .hero.home div{
     background-image: linear-gradient(transparent, var(--fondo) );
 
-
     min-height: 8rem;
     display: grid;
-
 
     justify-content: center;
     align-items: center;
@@ -641,8 +574,6 @@ footer h6{
     grid-column-start: 2;
     grid-column-end: 3;
 }
-
-
 
 
 /* ABOUTUS */
@@ -693,16 +624,10 @@ footer h6{
 
 
 
-
-
-
-
-
-
 /* MARCAS */
 .marcas{
     padding-top: 2rem;
-    min-height: 25dvh;
+    min-height: 25vh;
     background-color: var(--fondo);
     display: flex ;
     flex-direction: column;
@@ -718,17 +643,14 @@ footer h6{
     width: 100%;
     margin: auto;
 
-
     margin-inline: auto;
     display: flex;
     /* flex-wrap: wrap; */
     gap: 2rem;
 
-
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
 
     opacity: 50%;
 }
@@ -739,8 +661,6 @@ footer h6{
     max-height: 4rem;
     min-width: 6rem;
 }
-
-
 
 
 /* INSTALACIONES */
@@ -768,7 +688,6 @@ footer h6{
     flex-direction: column;
     gap: .5rem;
 
-
     max-width: 100%;
     height: fit-content;
     grid-column: span 2;
@@ -795,22 +714,18 @@ footer h6{
 }
 
 
-
-
 /* TALLERES */
 .talleres-home{
     padding: 0;
 
-
 /*
-    background-size: auto 65dvh;
+    background-size: auto 65vh;
     background-repeat: no-repeat;
     background-position: center top; */
 
-
     display: grid;
-    grid-template-rows: 45dvh 1fr;
-
+    grid-template-rows: 45vh 1fr;
+    grid-template-columns: 1fr;
 
     background-image: linear-gradient(var(--compgra) 45%, var(--compgra-sec)) ;
 }
@@ -818,10 +733,8 @@ footer h6{
     padding: 1.5rem;
 }
 .talleres-home .banner{
-
-
     background-image: url(../imagenes/Home-talleres.png);
-    background-size: auto 65dvh;
+    background-size: auto 65vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom ;
@@ -829,14 +742,11 @@ footer h6{
 .talleres-home h2{
     max-width: initial;
 }
-
-
 .talleres-cards{
     display: grid;
     gap: 1.5rem;
     width: 100%;
     /* background-color: #f7fcfa3d; */
-
 
     /* background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)); */
 }
@@ -848,14 +758,11 @@ footer h6{
 .talleres-home .card{
     background-color: var(--fondo);
 
-
     border-radius: var(--default-radio);
-
 
     display: flex;
     flex-direction: column;
     gap: .5rem;
-
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr min-content ;
@@ -869,7 +776,8 @@ footer h6{
 .talleres-cards .card h3{
     margin-block: 2.4px;
 }
-.talleres-home .card p{
+.talleres-home .card .detalle{
+    padding-bottom: 2rem;
     flex-grow: 1;
 }
 .ctas-card{
@@ -882,6 +790,11 @@ footer h6{
 }
 .tallerdest{
     grid-column: span 2;
+}
+.tallerdest .ctas-card *{
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
 }
 .destacado p::before{
     /* content: "\2192"; */
@@ -910,21 +823,14 @@ footer h6{
     align-items: center;
 
 
-
-
     font-weight: var(--pesobold);
     color: var(--contraste-menor-c);
     background-color: var(--fondo);
 
-
     padding: .2rem .7rem;
     border-radius: var(--default-radio);
     width: fit-content;
-    
 }
-
-
-
 
 
 
@@ -936,7 +842,6 @@ footer h6{
     gap: 1rem;
     text-align: center;
 
-
     padding: var(--padding-art);
     margin-top: 6rem;
 }
@@ -947,9 +852,6 @@ footer h6{
 .cita-home .bajada-big{
     max-width: 30ch;
 }
-
-
-
 
 
 
@@ -980,13 +882,10 @@ footer h6{
     grid-template-rows: min-content 1fr min-content;
     grid-template-columns: 1fr 1fr;
 
-
     gap: 1rem;
-
 
     /* max-width: 50rem; */
 }
-
 
 .coaches-imagenes .border{
     background-image: linear-gradient(45deg, var(--compgra), var(--compgra-sec)) ;
@@ -997,7 +896,6 @@ footer h6{
     border-radius: var(--default-radio);
     background-color: var(--fondo);
 
-
     
     padding: 1rem;
     height: fit-content;
@@ -1006,7 +904,6 @@ footer h6{
     align-items: center;
     justify-content: center;
     gap:0rem 1rem;
-
 
     font-family: var(--fuentetitulos);
     color: var(--contraste-menor-c);
@@ -1035,16 +932,12 @@ footer h6{
 
 
 
-
-
-
 /* REVIEWS */
 .reviews{
-    min-height: 20dvh;
+    min-height: 20vh;
     background-color: var(--fondo);
     display: flex;
     overflow: scroll;
-
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -1057,12 +950,10 @@ footer h6{
     background-color: var(--fondo-menor-c);
     color: var(--contraste-menor-c);
 
-
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
 
     height: 13rem;
     min-width: calc(100vw - 4rem - 2rem);
@@ -1086,7 +977,6 @@ footer h6{
     background-color: var(--contraste);
     border-radius: 50%;
 
-
     height: 2rem;
     width: 2rem;
 }
@@ -1104,21 +994,15 @@ footer h6{
 
 
 
-
-
-
-
-
 /* COMUNIDAD */
 .comunidad{
     display: grid;
-    grid-template-rows: 40dvh 1fr;
+    grid-template-rows: 40vh 1fr;
     padding: 0;
     /* background-image: url(../imagenes/AdobeStock_373694965.jpeg);
     background-size: cover;
     background-position: top -10rem center;
     background-repeat: no-repeat; */
-
 
     background-color: var(--fondo-menor-c);
 }
@@ -1132,7 +1016,6 @@ footer h6{
     display: flex;
     flex-direction: column;
     gap: 1rem 3rem;
-
 
     height: 100%;
     padding: 1.5rem;
@@ -1164,9 +1047,6 @@ footer h6{
     height: 2rem;
     width: 2rem;
 }
-
-
-
 
 
 
@@ -1233,7 +1113,6 @@ footer h6{
     flex-direction: column;
     gap: .5rem;
 
-
     background-color: var(--fondo);
 }
 .suscripcion .card ul{
@@ -1247,7 +1126,6 @@ footer h6{
     overflow: scroll;
     gap: 1rem;
 
-
     
     display: flex;
     overflow: scroll;
@@ -1259,8 +1137,6 @@ footer h6{
 .suscripcion .container > *{
     min-width: calc(100vw - 4rem - 2rem);
 }
-
-
 
 
 /* FAQS */
@@ -1278,7 +1154,6 @@ footer h6{
 .faqs .preguntas{
     grid-area: 1/2/4/3;
 
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -1288,13 +1163,11 @@ footer h6{
     flex-direction: column-reverse;
     gap: 0em;
 
-
     border:1px solid var(--contraste-menor-c);
     cursor: pointer;
     padding: 1rem;
     width: 100%;
     transition: 0.4s;
-
 
     text-align: inherit;
     background: none;
@@ -1332,20 +1205,11 @@ footer h6{
 .panel.visible{
     max-height: 14rem;
 
-
     padding: 0 1rem 1rem 1rem;
 }
 .faqs .ctaycaption{
     order: 99;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -1360,7 +1224,6 @@ footer h6{
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-
 
     padding: 2rem;
     padding-top: 6rem;
@@ -1377,7 +1240,6 @@ footer h6{
     /* max-width: var(--tamaño-max); */
     margin-inline: auto;
 
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -1392,7 +1254,6 @@ footer h6{
     border-radius: var(--default-radio);
     max-width: 30rem;
     grid-area: 2/2/3/3;
-
 
     display: flex;
     flex-wrap: wrap;
@@ -1413,8 +1274,6 @@ footer h6{
     font-weight: var(--pesolight);
     width: fit-content;
 }
-
-
 
 
 /* BENEFICIOS */
@@ -1450,7 +1309,6 @@ footer h6{
     width: 30%;
     min-width: min-content;
 
-
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem 2rem;
@@ -1468,14 +1326,10 @@ footer h6{
     text-align: right;
 }
 
-
 /* PROFES */
 .profes{
     background-color: var(--fondo-menor-c);
 }
-
-
-
 
 
 
@@ -1491,13 +1345,12 @@ footer h6{
     max-width: 10ch;
 }
 .edificio .maxwidth{
-    min-height: 80dvh;
+    min-height: 80vh;
     display: grid;
     grid-template-columns: auto minmax(50%, 1fr);
     grid-template-rows: auto 1fr auto;
     justify-content: center;
     margin: auto;
-
 
     gap: 1rem 4rem;
 }
@@ -1514,15 +1367,12 @@ footer h6{
     gap:1rem;
     padding: 1rem 1.5rem;
 
-
     height: fit-content;
     width: fit-content;
     margin-left: auto;
 
-
     font-family: var(--fuentetitulos);
     color: var(--contraste-menor-c);
-
 
     background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)) ;
 }
@@ -1532,9 +1382,7 @@ footer h6{
     flex-direction: column;
     gap: .5rem;
 
-
     background-color: var(--fondo);
-
 
     margin-top: 2rem;
 }
@@ -1544,12 +1392,9 @@ footer h6{
 }
 
 
-
-
 /* FINANCIAMIENTO */
 .financiamiento{
     padding: 0;
-
 
     display: grid;
     grid-template-columns: 50vw 1fr;
@@ -1618,7 +1463,6 @@ footer h6{
     cursor: pointer;
   }
 
-
   /* Create a custom radio button */
   .checkmark {
     /* background-color: var(--complementario); */
@@ -1635,11 +1479,9 @@ footer h6{
   }
 
 
-
-
 /* PAGOS */
 .metodos-pago{
-    min-height: 25dvh;
+    min-height: 25vh;
     background-color: var(--fondo);
     display: flex ;
     flex-direction: column;
@@ -1655,18 +1497,15 @@ footer h6{
     width: 100%;
     margin: auto;
 
-
     margin-inline: auto;
     display: flex;
     justify-content: center;
     /* flex-wrap: wrap; */
     gap: 2rem;
 
-
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
 
     opacity: 50%;
 }
@@ -1679,13 +1518,9 @@ footer h6{
 }
 
 
-
-
 .detalles-curso{
     background-color: var(--fondo-menor-c);
 }
-
-
 
 
 /* COMUNIDAD */
@@ -1732,15 +1567,11 @@ footer h6{
 .comunidad-cita :nth-child(3){
     padding-bottom: 1.5rem;
 
-
 }
 .comunidad-cita p{
     max-width: calc(100% - 3rem);
     text-align: center;
 }
-
-
-
 
 
 
@@ -1755,18 +1586,10 @@ footer h6{
 
 
 
-
-
-
-
-
-
-
 @media only screen and (min-width: 750px){
     main{
         background-color: var(--fondo);
     }
-
 
     /* GENERALES */
     *{
@@ -1774,7 +1597,7 @@ footer h6{
     }
     :root{
         --padding-art: 8rem 2rem 9rem;
-        --fullheight: 100dvh;
+        --fullheight: 100vh;
     }
     a {
         color: var(--contraste);
@@ -1821,14 +1644,9 @@ footer h6{
         padding: 1.5rem;
     }
 
-
     .divisor{
         height: 10rem;
     }
-
-
-
-
 
 
 
@@ -1858,7 +1676,6 @@ footer h6{
         display: none;
     }
 
-
     .navegacion{
         height: min-content;
         position: initial;
@@ -1882,7 +1699,6 @@ footer h6{
         height: fit-content;
     }
 
-
     .navegacion ul li{
         padding: .25rem .75rem;
         height: 100%;
@@ -1895,15 +1711,13 @@ footer h6{
         color: var(--contraste);
     }
     header nav ul a:hover{
-        text-shadow: 0 0 .01px var(--contraste), 0 0 .01px var(--contraste);
+        /* text-shadow: 0 0 .01px var(--contraste), 0 0 .01px var(--contraste); */
         color: var(--contraste);
         transition-duration: 300ms;
     }
     .navegacion .cta a{
         color: var(--fondo);
     }
-
-
 
 
     /* FOOTER */
@@ -1923,7 +1737,6 @@ footer h6{
         grid-row: 1;
         grid-column: span 3;
 
-
         align-items:flex-start;
     }
     .empresa ul{
@@ -1935,7 +1748,6 @@ footer h6{
         grid-row: 1;
         grid-column-start: 5;
         grid-column-end: 9;
-
 
         gap: 1rem;
     }
@@ -1978,12 +1790,6 @@ footer h6{
 
 
 
-
-
-
-
-
-
     /* ================== HOME ================== */
     /* HERO */
     .hero.home{
@@ -2011,14 +1817,11 @@ footer h6{
     }
 
 
-
-
     /* ABOUTUS */
     .aboutus .maxwidth{
         height: 100%;
         display: grid;
         grid-template-columns: 30% 1fr 1fr;
-
 
         grid-template-rows: auto 1fr auto;
         gap: 1rem 3rem;
@@ -2043,14 +1846,10 @@ footer h6{
     }
 
 
-
-
     /* MARCAS */
     .marcas ul{
         justify-content: center;
     }
-
-
 
 
     /* INSTALACIONES */
@@ -2092,61 +1891,39 @@ footer h6{
     }
 
 
-
-
     /* TALLERES */
     .talleres-home {
-        min-height: 95dvh;
+        min-height: 95vh;
         justify-content: space-between;
         align-items: center;
 
-
-        display: flex;
-        flex-direction: column;
-
-
-
-
-        background-size: cover;
-        background-position: center bottom ;
+        grid-template-rows: 55vh 1fr;
     }
     .talleres-home .banner{
         flex-grow: 1;
-
 
         padding: 1.5rem;
         height: 100%;
         min-height: 25vw;
 
-
-        max-width: var(--tamaño-max);
-
-
-        display: flex;
-        justify-content: space-between;
-
-
-        background-image: linear-gradient(90deg, #f7fcfacc 20%, #f7fcfa00 40%);
+        background-position: center;
     }
     .banner .cta-sec{
         height: min-content;
         padding: .75rem 1.25rem  ;
         background-color: var(--fondo);
     }
-
-
     .talleres-cards{
         display: grid;
         justify-content: center;
     }
+    .talleres-cards h2{
+        max-width: var(--tamaño-max);
+    }
     .talleres-cards .maxwidth{
-        padding: 2rem 0 4rem;
         display: flex;
         margin: auto;
         gap: 1rem;
-        margin-inline: 1.5rem;
-        width: calc(100% - 3rem);
-        max-width: var(--tamaño-max);
     }
     .talleres-cards .card{
         gap: 1rem;
@@ -2161,12 +1938,20 @@ footer h6{
     .tallerdest{
         min-width: 50%;
     }
+    .tallerdest .ctas-card *{
+        width: fit-content;
+        justify-content: space-between;
+        text-align: left;
+    }
     .destacado{
         top: 1.5rem;
         right: 1.5rem;
     }
 
-
+    /* CITA */
+    .cita-home{
+        margin-top: 10rem;
+    }
 
 
     /* COACHES */
@@ -2193,9 +1978,6 @@ footer h6{
 
 
 
-
-
-
     /* REVIEWS */
     .reviews{
         justify-content: center;
@@ -2204,8 +1986,6 @@ footer h6{
         width: 22%;
         min-width: 20rem;
     }
-
-
 
 
     /* COMUNIDAD */
@@ -2218,7 +1998,6 @@ footer h6{
         grid-template-rows: auto 1fr auto;
         grid-template-columns: 1fr min-content;
 
-
         padding: 2rem 2rem 5rem;
     }
     .comunidad .bajada-big{
@@ -2227,8 +2006,6 @@ footer h6{
         min-width: 25rem;
         grid-area: 1/2/4/3;
     }
-
-
 
 
     /* PLANES */
@@ -2247,9 +2024,6 @@ footer h6{
 
 
 
-
-
-
     /* FAQS */
     .faqs{
     }
@@ -2259,7 +2033,6 @@ footer h6{
         grid-template-rows: min-content 1fr min-content;
         gap: .5rem 4rem;
 
-
         height: 100%;
     }
     .faqs .maxwidth > p{
@@ -2267,7 +2040,6 @@ footer h6{
     }
     .faqs .preguntas{
         grid-area: 1/2/4/3;
-
 
         display: flex;
         flex-direction: column;
@@ -2278,13 +2050,11 @@ footer h6{
         flex-direction: column-reverse;
         gap: 0em;
 
-
         border:1px solid var(--contraste-menor-c);
         cursor: pointer;
         padding: 1rem;
         width: 100%;
         transition: 0.4s;
-
 
         text-align: inherit;
         background: none;
@@ -2292,9 +2062,6 @@ footer h6{
     .faqs .ctaycaption{
         order: initial;
     }
-
-
-
 
 
 
@@ -2312,7 +2079,6 @@ footer h6{
         top: 3rem;
         position: sticky;
         z-index: 10;
-
 
         display: grid;
         grid-template-columns: calc(30% - 1.5rem) 1fr;
@@ -2337,14 +2103,12 @@ footer h6{
         /* gap: 9rem ; */
     }
 
-
     .detalles-curso .maxwidth section{
         display: grid;
         grid-template-columns: 30% 1fr;
 
-
         grid-column: span 2;
-        min-height: 40dvh;
+        min-height: 40vh;
         padding-top: 9rem;
     }
     .horarios{
@@ -2378,7 +2142,6 @@ footer h6{
     .direccion .mapouter{
         grid-area: 2/2/5/3;
     }
-
 
     .modulo{
         display: flex;
@@ -2421,16 +2184,7 @@ footer h6{
 
 
 
-
-
-
-
-
-
 }
-
-
-
 
 
 
@@ -2449,16 +2203,11 @@ footer h6{
 }
 
 
-
-
 @media only screen and (min-width: 1440px){
-
 
     .container{
         display: inherit;
     }
-
-
 
 
 }
