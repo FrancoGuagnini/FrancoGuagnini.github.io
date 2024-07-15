@@ -94,6 +94,12 @@ figure{
     align-items: center;
     overflow: hidden;
 }
+figure .fitimage{
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    object-fit: cover !important;
+}
 img{
     width: 100%;
     max-width: 100%;
@@ -725,16 +731,6 @@ footer::before{
 .imagenes-instalaciones figure{
     aspect-ratio: 4/3;
     overflow: hidden;
-}
-.fitheight{
-    height: 100%;
-    width: auto;
-    max-width: fit-content;
-}
-.fitwidth{
-    height: auto;
-    max-height: fit-content;
-    width: 100%;
 }
 .imagenes-instalaciones figure img{
     height: 100%;
@@ -1824,16 +1820,21 @@ footer::before{
 .galeria-comunidad .card *{
     text-align: center;
 }
-.comunidad-cita{
+.galeria-comunidad .comunidad-cita{
     grid-row: span 2;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content;
+    gap: 0;
     justify-items: center;
     padding: 0rem;
     overflow: hidden;
 
     aspect-ratio: 9/16;
+}
+.comunidad-cita figure{
+    height: 100%;
+    width: 100%;
 }
 .comunidad-cita :nth-child(2){
     display: none;
@@ -2694,8 +2695,7 @@ footer::before{
         display: initial;
     }
     .galeria-comunidad{
-        max-height: 60vh;
-        aspect-ratio: 1;
+        max-width: 50vw;
     }
     .comunidad-cita{
         padding: 0;
