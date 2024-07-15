@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 </head>
 
 
@@ -29,10 +29,10 @@
 
 <body>
     <!-- HEADER -->
-    <header  id="header">
+    <header  id="header" class="top100">
         <div class="botonera">
             <div class="logo-navbar">
-                <img src="imagenes/logo.svg" alt="logo powersa">
+                <img src="imagenes/sendazen-logo.svg" alt="logo SendaZen">
             </div>
             <button id="menu">
                 <div id="menu-hamb"  alt=""></div>
@@ -42,7 +42,7 @@
         <nav class="navegacion">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Cursos</a></li>
+                <li class="pag-act"><a href="#">Cursos</a></li>
                 <li><a href="#">Planes</a></li>
                 <li class="flexgrow"><a href="#">Quienes somos</a></li>
                 <li class="cta"><a  href="#">Comunidad</a></li>
@@ -59,18 +59,20 @@
     ------------->
     <main>
         <article class="hero top100">
-            <section class="redondeado">
-                <h1>Top 100</h1>
-                <p class="bajada-big"> Curso presencial de fitness y bienesta integral integral.</p>
-                <div class="timer bajada-reg">
-                    <p>Comienza en:</p>
-                    <div id="newcountdown"> </div>
-                    <a href="#" class="cta">Anotate</a>
+            <section>
+                <div class="">
+                    <h1>Top 100</h1>
+                    <p class="bajada-big"> Curso presencial de fitness y bienesta integral integral.</p>
+                    <div class="timer bajada-reg">
+                        <p>Comienza en:</p>
+                        <div id="newcountdown"> </div>
+                        <a href="#financiamiento-top100" class="cta">Anotate</a>
+                    </div>
                 </div>
-
             </section>
-            
         </article>
+
+
         <article class="beneficios maxwidth">
             <section class="bajada">
                 <p class="bajada-big">Simplemente el curso más completo de bienestar integral</p>
@@ -79,53 +81,80 @@
             <section class="beneficios-cards">
                 <div class="card redondeado sombra">
                     <h3>Conocimiento trasladable</h3>
-                    <img class="redondeado" src="" alt="">
+                    <img class="redondeado" src="imagenes/talleres-top100-beneficios1.svg" alt="">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam commodi enim culpa, veritatis temporibus dolores iusto architecto est perspiciatis ad accusantium illo ratione illum possimus!</p>
                 </div>
                 <div class="card redondeado sombra">
                     <h3>Capacidades certificadas</h3>
-                    <img class="redondeado" src="" alt="">
+                    <img class="redondeado" src="imagenes/talleres-top100-beneficios2.svg" alt="">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam commodi enim culpa, veritatis temporibus dolores iusto architecto est perspiciatis ad accusantium illo ratione illum possimus!</p>
                 </div>
                 <div class="card redondeado sombra">
                     <h3>Resultados personales</h3>
-                    <img class="redondeado" src="" alt="">
+                    <img class="redondeado" src="imagenes/talleres-top100-beneficios3.svg" alt="">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam commodi enim culpa, veritatis temporibus dolores iusto architecto est perspiciatis ad accusantium illo ratione illum possimus!</p>
                 </div>
             </section>
             <a class="cta-sec">Mira el paso a paso del proceso</a>
-        
         </article>
-        <article class="profes fullarticle">
-            <h2>profes</h2>
 
-        </article>
-        
-        <article class="edificio fullarticle">
+        <div class="divisor div1"></div>
+
+
+        <article class="edificio">
             <div class="maxwidth">
+                <div class="titulo">
+                    <h2>Más que solo un curso</h2>
+                    <p class="bajada-reg">Las clases presenciales se estaran dando en nuestra instalacion principal donde contamos con todas las prestaciones necesarias</p>
+                </div>
+                
                 <div class="foto-edificio redondeado">
-                    <div class="sombra redondeado">
-                        <p class="bajada-big">12</p>
-                        <p>sucursales <br>en BSAS</p>
+                    <div class="border">
+                        <div class="sombra redondeado">
+                            <p class="bajada-big">12</p>
+                            <p>sucursales <br>en BSAS</p>
+                        </div>
                     </div>
                 </div>
-                <h2>No es un curso más</h2>
-                <p class="bajada-reg">Las clases presenciales se estaran dando en nuestra instalacion principal donde contamos con todas las prestaciones necesarias</p>
-    
-                <div class="card redondeado sombra">
-                    <h3>Nuestros HQ cuentan con:</h3>
-                    <p>Pileta, centro medico, nutricionista, gimnasio, sauna, auditorios y sala de conferencias.
+
+                    <p>Contamos con pileta, centro medico, nutricionista, gimnasio, sauna, auditorios y sala de conferencias.
                     </p>
                     <a href="#top100-detalles-instalaciones" class="cta">Ver detalles de las instalaciones</a>
-                </div>
-
             </div>
-
         </article>
 
-        <article class="financiamiento">
+        <article class="profes">
+            <div class="maxwidth">
+                
+            <h2>Más que solo profes</h2>
+            <p class="bajada-big">Sofi, Lean y Caro te van a ayudar a conseguir la vida saludable que buscas.</p>
+                <div class="profes-cards">
+                    <div class="profes-pics">
+                        <figure class="avatares-profes redondeado sombra">
+                            <img class="fitheight" src="imagenes/talleres-top100-profes1.png" alt="">
+                        </figure>
+                        <figure class="avatares-profes redondeado sombra">
+                            <img class="fitheight" src="imagenes/talleres-top100-profes2.jpeg" alt="">
+                        </figure>
+                        <figure class="avatares-profes redondeado sombra">
+                            <img class="fitheight" src="imagenes/talleres-top100-profes3.jpeg" alt="">
+                        </figure>
+                    </div>
+                    <div class="border">
+                        <div class="card redondeado">
+                            <p class="bajada-reg">Nos motiva enseñar de ejercicio, bienestar, y vida saludable, para ayudar a la gente a sentirse mejor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        
+        <div class="divisor div4"></div>
+
+        <article class="financiamiento" id="financiamiento-top100">
                 <div class="financiamiento-banner">
-                    <div class="redondeado">
+                    <div class="">
                         <h2>Financiamiento</h2>
                         <p class="bajada-reg">Empeza tu camino a la cima</p>
                     </div>
@@ -166,25 +195,27 @@
             </div>
         </article>
 
-
+        
+        <div class="divisor"></div>
 
         <article class="metodos-pago">
             <p class="bajada-big">Elejí hasta 6 cuotas sin interés</p>
             <p>Con tu tarjeta de credito preferida</p>
             <ul>
-                <li><img src="imagenes/marca1.svg" alt=""></li>
-                <li><img src="imagenes/marca2.svg" alt=""></li>
-                <li><img src="imagenes/marca3.svg" alt=""></li>
-                <li><img src="imagenes/marca4.svg" alt=""></li>
-                <li><img src="imagenes/marca5.svg" alt=""></li>
+                <li><img src="imagenes/talleres-top100-financiamiento-credito1.svg" alt=""></li>
+                <li><img src="imagenes/talleres-top100-financiamiento-credito2.svg" alt=""></li>
+                <li><img src="imagenes/talleres-top100-financiamiento-credito3.svg" alt=""></li>
+                <li><img src="imagenes/talleres-top100-financiamiento-credito4.png" alt=""></li>
             </ul> 
         </article>
 
+        <div class="divisor div1"></div>
+
         <article class="detalles-curso">
             <div class="maxwidth">
-            <div class="detalles-header redondeado sombra">
+            <div class="detalles-header">
                 <h2>Cronograma y detalles</h2>
-                <p class="bajada-reg">
+                <p class="bajada-big">
                     Todo lo que tenes que saber para empezar a cursar
                 </p>
             </div>
@@ -192,7 +223,7 @@
             <section class="">
                 <h3>Sobre la cursada</h3>
                 <div class="horarios">
-                    <p class="bajada-small"><b>Inicio: </b>11 de octubre</p>
+                    <p class="bajada-reg">Inicio: 11 de octubre</p>
                     <p>
                         <b>Horarios</b>
                         <ul>
@@ -215,7 +246,7 @@
             <section  id="top100-detalles-instalaciones" class="">
                 <h3>Dirección</h3>
                 <div class="direccion">
-                    <p class="bajada-small">Av. del Libertador 2387, CABA.</p>
+                    <p class="bajada-reg">Av. del Libertador 2387, CABA.</p>
                     <p>
                         El curso TOP 100 tiene un enfoque precencial por lo que las charlas teoricas como los talleres van a hacerse en nuestras prestaciones dentro la sede SendaZen - libertador. Estos son algunos de los beneficios de este taller:
                     </p>
@@ -226,14 +257,20 @@
                         </ul>
                     <a class="cta-sec">Ver detalles</a>
 
-                    <div class="mapouter"><div class="gmap_canvas redondeado"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=av+libertador+2387&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><style>.mapouter{position: relative;text-align: right;height: 100%;width: 100%;}</style><style>.gmap_canvas{overflow: hidden;background: none !important;height: 100%;width: 100%;}</style></div></div>
+                    <div class="mapa">
+                        <div class="color1"></div>
+                        <div class="color2"></div>
+                        <div class="color3"></div>
+                        <div class="mapouter"><div class="gmap_canvas redondeado"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=av+libertador+2387&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><style>.mapouter{position: relative;text-align: right;height: 100%;width: 100%;}</style><style>.gmap_canvas{overflow: hidden;background: none !important;height: 100%;width: 100%;}</style></div></div>
+                    </div>
                 </div>
             </section>
-            <section class="fullarticle">
-                <h3>Modulo 1:</h3>
+            <section class="">
+                <h3>Modulo 1: <br>Introducción a la sicología</h3>
                 <div class="modulo"> 
-                    <img class="redondeado" src="" alt="">
-                    <h4>Introducción a la sicología</h4>
+                    <figure class="redondeado">
+                        <img class="fitwidth" src="imagenes/talleres-top100-detalles-modulo1.jpg" alt="">
+                    </figure>
                     <p class="caption">Duracion: 2 semanas</p>
                     <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
                     <div class="cont-dest">
@@ -245,11 +282,12 @@
             </section>
 
             
-            <section class="fullarticle">
-                <h3>Modulo 2:</h3>
+            <section class="">
+                <h3>Modulo 2: <br> Ejercicios de habito y rutina</h3>
                 <div class="modulo"> 
-                    <img class="redondeado" src="" alt="">
-                    <h4>Ejercicios de habito y rutina</h4>
+                    <figure class="redondeado">
+                        <img class="fitwidth" src="imagenes/talleres-top100-detalles-modulo2.jpg" alt="">
+                    </figure>
                     <p class="caption">Duracion: 6 semanas</p>
                     <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
                     <div class="cont-dest">
@@ -261,11 +299,12 @@
             </section>
 
             
-            <section class="fullarticle">
-                <h3>Modulo 3:</h3>
+            <section class="">
+                <h3>Modulo 3: <br>Neurociencia y homeostasis</h3>
                 <div class="modulo"> 
-                    <img class="redondeado" src="" alt="">
-                    <h4>Neurociencia y homeostasis</h4>
+                    <figure class="redondeado">
+                        <img class="fitwidth" src="imagenes/talleres-top100-detalles-modulo3.jpg" alt="">
+                    </figure>
                     <p class="caption">Duracion: 2 semanas</p>
                     <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
                     <div class="cont-dest">
@@ -277,11 +316,13 @@
             </section>
 
             
-            <section class="fullarticle">
-                <h3>Modulo Final:</h3>
+            <section class="">
+                <h3>Modulo Final:<br>Planeamiento y metas concretas
+                </h3>
                 <div class="modulo"> 
-                    <img class="redondeado" src="" alt="">
-                    <h4>Planeamiento y metas concretas</h4>
+                    <figure class="redondeado">
+                        <img class="fitwidth" src="imagenes/talleres-top100-detalles-modulo4.jpg" alt="">
+                    </figure>
                     <p class="caption">Duracion: 1 mes</p>
                     <p>Nuestro equipo cuenta con todo tipo de integrantes, capacitados en medicina, kinesiologia, educaicion fisica y más, unidos por la pasion del deporte.</p>
                     <div class="cont-dest">
@@ -291,16 +332,10 @@
                     </div>
                 </div>
             </section>
-
-
-
             </div>
         </article>
-        
-        <article class="quote">
-            <h2>"cita"</h2>
 
-        </article>
+        <div class="divisor div3"></div>
         
         <article class="comunidad-top100">
             <div class="titulo">
@@ -309,33 +344,62 @@
             </div>
             
             <section class="galeria-comunidad">
-                
-                <div class="card gradient redondeado sombra">
-                    <h4>Cientos de alumntos contentos</h4>
-                    <p class="bajada-reg">+200 reseñas positivas</p>
+                <div class="border sombra">
+                    <div class="card redondeado sombra">
+                        <h4>Cientos de alumntos contentos</h4>
+                        <p class="bajada-reg">+200 reseñas positivas</p>
+                    </div>
                 </div>
                 <div class="comunidad-cita card redondeado sombra">
-                    <img src="" alt="">
+                    <figure>
+                        <img class="" src="imagenes/talleres-top100-comunidad2.jpeg" alt="">
+                    </figure>
                     <p>“Tuve años de trabajo para cerrar el contrato de mi vida, el curso top 100 me ayudo a dar el paso final”</p>
                     <p class="caption">Leo Fernandez cumplio su objetivo</p>
                 </div>
                 <div class="comunidad-cita card redondeado sombra">
-                    <img src="" alt="">
+                    <figure>
+                        <img class="fitheight" src="imagenes/talleres-top100-comunidad1.jpeg" alt="">
+                    </figure>
                     <p>“Supero mis expectativas, los profes son super especializados y me ayudaron a romper todos mis records personales”</p>
                     <p class="caption">Sara Toledo participo en el Top 100</p>
                 </div>
-                <div class="card gradient redondeado sombra">
-                    <p class="bajada-reg">+1k posteos con nuestro hashtag</p>
-                    <h4>Forma parte de #SendaZen</h4>
+                <div class="border sombra">
+                    <div class="card redondeado">
+                        <p class="bajada-reg">+1k posteos con nuestro hashtag</p>
+                        <h4>Forma parte de #SendaZen</h4>
+                    </div>
                 </div>
 
             </section>
-        </article>
-        
-        <article class="Regalo-promo">
-            <h2>regala el curso</h2>
+
+            <div class="divisor"></div>
+
+            <section class="promo-bigbox maxwidth">
+                <div class="titulo">
+                    <h2>Regalá este curso con BigBox
+                    </h2>
+                    <p class="bajada-reg">¡Regalá experiencias originales!</p>
+                </div>
+                <figure class="sombra redondeado">
+                    <img class="fitwidth" src="imagenes/talleres-top100-bigbox.jpg" alt="">
+                </figure>
+
+                <div class="detalles">
+                    <p>Para esa persona que queres, regalale un cambio definitivo por su bienestar, desde hoy y para siempre</p>
+                    <a class="cta">Regala esta experiencia</a>
+                </div>
+
+                <div class="ctaycaption">
+                    <p class="caption">Tenes un codigo de BigBox?</p>
+                    <a class="cta-sec">Descubrí si lo podes cambiar por este curso</a>
+                </div>
+            </section>
 
         </article>
+
+        
+        <div class="divisor div5"></div>
         
         <article class="faqs top100">
             <div class="maxwidth">
@@ -395,14 +459,8 @@
     #### FOOTER ####
     #############-->
     <footer>
-
-        <div >
-
-
-
-        </div>
         <article class="empresa">
-            <img class="logo-footer" src="imagenes/logo.svg" alt="">
+            <img class="logo-footer" src="imagenes/sendazen-logo.svg" alt="">
         <ul>
             <li>
                 <h6>SendaZen S.A.</h6>
@@ -411,7 +469,7 @@
             </li>
             <li class="afip">
                 <a href=https://servicios1.afip.gov.ar/clavefiscal/qr/response.aspx?qr=o84py5zN84wQoaE8N8FcZw>
-                    <img src="imagenes/logoDataFiscal.jpg" alt="">
+                    <img src="imagenes/sendazen-DataFiscal.jpg" alt="">
                 </A>
             </li>
         </ul>  
@@ -482,7 +540,7 @@
     </footer>
 </body>
     <script>
-        CountDownTimer('07/11/2024 10:1 AM', 'newcountdown');
+        CountDownTimer('07/18/2024 10:1 AM', 'newcountdown');
 
         function CountDownTimer(dt, id)
         {
