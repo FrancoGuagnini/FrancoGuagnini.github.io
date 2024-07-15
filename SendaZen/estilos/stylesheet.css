@@ -2385,13 +2385,14 @@ footer::before{
 
     /* ==============CURSO=================== */
     /* HERO TOP 100 */
-    .hero.top100 section > div{
+    .hero.top100{
         background-image: url(../imagenes/talleres-top100-hero.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
 
-
+    }
+    .hero.top100 section > div{
 
         max-width: var(--tamaño-max);
         margin-inline: auto;
