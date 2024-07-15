@@ -306,7 +306,7 @@ main{
 
 /*==================== HEADER ====================*/
 header{
-    background-image: linear-gradient(#e1e9eb 20%, transparent );
+    /* background-image: linear-gradient(#e1e9eb 20%, transparent ); */
     position: fixed;
     top: 0;
     z-index: 100;
@@ -315,7 +315,7 @@ header{
     min-height: 4rem;
 }
 header.solidheader, #header.top100 {
-    background-image: linear-gradient(#d9ffeb 20%, #d9ffeb );
+    background-image: linear-gradient(#f4fff9  20%, #f4fff9  );
     box-shadow: 0px 0px 10px #1a1a1a35;
 }
 .botonera{
@@ -323,7 +323,7 @@ header.solidheader, #header.top100 {
     position: relative;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 2rem;
 
     z-index: 100;
 }
@@ -558,7 +558,7 @@ footer::before{
 
 /* ================== HOME ================== */
 .hero.home{
-    background-image: url(../imagenes/home-hero2.jpg) ;
+    background-image: url(../imagenes/home-hero-mobile.png) ;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -587,12 +587,13 @@ footer::before{
     align-items: center;
 }
 .hero.home img{
-    max-width: 2.5rem;
+    max-width: 3rem;
     align-self: center;
     justify-self: center;
 }
 .hero.home p{
     max-width: 25ch;
+    padding-bottom: 2rem;
 }
 .hero.home a{
     grid-column-start: 2;
@@ -1028,7 +1029,7 @@ footer::before{
 /* COMUNIDAD */
 .comunidad{
     display: grid;
-    grid-template-rows: 40vh 1fr;
+    grid-template-rows: 50vh 1fr;
     padding: 0;
     /* background-image: url(../imagenes/AdobeStock_373694965.jpeg);
     background-size: cover;
@@ -1038,9 +1039,9 @@ footer::before{
     background-color: var(--fondo-menor-c);
 }
 .comunidad .fondo{
-    background-image: url(../imagenes/home-comunidad-banner.jpeg);
+    background-image: url(../imagenes/home-comunidad-banner.png);
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     background-repeat: no-repeat;
 }
 .comunidad .maxwidth{
@@ -1251,9 +1252,9 @@ footer::before{
 
 /* ================== TALLER TOP 100 ================== */
 .hero.top100{
-    background-image: url(../imagenes/talleres-top100-hero.jpeg);
+    background-image: url(../imagenes/talleres-top100-hero.jpg);
     background-size: cover;
-    background-position: center bottom;
+    background-position: -65rem bottom;
     background-repeat: no-repeat;
 
     padding: 0;
@@ -1510,7 +1511,7 @@ footer::before{
     gap: 0rem;
 }
 .financiamiento-banner{
-    background-image: url(../imagenes/talleres-top100-financiamiento.jpeg);
+    background-image: url(../imagenes/talleres-top100-financiamiento.jpg);
     background-size: cover;
     padding: 0;
     display: flex;
@@ -1520,7 +1521,6 @@ footer::before{
     background-image: linear-gradient(180deg, var(--fondo), transparent 50%);
     height: 100%;
     width: 100%;
-    max-width: calc(var(--tamaño-max) * 0.5  - 2rem ) ;
     padding: 1.5rem;
 }
 .detalles-financiamiento{
@@ -2107,7 +2107,7 @@ footer::before{
     /* ================== HOME ================== */
     /* HERO */
     .hero.home{
-        background-image: url(../imagenes/home-hero-desk.jpg) ;
+        background-image: url(../imagenes/home-hero.png) ;
         padding: 0;
         padding-top: 6rem;
         background-position: center;
@@ -2171,7 +2171,7 @@ footer::before{
     .instalaciones {
     }
     .instalaciones .maxwidth{
-        grid-template-columns: 1fr auto;
+        grid-template-columns: .6fr .4fr;
         grid-template-rows: min-content 1fr;
         gap: 3rem 4rem;
     }
@@ -2182,7 +2182,7 @@ footer::before{
         grid-column: span 1;
         order: initial;
     }
-    .titulo{
+    .instalaciones .titulo{
         grid-column: span 1;
         padding-bottom: 0;
     }
@@ -2386,7 +2386,13 @@ footer::before{
     /* ==============CURSO=================== */
     /* HERO TOP 100 */
     .hero.top100 section > div{
-    
+        background-image: url(../imagenes/talleres-top100-hero.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+
+
         max-width: var(--tamaño-max);
         margin-inline: auto;
     
@@ -2522,6 +2528,7 @@ footer::before{
         max-width: 100%;
         padding: 0;
         padding-left: calc(100vw  * 0.5 - var(--tamaño-max)  * 0.5 );
+        background-image: linear-gradient(180deg, var(--fondo), transparent 40%);
     }
     .financiamiento-banner div *{
         padding-left: 2rem
@@ -2696,6 +2703,9 @@ footer::before{
     }
     .galeria-comunidad{
         max-width: 50vw;
+    }
+    .galeria-comunidad .comunidad-cita {
+        gap: 1rem;
     }
     .comunidad-cita{
         padding: 0;
