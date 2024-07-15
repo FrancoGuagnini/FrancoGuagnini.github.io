@@ -987,7 +987,6 @@ footer::before{
     align-items: center;
     text-align: center;
 
-    height: 13rem;
     min-width: calc(100vw - 4rem - 2rem);
     padding: 1.5rem;
 }
@@ -997,8 +996,9 @@ footer::before{
     height: 2rem;
     width: 2rem;
 }
-.reviews section p{
+.reviews section > p{
     flex-grow: 1;
+    padding-bottom: 2rem;
 }
 .reviews section div{
     display: flex;
@@ -1051,6 +1051,7 @@ footer::before{
 
     height: 100%;
     padding: 1.5rem;
+    min-height: 18rem;
 }
 .comunidad .bajada-big{
     max-width: 18ch;
@@ -1074,7 +1075,7 @@ footer::before{
     gap: .5rem;
 }
 .redes-comunidad li{
-    background-color: var(--contraste-menor-c);
+    background-color: var(--complementario);
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
