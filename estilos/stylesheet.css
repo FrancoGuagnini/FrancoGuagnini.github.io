@@ -23,8 +23,8 @@
 @media (prefers-color-scheme: light) {
     :root{
         /* COLORES */
-        --prinicpal: #73ffbc;
-        --analogo: #abf9ff;
+        --principal: #bff72f;
+        --analogo: #7AB800;
 
         --compgra: #ffcbba;
         --compgra-sec: #fff0b8;
@@ -33,7 +33,7 @@
         --complementario: #27ba29;
         --complementario-c: #1f9f21;
 
-        --fondo: #f2f2f2;
+        --fondo: #f8ffe7;
         --fondo-menor-c: #f0ede6;
 
         --contraste: #09111b;
@@ -53,8 +53,8 @@
     :root{
         
         /* COLORES */
-        --prinicpal: #73ffbc;
-        --analogo: #abf9ff;
+        --principal: #bff72f;
+        --analogo: #99d400;
 
         --compgra: #383838;
         --compgra-sec: #363636;
@@ -62,7 +62,7 @@
         --complementario: #6af26d;
         --complementario-c: #27ba29;
 
-        --fondo: #09111b;
+        --fondo: #06010b;
         --fondo-menor-c: #384e63;
 
         --contraste: #f2f2f2 ;
@@ -179,8 +179,8 @@ h4{
     font-size: clamp(4rem, 35vw, 4rem);
     line-height: clamp(4rem, 35vw, 4rem);
     color: transparent;
-    -webkit-text-stroke: 1px white;
-    opacity: 5%;
+    -webkit-text-stroke: 1px var(--transparente-contraste);
+    /* opacity: 5%; */
     height: clamp(4rem, 35vw, 4rem);
     hyphenate-character: '';
 }
@@ -216,8 +216,8 @@ article{
 
 .cta{
     font-family: var(--fuentetitulos);
-    color: var(--fondo) !important;
-    background-color: var(--contraste);
+    color: var(--contraste-menor-c) !important;
+    background-color: var(--principal);
 
     font-weight: var(--pesobold);
 
@@ -235,25 +235,39 @@ article{
     position: relative;
 }
 .cta:hover{
-    background-color: var(--contraste-menor-c) !important;
+    color: var(--contraste) !important;
 }
 .cta-sec{
     font-family: var(--fuentetitulos);
-    color: var(--contraste);
+    color: var(--contraste-menor-c);
     font-weight: var(--pesobold);
     width: fit-content;
     transition: 400ms;
 
     padding: .25rem .75rem;
     border-radius: 10rem ;
-    border: solid 1px var(--contraste);
+    border: solid 2px var(--principal);
 
     display: flex;
     align-items: center;
 }
 .cta-sec:hover{
-    color: var(--contraste-menor-c);
-    border: solid 1px var(--contraste-menor-c);
+    color: var(--contraste);
+    border: solid 2px var(--analogo);
+}
+@media (prefers-color-scheme: dark) {
+    .cta{
+        color: var(--fondo) !important;
+    }
+    .cta:hover{
+        color: var(--fondo-menor-c) !important;
+    }
+    .cta-sec{
+        color: var(--contraste);
+    }
+    .cta-sec:hover{
+        color: var(--contraste-menor-c);
+    }
 }
 .inactivo{
     cursor: default;
@@ -294,7 +308,7 @@ article{
     border-radius: var(--default-radio);
 }
 .gradient{
-    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-image: linear-gradient(45deg, var(--principal), var(--analogo));
 }
 .flexgrow{
     flex-grow: 1;
@@ -516,7 +530,6 @@ header nav ul{
 }
 .navegacion a, .navegacion button{
     text-align: inherit;
-    background: none;
     border: none;
     font-size: 2rem;
     line-height: 2rem;
@@ -528,13 +541,13 @@ header nav ul{
     display: none;
 }
 .pag-act a{
-    background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo));
+    background-image: linear-gradient(45deg, var(--principal), var(--principal));
     background-position: bottom;
     background-size: 100% 2px;
     background-repeat: no-repeat;
     transition: 300ms;
     font-weight: var(--pesoreg);
-    /* text-decoration: underline solid 3px var(--prinicpal); */
+    /* text-decoration: underline solid 3px var(--principal); */
 }
 .pag-act a{
     /* text-shadow: 0 0 .02px var(--fondo), 0 0 .02px var(--fondo); */
@@ -550,7 +563,7 @@ header nav ul a:hover{
     border-radius: 4px;
 }
 .navegacion .contacto a{
-    color: var(--prinicpal);
+    color: var(--principal);
     font-weight: var(--pesobold);
 }
 
@@ -685,17 +698,8 @@ footer::before{
 
 
 /* ================== HOME ================== */
-@media (prefers-color-scheme: light) {
-    :root{
-        --bghome: url(../imagenes/fondopatronclaro.png) ;
-    }
-  }
-@media (prefers-color-scheme: dark) {
-:root{
-    --bghome: url(../imagenes/fondopatronosc.png) ;
-}}
 .hero.home{
-    background-image: var(--bghome);
+    /* background-image: url(../imagenes/fondopatronclaro.png) ; */
     background-position: center;
     background-size: auto 100%;
     background-repeat: repeat;
@@ -703,8 +707,14 @@ footer::before{
     gap: 1rem;
     padding-inline: var(--padding-lados);
     padding-top: 6rem;
+    height: 90dvh;
     
     padding-bottom: 0   ;
+}
+@media (prefers-color-scheme: dark) {
+    .hero.home{
+        /* background-image: url(../imagenes/fondopatronosc.png); */
+    }
 }
 
 .hero.home section{
@@ -741,21 +751,17 @@ footer::before{
     grid-column-start: 2;
     grid-column-end: 3;
 }
-.hero.home canvas{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+
+.fondo-trabajos{
+    height: 40vh;
+    background-image: url(/imagenes/Asset\ 3.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    opacity: 20%;
+    filter: saturate(0);
 }
-
-
-
-
-
-
-
 
 
 
@@ -970,7 +976,7 @@ footer::before{
     gap: .5rem;
 }
 .formacion .maxwidth > figure{
-    opacity: 5%;
+    /* opacity: 5%; */
     grid-area: 4 / 1 / 5 / 2;
     align-items: flex-end;
 }
@@ -1013,8 +1019,8 @@ footer::before{
     font-size: clamp(4rem, 35vw, 8rem);
     line-height: clamp(4rem, 35vw, 8rem);
     color: transparent;
-    -webkit-text-stroke: 2px white;
-    opacity: 5%;
+    -webkit-text-stroke: 2px var(--transparente-contraste);
+    /* opacity: 5%; */
     position: absolute;
     top: -2rem;
     height: clamp(4rem, 35vw, 8rem);
@@ -1059,6 +1065,7 @@ footer::before{
     background-color: var(--transparente);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    transition: .3s;
 
     padding: 1rem;
     position: absolute;
@@ -1110,7 +1117,6 @@ footer::before{
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    mix-blend-mode: luminosity;
 
     display: flex;
     flex-wrap: wrap;
@@ -1127,9 +1133,8 @@ footer::before{
 }
 .cita-home figure{
     position: absolute;
-    background-color: var(--fondo);
 
-    opacity: 60%;
+    opacity: 100%;
     top: 0;
     left: 0;
     width: 100%;
@@ -1137,10 +1142,14 @@ footer::before{
     z-index: 1;
 }
 .cita-home .txtshdw{
-    text-shadow: 0px 0px 10px var(--transparente);
+    /* text-shadow: 0px 0px 10px var(--transparente); */
 }
 .cita-home h2{
     text-align: left;
+    
+    mix-blend-mode: exclusion;
+    color: #ffffff;
+    filter:saturate(0)
 }
 .cita-home p{
     align-content: flex-end;
@@ -1240,8 +1249,8 @@ footer::before{
     font-size: clamp(4rem, 35vw, 6rem);
     line-height: clamp(4rem, 35vw, 6rem);
     color: transparent;
-    -webkit-text-stroke: 2px white;
-    opacity: 5%;
+    -webkit-text-stroke: 2px var(--transparente-contraste);
+    /* opacity: 5%; */
     position: absolute;
     top: -2rem;
     height: clamp(4rem, 35vw, 8rem);
@@ -1820,7 +1829,7 @@ footer::before{
     width: 100%;
     /* background-color: #fafafa3d; */
 
-    /* background-image: linear-gradient(45deg, var(--prinicpal), var(--analogo)); */
+    /* background-image: linear-gradient(45deg, var(--principal), var(--analogo)); */
 }
 .talleres-cards .maxwidth{
     display: grid;
@@ -3197,6 +3206,8 @@ footer::before{
     }
     .formacion .maxwidth > figure{
         opacity: 5%;
+        
+    mix-blend-mode: difference;
         grid-area: 2 / 1 / 4 / 2;
         align-items: flex-end;
         max-width: 25vw ;
@@ -4089,7 +4100,8 @@ footer::before{
     }
     .hero.proyecto .banner{
         padding-top: 6rem;
-        background-image: url(../imagenes/Renders_Polaris_Serverroom-UPS-monofasicasGM2.png);
+        background-image: url(../imagenes/Renders_Polaris_Serverroom-UPS-monofasicasGM2.jpg);
+        background-image: url(../imagenes/Portfolio-mockup_Powersa-celus-169-512-cc.jpg );
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
