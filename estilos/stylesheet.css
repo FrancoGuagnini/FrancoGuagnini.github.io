@@ -10,7 +10,7 @@
     font-size: 1rem;
     line-height: 1.25rem;
     font-weight: var(--pesoreg);
-    
+
     hyphens: auto;
     text-wrap: balance;
 }
@@ -51,7 +51,7 @@
   }
 @media (prefers-color-scheme: dark) {
     :root{
-        
+
         /* COLORES */
         --principal: #bff72f;
         --analogo: #99d400;
@@ -126,8 +126,8 @@ img{
 h1, h1 *{
     font-family: var(--fuentetitulos);
     font-weight: var(--pesobold);
-    font-size: 2.5rem;
-    line-height: 2.5rem;
+    font-size: 3rem;
+    line-height: 3rem;
     max-width: 12ch;
     hyphens: none;
     /* text-transform: uppercase; */
@@ -291,7 +291,7 @@ article{
     position: relative;
 } */
 .ctaycaption{
-    
+
     align-self: auto;
     display: grid;
     gap: .25rem;
@@ -481,7 +481,7 @@ header .logo-navbar img{
     transition: background-position .4s steps(11, end);
     background-color: transparent;
     border: none;
-    
+
     filter: brightness(10);
 }
 @media (prefers-color-scheme:dark) {
@@ -703,24 +703,34 @@ footer::before{
     background-repeat: repeat;
     display: grid;
     gap: 1rem;
-    padding-inline: var(--padding-lados);
     padding-top: 6rem;
-    
+
+    padding-inline: 0;
     padding-bottom: 0   ;
+
+    display: grid;
+    grid-template-rows: min-content 1fr 1fr 7fr;
 }
 @media (prefers-color-scheme: dark) {
     .hero.home{
         /* background-image: url(../imagenes/fondopatronosc.png); */
     }
 }
+.hero.home figure{
+    grid-area: 3 / 1 / 5 / 2;
 
+}
 .hero.home section{
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    max-width: auto;
-    border-radius: var(--default-radio);
+    display: contents;
+}
+.hero.home h1{
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    line-height: clamp(2.5rem, 11vw, 3.5rem);
+}
+.hero.home h1, .hero.home .bajada-big{
+
+    padding-inline: var(--padding-lados);
+    max-width: none;
 }
 .hero.home > :nth-child(2){
     /* background-image: linear-gradient(transparent, var(--fondo) );
@@ -731,31 +741,47 @@ footer::before{
     justify-content: center;
     align-items: center; */
 }
+.hero.home figure::before{
+    content: "";
+    display:;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(transparent 65%, var(--fondo)95%);
+}
 .hero.home figure{
     align-items: flex-end;
+    position: relative;
 }
 .hero.home img{
     max-height: 100%;
     width: auto;
+    max-width: none;
+    margin-bottom: 2px;
+}
+.img-traslucida{
+    opacity: 20%;
 }
 .hero.home .bajada-big{
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    max-width: 25ch;
-    padding-bottom: 2rem;
+    grid-area: 2 / 1 / 4 / 2;
 }
 .hero.home a{
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-area: 3 / 1 / 5 / 2;
+    height: min-content;
+    z-index: 10;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin: var(--padding-lados);
 }
 
 .fondo-trabajos{
-    height: 40vh;
+    height: 60vh;
     background-image: url(/imagenes/Asset\ 3.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
 
+    /* margin-top: var(--espacio-sect); */
     opacity: 20%;
     filter: saturate(0);
 }
@@ -811,7 +837,7 @@ footer::before{
     background-image: url(../imagenes/figurebg_1.png);
     background-size: 100% 100%;
     background-position: center center;
-    
+
     align-content: flex-end;
     min-width: 40%;
     aspect-ratio: 1;
@@ -876,8 +902,8 @@ footer::before{
     opacity: 50%;
 }
 .formacion .habilidades{
-    grid-area: 4 / 1 / 5 / 2;    
-    
+    grid-area: 4 / 1 / 5 / 2;
+
     display: grid;
     gap: 1.5rem;
     /* padding-block: 2rem; */
@@ -954,7 +980,7 @@ footer::before{
 }
 .formacion .ctaycaption{
     padding: 1rem;
-    border: solid 3px var(--transparente-contraste); 
+    border: solid 3px var(--transparente-contraste);
 }
 .formacion .habilidades .desplegable{
     padding-bottom: 0;
@@ -1051,7 +1077,7 @@ footer::before{
     scroll-snap-type: x;
 }
 .trabajos-dest-pics figure{
-    
+
     scroll-snap-align: center;
     aspect-ratio: 9/16;
     min-width: calc(100vw - 2rem - 2rem);
@@ -1143,7 +1169,7 @@ footer::before{
 }
 .cita-home h2{
     text-align: left;
-    
+
     mix-blend-mode: exclusion;
     color: #ffffff;
     filter:saturate(0)
@@ -1203,7 +1229,7 @@ footer::before{
     gap: 1rem;
     position: relative;
 
-    
+
     /* padding: 1rem;
     border: solid 2px var(--transparente-contraste); */
 }
@@ -1211,7 +1237,7 @@ footer::before{
     text-align: right;
     font-size: clamp(4rem, 35vw, 8rem);
     line-height: clamp(3rem, 30vw, 6rem);
-    
+
     font-weight: var(--pesobold);
     color: var(--transparente-contraste);
     /* -webkit-text-stroke: 1px var(--contraste); */
@@ -1300,12 +1326,12 @@ footer::before{
 
     text-align: inherit;
     background: none;
-        
+
         border: solid 2px var(--transparente-contraste);
-    
+
     backdrop-filter: blur(4px);
     padding-block: 1.5rem;
-    
+
     scroll-snap-align: center;
     min-width: calc(100vw - 2rem - 2rem);
     position: relative;
@@ -1366,14 +1392,14 @@ footer::before{
     gap: 1rem;
     flex-direction: column;
     align-items: center;
-    
-    
+
+
     max-height: 100%;
     transition: .4s;
 }
 .tarifas-acordion.active > .bajada-reg{
     max-height: min-content;
-    
+
     gap: .5rem;
     font-size: 1.25rem;
     line-height: 1.25rem;
@@ -1386,10 +1412,10 @@ footer::before{
     font-weight: var(--pesolight);
     width: fit-content;
     animation: .4s;
-    
 
 
-    
+
+
     color: var(--contraste-menor-c);
 
     padding: .25rem;
@@ -1487,7 +1513,7 @@ footer::before{
     color: var(--fondo);
     padding: .5rem;
     background-color: var(--contraste);
-    mix-blend-mode: exclusion;  
+    mix-blend-mode: exclusion;
     opacity: 100%;
 }
 .tarifas section form{
@@ -2563,7 +2589,7 @@ footer::before{
     top: 3rem;
 }
 .detalles-curso .maxwidth > h2{
-    
+
     grid-area: 1 / 1 / 2 / 2;
     position: absolute;
     top: 1rem;
@@ -2645,7 +2671,7 @@ footer::before{
     aspect-ratio: 1/1;
 }
 .modulo *{
-    
+
     transition: .4s;
 }
 .modulo{
@@ -2660,7 +2686,7 @@ footer::before{
     backdrop-filter: blur(2px);
 }
 .modulo:hover{
-    
+
     grid-template-rows: repeat(2, min-content) 1fr .25fr .20fr;
 }
 .modulo figure{
@@ -2682,7 +2708,7 @@ footer::before{
     transition: .4s;
 }
 .modulo:hover .detalle-proyecto{
-    
+
     max-height: 100%;
     padding-bottom: 2rem;
 }
@@ -2709,7 +2735,7 @@ footer::before{
     display: flex;
     gap: .5rem;
     border-radius: 10rem;
-    
+
     height: min-content;
     width: min-content;
     text-wrap: nowrap;
@@ -3138,6 +3164,19 @@ footer::before{
     }
 
 
+
+    .fondo-trabajos{
+        height: 40vh;
+        background-image: url(/imagenes/Asset\ 3.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+
+        opacity: 20%;
+        filter: saturate(0);
+    }
+
+
     /* SOBREMI */
     .sobremi .maxwidth{
         display: grid;
@@ -3208,12 +3247,12 @@ footer::before{
     .formacion .habilidades .desplegable{
         padding-bottom: 0;
         border-bottom: none;
-        
+
         grid-template-columns: .4fr .6fr;
     }
-    
 
-    
+
+
     .detalles-formacion{
     }
     .detalles-formacion > *::before{
@@ -3223,7 +3262,7 @@ footer::before{
     .detalles-formacion mark{
         display: initial;
     }
-   
+
     .formacion .texto-formacion{
         grid-area: 2 / 1 / 3 / 2;
     }
@@ -3232,7 +3271,7 @@ footer::before{
     }
     .formacion .maxwidth > figure{
         opacity: 5%;
-        
+
     mix-blend-mode: difference;
         grid-area: 2 / 1 / 4 / 2;
         align-items: flex-end;
@@ -3255,7 +3294,7 @@ footer::before{
     .formacion .ctaycaption{
         order: initial;
     }
-    
+
 
     /* PROYECTOS */
     .trabajos-dest{
@@ -3391,7 +3430,7 @@ footer::before{
         max-width: 45ch;
     }
 
-    
+
     /* TARIFAS */
     .tarifas-acordion{
         /* aspect-ratio: 4/5; */
@@ -3673,7 +3712,7 @@ footer::before{
     }
 
     /* CITA */
-    
+
 
 
     /* COACHES */
@@ -4042,7 +4081,7 @@ footer::before{
         z-index: 4;
         mix-blend-mode: color;
     }
-    
+
 
 
     .comunidad-top100{
@@ -4104,7 +4143,7 @@ footer::before{
 
 
 
-    
+
 
 
 
