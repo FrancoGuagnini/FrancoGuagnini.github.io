@@ -1060,6 +1060,7 @@ footer::before{
 }
 .trabajos-dest-cards .cta{
     align-self: flex-end;
+    z-index: 1;
 }
 .trabajos-dest-cards .trabajos-dest-pics{
     padding-top: 2rem;
@@ -2340,17 +2341,41 @@ footer::before{
 }
 .beneficios-cards .card{
     min-width: min-content;
+    background-color: transparent;
+    border: 2px solid var(--transparente-contraste);
 
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem 2rem;
 }
-.beneficios-cards .card p{
+.beneficios-cards .card h3{
+    grid-area: 1 / 1 / 2 / 3;
+    align-self: flex-end;
+}
+.beneficios-cards .card :last-child{
     grid-column: span 2;
 }
-.beneficios-cards .card img{
-    width: 4rem;
-    height: 4rem;
+.beneficios-cards .card :last-child b{
+    font-family: var(--fuentetitulos);
+    font-weight: var(--pesobold);
+}
+.beneficios-cards .card .icono{
+    font-family: var(--fuentetitulos);
+    font-weight: var(--pesobold);
+    justify-self: flex-end;
+
+    
+    font-size: clamp(4rem, 35vw, 8rem);
+    line-height: clamp(4rem, 25vw, 6rem);
+    grid-area: 1 / 1 / 2 / 3;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--transparente-contraste);
+}
+.beneficios-cards .card img::after{
+    content: "😂";
+    display: block;
+    font-size: 3rem;
+    line-height: 4rem;
 }
 .beneficios .cta-sec{
     text-align: right;
@@ -2739,9 +2764,12 @@ footer::before{
     background-color: white;
 }
 .cont-dest .pill{
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+
     font-weight: var(--pesoreg);
-    padding: .25rem 1rem;
-    border: 2px solid var(--contraste-menor-c);
+    padding: .25rem .5rem .25rem;
+    border: 1px solid var(--contraste-menor-c);
     display: flex;
     gap: .5rem;
     border-radius: 10rem;
@@ -2752,7 +2780,7 @@ footer::before{
 }
 .cont-dest figure{
     height: auto !important;
-    width: 2rem !important;
+    width: 1.5rem !important;
 }
 .pill.dest{
     border: none;
@@ -2767,7 +2795,7 @@ footer::before{
     z-index: 10;
 }
 .filtro button{
-    background-color: var(--transparente-contraste) ;
+    background-color: var(--fondo);
     cursor: pointer;
 
     color: var(--contraste);
@@ -3968,7 +3996,7 @@ footer::before{
         width: 30%;
         min-width: 18rem;
     }
-
+    
 
 
 
@@ -4326,6 +4354,16 @@ footer::before{
         display: flex;
         flex-wrap: wrap;
         gap: .5rem;
+    }
+    .cont-dest .pill{
+        font-size: 1rem;
+        line-height: 1rem;
+        padding: .35rem 1rem .25rem;
+        border: 2px solid var(--contraste-menor-c);
+    }
+    .cont-dest figure{
+        height: auto !important;
+        width: 2rem !important;
     }
     .detalles-proyecto .subproy .detalle{
         max-width: 80%
