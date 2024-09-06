@@ -33,10 +33,10 @@
         --complementario-c: #1f9f21;
 
         --fondo: #fefffc;
-        --fondo-menor-c: #f0ede6;
+        --fondo-menor-c: hsl(42, 25%, 92%);
 
         --contraste: #09111b;
-        --contraste-menor-c: #384e63;
+        --contraste-menor-c: #3f4041;
         --transparente: #ffffff60;
         --transparente-contraste: #1a212a1d;
 
@@ -62,7 +62,7 @@
         --complementario-c: #27ba29;
 
         --fondo: #010001;
-        --fondo-menor-c: #384e63;
+        --fondo-menor-c: #0a0e12;
 
         --contraste: #f2f2f2 ;
         --contraste-menor-c: #959595;
@@ -127,7 +127,6 @@ h1, h1 *{
     font-weight: var(--pesobold);
     font-size: 3rem;
     line-height: 3rem;
-    max-width: 12ch;
     hyphens: none;
     /* text-transform: uppercase; */
 }
@@ -136,7 +135,6 @@ h2{
     font-weight: var(--pesobold);
     font-size:  2.5rem;
     line-height: 2.5rem;
-    max-width: 12ch;
     /* text-transform: uppercase; */
 }
 h3{
@@ -407,7 +405,6 @@ body{
 main{
     background-color: var(--fondo);
     color: var(--contraste);
-    min-height: 200vh;
 }
 
 
@@ -573,109 +570,67 @@ header nav ul a:hover{
 
 /* ================== FOOTER ================== */
 footer{
-    display: flex;
-    flex-direction: column;
+    display: grid;
 
-    background-color: #0a0e12;
+    background-color: var(--fondo-menor-c);
 
     padding: 2rem 2rem 1.5rem;
-    gap: 4rem 1rem;
+    gap: 6rem 1rem;
     padding-block: 4rem;
 }
 footer article{
     padding: 0;
+    margin: 0;
 }
 footer *{
     color: var(--contraste-menor-c) !important;
-    font-size: .75rem;
 }
-footer h6{
-    font-size: .9rem;
+footer h4{
+    font-size: 1.15rem;
+    line-height: 1.5rem;
 }
-.logo-footer{
-    display: none;
-}
-.empresa{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    order: 3;
-}
-.empresa ul{
-    display: flex;
-    gap: 5vw;
-}
-.afip{
-    height: auto;
-    width: 50%;
-    max-width: 2.5rem;
-}
-.contacto-footer{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-.casillero {
-    flex-grow: 1;
-}
-footer::before{
-    content: url(../imagenes/sendazen-logo.svg);
-    width: 100%;
-    max-width: 15rem;
-    margin: auto;
-}
-.contacto-footer input{
-    width: 100%;
-    color: var(--fondo);
-    background-color: var(--contraste-menor-c);
-
-    padding: .25rem .75rem;
-    border-radius: 10rem;
-}
-.newsletter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: .5rem 1rem ;
-}
-.newsletter .cta{
-    font-size: .75rem;
-}
-.newsletter h6{
-    width: 100%;
-    text-align: center;
-}
-.redes{
-    font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.empresa, .contacto-footer, .redes, .navegacion-footer{
+    display: grid;
     gap: 1rem;
 }
-.redes p{
-    width: fit-content;
+.contacto-footer a{
+    font-family: var(--fuentetitulos);
+    font-weight: var(--pesobold);
+}
+.contacto-footer ul{
+    display: grid;
+    gap: .5rem;
+}
+.redes ul{
+    display: flex;
+    gap: 1rem;
 }
 .redes a{
     display: block;
-    background-color: var(--fondo);
     height: 1.5rem;
     width: 1.5rem;
+
+    
+    opacity: 50%;
+    mix-blend-mode: exclusion;
 }
-.navegacion-footer{
+.redes .inactivo{
+    opacity: 25%;
 }
 .navegacion-footer a{
     text-decoration:underline;
 }
-
+footer .linea{
+    height: 1px;
+    background-color: var(--contraste-menor-c);
+}
 .legales{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1.5rem;
-
-    order: 4;
+    
+    order: 5;
 }
 .legales *{
     font-size: .75rem;
@@ -1087,8 +1042,6 @@ footer::before{
     align-items: flex-end;
 }
 .trabajos-dest-pics figure figcaption{
-    height: 40%;
-
     background-color: var(--transparente);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -1098,7 +1051,15 @@ footer::before{
     position: absolute;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
-    gap: 1rem;
+    gap: .5rem;
+}
+.trabajos-dest-pics figure figcaption h3{
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+}
+.trabajos-dest-pics figure figcaption p{
+    max-height: 5rem;
+    overflow: auto;
 }
 .trabajos-dest-pics > :first-child{
     margin-left: 1rem;
@@ -1164,7 +1125,7 @@ footer::before{
     background-color: white;
     mix-blend-mode: saturation;
 
-    opacity: 100%;
+    opacity: 0;
     top: 0;
     left: 0;
     width: 100%;
@@ -2359,7 +2320,6 @@ footer::before{
 }
 .beneficios-cards .card h3{
     grid-area: 1 / 1 / 2 / 3;
-    align-self: flex-end;
 }
 .beneficios-cards .card :last-child{
     grid-column: span 2;
@@ -2374,8 +2334,8 @@ footer::before{
     justify-self: flex-end;
 
     
-    font-size: clamp(4rem, 35vw, 8rem);
-    line-height: clamp(4rem, 25vw, 6rem);
+    font-size: clamp(4rem, 20vw, 6rem);
+    line-height: clamp(4rem, 20vw, 5rem);
     grid-area: 1 / 1 / 2 / 3;
     color: transparent;
     -webkit-text-stroke: 2px var(--transparente-contraste);
@@ -2956,6 +2916,139 @@ footer::before{
 
 
 
+ /* --------------------- CONTACTO----------------------- */
+ .main-contacto{
+    background-color: transparent;
+ }
+ .hero.contacto{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    gap: 2rem 6rem;
+    padding-top:6rem;
+    position: relative;
+}
+.hero.contacto h1{
+    max-width: none;
+}
+.hero.contacto h1::before{
+    font-family: var(--fuentetitulos);
+    font-weight: var(--pesobold);
+    font-size: clamp(4rem, 35vw, 8rem);
+    line-height: clamp(4rem, 35vw, 8rem);
+    color: transparent;
+    -webkit-text-stroke: 2px var(--transparente-contraste);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: clamp(4rem, 35vw, 8rem);
+    hyphenate-character: '';
+
+    content: "\2193";
+    grid-area: 1/1/2/2;
+}
+.hero.contacto figure{
+    position: fixed;
+    bottom: 0;
+    position: 50%;
+    opacity: 5%;
+    z-index: -1;
+
+    align-items: flex-end;
+    max-height: 100%;
+    justify-content: flex-end;
+}
+.hero.contacto figure img{
+    max-height: 100%;
+    width: auto;
+}
+
+
+.hero.contacto section{
+    display: grid;
+    gap: 2rem;
+    height: min-content;
+    align-self: flex-end;
+    z-index: 2;
+}
+.hero.contacto section .bajada-big{
+    position: relative;
+    grid-area: 1/1/2/2;
+    padding-block: 1rem;
+    width: fit-content;
+}
+
+.hero.contacto section .texto{
+    grid-area: 1/1/2/2;
+    align-self: flex-end;
+    justify-self: flex-end;
+    color: var(--contraste);
+    z-index: -2;
+}
+.hero.contacto section .texto mark{
+    color: var(--contraste);
+    padding: .5rem;
+    background-color: var(--fondo);
+    opacity: 100%;
+    justify-self: flex-end;
+}
+.hero.contacto section form{
+    display: grid;
+    gap: .5rem;
+}
+.hero.contacto section form input, textarea{
+    background: none;
+    font-size: 1.15rem;
+    color: var(--contraste);
+}
+.hero.contacto section form textarea{
+    min-height: 4rem;
+    resize: vertical;
+}
+.hero.contacto section form .flex{
+    justify-content: flex-end;
+    flex-wrap: wrap
+}
+
+
+.detalles-contacto{
+    display: grid;
+    gap: 1rem;
+    padding: var(--padding-art);
+}
+.detalles-contacto :nth-child(2){
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem 1rem;
+}
+
+.detalles-contacto :nth-child(2) *{
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+}
+.detalles-contacto a{
+    font-family: var(--fuentetitulos);
+    font-weight: var(--pesobold);
+}
+.detalles-contacto .flex *{
+    font-size: 1rem;
+    line-height: 1.15rem;
+    text-decoration: underline;
+}
+
+.hero.contacto .detalles-contacto{
+    display: none;
+}
+
+footer{
+    z-index: 10;
+}
+
+
+
+
+
 
 
 @media only screen and (min-width: 750px){
@@ -3115,70 +3208,25 @@ footer::before{
     footer{
         display: grid;
         grid-template-columns: repeat(12, 1fr);
+        align-items: start;
     }
     footer *{
     }
-    footer h6{
-    }
-    .logo-footer{
-        display: block;
-        height: 1.5rem;
-        width: auto;
-        max-width: 15rem;
-    }
     .empresa{
-        grid-row: 1;
         grid-column: span 3;
-
-        align-items:flex-start;
-    }
-    .empresa ul{
-        padding-top: .5rem;
-    }
-    footer::before{
-        content: none;
-    }
-    .afip{
     }
     .contacto-footer{
-        grid-row: 1;
-        grid-column-start: 5;
-        grid-column-end: 9;
-
-        gap: 1rem;
-    }
-    .casillero {
-    }
-    .contacto-footer input{
-    }
-    .newsletter{
-    }
-    .newsletter .cta{
-    }
-    .newsletter h6{
-        text-align: left;
+        grid-area: 1/5/2/7;
     }
     .redes{
-        justify-content: left;
-    }
-    .redes p{
-    }
-    .redes a{
+        grid-area: 1/8/2/10;
     }
     .navegacion-footer{
-        grid-row: 1;
-        grid-column-start: 11;
-        grid-column-end: 13;
+        grid-area: 1/11/2/13;
         text-align: left;
-    }
-    .navegacion-footer a{
     }
     .legales{
-        grid-row: 2;
         grid-column: span 12;
-    }
-    .legales *{
-        text-align: left;
     }
 
 
@@ -3427,6 +3475,15 @@ footer::before{
 
         width: 100%;
         padding: 1rem;
+        gap: 1rem;
+    }
+    .trabajos-dest-pics figure figcaption h3{
+        font-size: 1.15rem;
+        line-height: 1.5rem;
+    }
+    .trabajos-dest-pics figure figcaption p{
+        max-height: none;
+        overflow: auto;
     }
     .trabajos-dest-pics figure:hover figcaption{
         opacity: 100%;
@@ -3470,6 +3527,9 @@ footer::before{
         justify-content: space-between;
         align-items: center;
         flex-grow: 0;
+    }
+    .cita-home figure{
+        opacity: 100%;
     }
 
 
@@ -4287,6 +4347,7 @@ footer::before{
     }
     .hero.proyecto section{
         display: grid;
+        width: 100%;
         padding: var(--padding-lados);
         padding-bottom: var(--espacio-med);
         margin-inline: auto;
@@ -4300,6 +4361,10 @@ footer::before{
         grid-template-columns: 7fr 3fr;
         gap: 1rem 4rem;
     }
+    .hero.proyecto h1{
+        max-width: 50vw;
+        text-wrap: balance;
+    }
     .hero.proyecto section > div{
         display: grid;
         grid-template-columns: 2fr 7fr 3fr;
@@ -4309,7 +4374,6 @@ footer::before{
         height: fit-content;
     }
     .hero.proyecto h1{
-        max-width: inherit;
     }
     .hero.proyecto .bajada-reg{
         padding-bottom: 2rem;
@@ -4442,6 +4506,47 @@ footer::before{
 
 
 
+
+
+     /* --------------------- CONTACTO----------------------- */
+
+
+     .hero.contacto{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: min-content 1fr  min-content;
+        gap: 2rem 6rem;
+        padding-bottom: 0;
+        padding-top:8rem;
+        position: relative;
+    }
+    .hero.contacto figure{
+        position: relative;
+        opacity: 100%;
+        display: flex;
+        grid-area: 1/2/4/3;
+    }
+    .hero.contacto section{
+        max-width: 25vw;
+        align-self: flex-start;
+    }
+    .detalles-contacto{
+        padding: 0;
+        display: none;
+    }
+    .hero.contacto .detalles-contacto{
+        display: grid;
+    }
+    .hero.contacto .detalles-contacto :nth-child(2){
+        grid-template-columns: min-content 1fr;
+    }
+    .hero.contacto .detalles-contacto{
+        padding-bottom: 6rem;
+    }
+
+    
+   
+   
 
 }
 
