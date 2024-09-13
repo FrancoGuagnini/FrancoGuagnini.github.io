@@ -122,8 +122,6 @@ function myFunction() {
 }
 
 
-// When the user scrolls the page, execute myFunction
-
 
 
 
@@ -165,13 +163,63 @@ const filterCards = e => {
     
     if(proyecto.dataset.name.includes(e.target.dataset.name) || e.target.dataset.name === "todos"){
       
-    console.log(e.target.dataset.name);
+    // console.log(e.target.dataset.name);
       proyecto.classList.remove("hide");
     }
   })
 }
 
 filterButtons.forEach(button => button.addEventListener("click", filterCards));
+
+
+
+
+
+
+// window.onload = function() {contar()};
+
+
+// function contar() {
+//   // Get all elements with the data-name attribute set to "example"
+//   const elements = document.querySelectorAll('[data-name="packaging"]');
+//   console.log(elements)
+  
+//   // Get the count of these elements
+//   const count = elements.length;
+
+//   console.log(document.getElementsByClassName('packaging'))
+
+  
+//   // Display the count in the paragraph with id "countResult"
+//         document.getElementById('packaging').textContent = `${count}: ${count}`;
+// };
+
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   // Get all buttons with class 'countButton'
+//   const buttons = document.querySelectorAll('.countButton');
+  
+//   buttons.forEach(button => {
+//       button.addEventListener('click', function() {
+//           // Get the value of the data-name attribute for this button
+//           const dataName = this.getAttribute('data-name');
+          
+//           // Get all elements with the same data-name attribute value
+//           const elements = document.querySelectorAll(`[data-name="${dataName}"]`);
+//           console.log(elements)
+          
+//           // Get the count of these elements
+//           const count = elements.length;
+
+//           this.textContent = `${dataName} (${count}) `;
+//       });
+//   });
+// });
+
+
+
+
+
 
 
 
