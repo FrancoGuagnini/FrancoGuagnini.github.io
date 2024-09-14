@@ -710,7 +710,7 @@ footer .linea{
     position: relative;
 }
 .hero.home img{
-    max-height: 100%;
+    max-height: 90%;
     width: auto;
     max-width: none;
     margin-bottom: 2px;
