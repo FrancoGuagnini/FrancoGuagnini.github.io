@@ -71,33 +71,35 @@ function toggleMenu(e) {
 
 
 
-var acc = document.getElementsByClassName("accordion");
-var accCont = document.getElementsByClassName("texto-acordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.firstElementChild ;
-    var cont = this.lastElementChild ;
-    var clas = panel.classList
-    var classArray = Array.from(clas)
-
-    console.log(acc)
-
-    if (classArray.includes("visible") ) {
-      panel.classList.remove("visible");
-      accCont.classList.remove("visible");
-    } else {
-      panel.classList.add("visible");
-      accCont.classList.add("visible");
-    }
-  });
-}
+  var acc = document.getElementsByClassName("acordion");
+  var accCont = document.getElementsByClassName("texto-acordion");
+  var i;
+   
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between adding and removing the "active" class,
+      to highlight the button that controls the panel */
+      this.classList.toggle("active");
+   
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.firstElementChild ;
+      var cont = this.querySelector(".panel-tarifas") ;
+      
+      var clas = panel.classList
+      var classArray = Array.from(clas)
+   
+      console.log(cont)
+   
+      if (classArray.includes("visible") ) {
+        panel.classList.remove("visible");
+        cont.classList.remove("visible");
+      } else {
+        panel.classList.add("visible");
+        cont.classList.add("visible");
+      }
+    });
+  }
 
 
 
