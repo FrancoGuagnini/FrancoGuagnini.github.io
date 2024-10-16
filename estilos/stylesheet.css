@@ -1855,6 +1855,8 @@ footer .linea{
     -webkit-line-clamp: 4;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
+    
+    color: var(--contraste);
 }
 .panel-tarifas.visible .texto-acordion{
     display: -webkit-box;
