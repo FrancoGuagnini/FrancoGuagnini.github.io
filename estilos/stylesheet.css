@@ -686,8 +686,8 @@ footer .linea{
     font-size: clamp(2.5rem, 11vw, 3.5rem);
     line-height: clamp(2.5rem, 11vw, 3.5rem);
 
-    color: white;
-    mix-blend-mode: difference;
+    /* color: white; */
+    /* mix-blend-mode: difference; */
 }
 .hero.home h1, .hero.home .bajada-reg{
 
@@ -721,7 +721,7 @@ footer .linea{
     margin-bottom: 2px;
 
     
-    filter: drop-shadow(0px 0px 8px #eeeeee );
+    /* filter: drop-shadow(0px 0px 8px #eeeeee ); */
 }
 .img-traslucida{
     opacity: 25%;
@@ -1640,9 +1640,10 @@ footer .linea{
     align-items: flex-end;
 }
 .hero.portfolio figure img{
-    height: 80%;
+    /* height: 80%; */
     width: auto;
     max-width: none;
+    filter: drop-shadow(0px 0px 8px #eeeeee);
 }
 .hero.portfolio::after {
     content: "\2193";
@@ -1855,7 +1856,7 @@ footer .linea{
     -webkit-line-clamp: 4;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
-    
+
     color: var(--contraste);
 }
 .panel-tarifas.visible .texto-acordion{
@@ -3639,7 +3640,7 @@ footer .linea{
     }
     .hero.home figure::before{
         z-index: 4;
-        background-image: linear-gradient(transparent 60%, var(--fondo)95%);
+        background-image: linear-gradient(transparent 50%, var(--fondo)90%);
     }
     .hero.home figure{
         grid-area: 1/1/4/4;
