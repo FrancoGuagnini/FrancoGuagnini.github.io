@@ -1643,7 +1643,7 @@ footer .linea{
     /* height: 80%; */
     width: auto;
     max-width: none;
-    filter: drop-shadow(0px 0px 8px #eeeeee);
+    filter: drop-shadow(0px 0px 8px #66666633);
 }
 .hero.portfolio::after {
     content: "\2193";
