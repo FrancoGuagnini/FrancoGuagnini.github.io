@@ -3076,7 +3076,7 @@ footer .linea{
     opacity: 100%;
 }
 .proyecto:has(.modulo.inactivo){
-    /* order: 99; */
+    order: 99;
 }
 .modulo figure{
     width: 100%;
