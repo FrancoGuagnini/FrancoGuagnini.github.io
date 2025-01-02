@@ -1861,7 +1861,6 @@ footer .linea{
     gap: .5rem;
 
 }
-
 .nuevodp section{
     display: grid;
     grid-template-columns: repeat(4, 1fr) !important;
@@ -1878,10 +1877,11 @@ footer .linea{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: .5rem;
 }
 .nuevodp .acordion::after{
+    align-self: flex-end;
     content: "+";
     float: inline-end;
 
@@ -1895,6 +1895,7 @@ footer .linea{
     text-align: center;
     display: grid;
     align-content:center ;
+    order: 1;
 
 }
 .nuevodp .acordion.active::after{
@@ -1902,7 +1903,8 @@ footer .linea{
 
 }
 .nuevodp .acordion .panel-tarifas{
-    width: calc(100% - 3rem);
+    /* width: calc(100% - 3rem); */
+    order: 2;
 }
 .nuevodp .acordion .texto-acordion{
     display: -webkit-box;
@@ -1956,9 +1958,7 @@ footer .linea{
 .align-bott{
     align-self: flex-end;
 }
-.align-top{
-    justify-content: flex-start !important;
-}
+
 
 
 
@@ -2017,6 +2017,9 @@ footer .linea{
     }
     .dstart4{
         grid-column-start: 4;
+    }
+    .align-top{
+        justify-content: flex-start !important;
     }
 
     .nuevodp .acordion {
