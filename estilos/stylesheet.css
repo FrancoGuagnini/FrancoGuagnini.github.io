@@ -1874,6 +1874,35 @@ footer .linea{
     text-align: left;
     align-self: flex-end;
     height: min-content;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: .5rem;
+}
+.nuevodp .acordion::after{
+    content: "+";
+    float: inline-end;
+
+    background-color: var(--fondo);
+    border: solid 2px var(--analogo);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    padding: .25rem;
+    line-height: 0;
+    text-align: center;
+    display: grid;
+    align-content:center ;
+
+}
+.nuevodp .acordion.active::after{
+    content: "-";
+
+}
+.nuevodp .acordion .panel-tarifas{
+    width: calc(100% - 3rem);
 }
 .nuevodp .acordion .texto-acordion{
     display: -webkit-box;
@@ -1941,7 +1970,7 @@ footer .linea{
         grid-auto-rows: min-content ;
     }
     .nuevodp > :nth-child(2){
-        grid-auto-rows: min-content 1fr min-content;
+        /* grid-auto-rows: min-content 1fr min-content; */
     }
     .nuevodp section figure{
         align-items: flex-end;
@@ -1990,9 +2019,22 @@ footer .linea{
         grid-column-start: 4;
     }
 
-
+    .nuevodp .acordion {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: .5rem;
+    }
     .nuevodp .acordion .texto-acordion{
         -webkit-line-clamp: unset;
+    }
+    .nuevodp .acordion .panel-tarifas{
+        width: 100%;
+    }
+    .nuevodp .acordion::after{
+        display: none;
+    
     }
 }
 
