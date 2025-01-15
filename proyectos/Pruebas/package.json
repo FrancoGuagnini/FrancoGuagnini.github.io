@@ -2,6 +2,7 @@
     "name": "canvas-sketch-noise-01",
     "version": "1.0.0",
     "description": "Static \"parametric\" noise function.",
+    "type": "commonjs",
     "main": "index.html",
     "scripts": {
       "start": "canvas-sketch src/index.js --hot",
