@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Franco Guagnini - Taste Explorer</title>
+    <link rel="icon" href="/imagenes/favico.svg">
+    <link rel="icon" type="image/x-icon" href="/imagenes/favico.ico">
+    
+    <link rel="stylesheet" href="/estilos/stylesheet.css">
+    <script src="/js/menu.js" defer=""></script>
+    
+    <!-- FUENTES -->
+    <link rel="stylesheet" href="https://use.typekit.net/cun3pcd.css">
+
+    
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+
+
+
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="botonera">
+            <button id="menu">
+                <div id="menu-hamb"  alt=""></div>
+            </button>
+            <a class="cta" href="contacto.html">Contactar</a>
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li  ><a href="/proyectos.html">Proyectos</a></li>
+                <li class="inactivo"><a href="#">Tarifas</a></li>
+                <li class="inactivo  flexgrow"><a href="#">Exploraciones</a></li>
+            </ul>
+            
+            <a class="cta" href="/contacto.html">Contactar</a>
+        </nav>
+    </header>
+
+
+
+    <!------------
+    ---- MAIN ----
+    ------------->
+    <main>
+        <article class="p5js hero">
+            
+            <section>
+                <!-- <figure><img src="../imagenes/sendazen-logo.svg" alt=""></figure> -->
+                <h1>Prueba 1</h1>
+                <h2 id="tit-proyectos" class="tit-fondo">*p5js</h2>
+                
+                <div class="detalles">
+                    <div>
+                        <!-- <p class="caption"> Sobre Taste Explorer:</p> -->
+                        <p class="bajada-reg"> Prueba programación creativa en p5.js. </p>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <div class="banner" id="p5banner">
+                <script>
+                    // Preloadeamos el elemento padre asi desp sabe donde ir
+
+                    let img;
+                    function preload(){
+                        const p5banner = document.querySelector("#p5banner");
+                        // img = loadImage("/imagenes/portfolio-textura-claro-4.png");
+                        textFont("ff-real-text-pro-2");
+                        }
+                    const controles = document.querySelector("#controles");
+
+                    const contenedor = p5banner.getBoundingClientRect()
+                    const contenedorH = contenedor.height;
+                    const contenedorW = contenedor.width;
+
+                    // GLIFOS
+                    // split convierte en array dividiendo segun un caracter
+                    let GlifosChicos = ". , -  _ = + / ".split(" "); 
+                    let GlifosMedianos = "# 1 4 5 7 C D F I L O P S T U V Y = f i j l u v a b c d e g h k m o p q r s t w x y z m w g".split(" ");
+                    let GlifosGrandes = "3 2 8 9 6 A B E G H K M N Q R W X Z # % @".split(" ");
+
+                    // const canvas = p5banner.getBoundingClientRect()
+                    // const h = canvas.height;
+                    // const w = canvas.width;
+                    
+                    let container;
+
+                    const cell = contenedorW/72;
+
+                    
+
+                    //variable for canvas background color
+                    let primario;
+                    //variables for color options using hex values (so we can use the same color for p5 and CSS)
+                    let claro = 25;
+                    let oscuro = 242;
+
+
+
+
+
+                    
+                    // SETUP DEL CANVAS
+                    function setup() {
+                        let cnv = createCanvas(contenedorH /5 *4, contenedorH);
+                        cnv.parent(p5banner); //PADRE del CANVAS//
+                        background(255, 204, 0);
+                        
+                        cnv.drop(gotFile);
+                        noLoop();
+
+
+                        const cols = floor(width / cell);
+                        const rows = floor(height / cell);
+                        const numCells = cols * rows;
+
+
+
+                        let parentDiv = select('#controles');
+                        
+                        container = createDiv();
+                        container.position(0, 0);
+                        container.addClass("controles");
+
+
+                        
+                        // INPUTS
+                        inputp = createP("Subir Imagen").parent(parentDiv).addClass("caption");
+                        input = createFileInput(gotFile).parent(parentDiv);
+                        
+                        // Create sliders and append them to the container
+                        p1 = createP("Threshold").parent(parentDiv).addClass("caption");
+                        s1 = createSlider(50, 200, 185, 1).parent(parentDiv);
+                        
+                        p2 = createP("Amplitud").parent(parentDiv).addClass("caption");
+                        s2 = createSlider(0, 1, 1, 0.001).parent(parentDiv);
+                        
+                        p3 = createP("Amplitud fondo").parent(parentDiv).addClass("caption");
+                        s3 = createSlider(1, 10, 1, 0.1).parent(parentDiv);
+                        
+                        myButton = createButton("Modo oscuro / claro").parent(parentDiv); //Creamos un boton con texto
+
+
+                        s1.input(() => redraw());
+                        s2.input(() => redraw());
+                        s3.input(() => redraw());
+                        myButton.mouseClicked(changeColor); //con el click del mouse el boton hace callback a la funcion change color
+
+
+                        primario = oscuro;
+                        contraste = claro;
+                    }
+
+
+                    // DIBUJAR EN CANVAS
+                    function draw() {
+
+                        background(primario);
+
+                        
+                        if (img) {
+
+                            // Resize image to fit canvas
+                            img.resize(width, height); 
+                            // cargamos los pixeles
+                            img.loadPixels();
+
+
+                            for (let y = 0; y < height; y += cell) {
+                                for (let x = 0; x < width; x += cell) {
+                                    // Get the average color of the cell
+                                    let c = img.get(x + cell / 2, y + cell / 2);
+
+
+                                    // conseguimos la luminosidad de la celda
+                                    let cellBrightness = brightness(c);
+
+
+
+                                    // Draw a rectangle or shape with that color
+                                    if(cellBrightness > s1.value() * 0.50){
+                                        fill(contraste, map(cellBrightness, 0, 100 , 0, 10) * s3.value()); // claro
+                                    } else {
+                                        fill(contraste, map(cellBrightness, 0, 100, 10, 20) * s3.value()); // oscuro
+                                    }
+                                    noStroke();
+                                    rect(x, y, cell, cell);
+
+
+                                    
+                                    // Draw the glyph
+                                    textAlign(CENTER, CENTER);
+                                    
+                                    // Elige que glifo y que color y peso va a tener
+                                    if(cellBrightness > s1.value()            * (0.5 + 0.49   * s2.value()    )){
+                                        text(" ");
+                                    } else if (cellBrightness > s1.value()    * (0.5 + 0.30   * s2.value()    )) {
+                                        fill(contraste, map(cellBrightness, 0, 100, 2.5, 20));
+                                        text(random(GlifosChicos), x + cell / 2, y + cell / 2);
+                                        textStyle(ITALIC);
+                                    } else if (cellBrightness > s1.value()    * (0.5 + 0.15   * s2.value()    ) ) {
+                                        fill(contraste, map(cellBrightness, 0, 100, 2.5, 20));
+                                        text(random(GlifosMedianos), x + cell / 2, y + cell / 2);
+                                        textStyle(NORMAL);
+                                    } else if (cellBrightness > s1.value()    * (0.5 + 0.0   * s2.value()    ) ) {
+                                        fill(contraste, map(cellBrightness, 0, 100, 2.5, 20));
+                                        text(random(GlifosGrandes), x + cell / 2, y + cell / 2);
+                                        textStyle(BOLD);
+                                    } else if (cellBrightness > s1.value()    * (0.5 - 0.15   * s2.value()    )  ) {
+                                        fill(primario, map(cellBrightness, 0, 100, 90, 100));
+                                        text(random(GlifosGrandes), x + cell / 2, y + cell / 2);
+                                        textStyle(BOLD);
+                                    } else if (cellBrightness > s1.value()    * (0.5 - 0.30   * s2.value()    )) {
+                                        fill(primario, map(cellBrightness, 0, 100, 90, 100));
+                                        text(random(GlifosMedianos), x + cell / 2, y + cell / 2);
+                                        textStyle(NORMAL);
+                                    } else if (cellBrightness > s1.value()    * (0.5 - 0.49   * s2.value()    )) {
+                                        fill(primario, map(cellBrightness, 0, 100, 90, 100));
+                                        text(random(GlifosChicos), x + cell / 2, y + cell / 2);
+                                        textStyle(ITALIC);
+                                    } else {
+                                        text(" ");
+                                    }
+
+                                    textSize(cell/1.25);
+                                }
+                            }
+                        } else {
+                            fill(0);
+                            textSize(20);
+                            textAlign(CENTER, CENTER);
+                            text("Arrastrá o subí una imagen", width / 2, height / 2);
+                        }
+                    }
+
+
+
+                   //define a callback action that is executed when the button is clicked
+                    function changeColor() {
+                    //if background is red, change it to blue
+                    //else, change background to red
+                    if (primario == oscuro) {
+                        primario = claro;
+                        contraste = oscuro;
+                    } else {
+                        primario = oscuro;
+                        contraste = claro;
+                    }
+                    redraw()
+                    }
+
+
+                    // SUMAR UNA IMAGEN
+                    function gotFile(file) {
+                    // If the file dropped into the canvas is an image,
+                    // create a variable called img to contain the image.
+                    // Remove this image file from the DOM and only
+                    // draw the image within the canvas.
+                    if (file.type === 'image') {
+                        img = loadImage(file.data, () => {
+                            redraw(); // Redraw the mosaic after loading the image
+                        });
+                    } else {
+                    }}
+
+
+
+                    //GUARDAR IMAGEN.
+                    function keyTyped() {
+                    if (key === 's' || key === 'S') {
+                        
+                        resizeCanvas(1080, 1350);
+                        saveCanvas('Prueba 1', 'png');
+                        print("saving image");
+                    }
+                    return false;
+                    }
+
+                </script>
+            </div>
+            <div id="controles">
+            </div>
+        </article>
+
+        
+        <div class="divisor"></div>
+
+
+        
+    </main>
+
+
+   <!--############
+    #### FOOTER ####
+    #############-->
+    <footer>
+        <article class="empresa">
+                <h3>Franco Guagnini, <br> Diseño gráfico</h3>
+                <p class="bajada-small">Estudiante de diseño grafico en FADU, UBA. Diseño gráfico simple y moderno, Buenos aires, Argentina.</p>
+        </article>
+
+
+        <article class="contacto-footer">
+            <h4>Contacto</h4>
+            <ul>
+                <li>
+                    <a href="mailto:guagninifrancotobias@gmail.com">Email</a>
+                    <p>Guagninifrancotobias@gmail.com</p>
+                </li>
+                <li>
+                    <a href="tel:1153286431" >Teléfono</a>
+                    <p>11 5328-6431</p>
+                </li>
+            </ul>
+        </article>
+
+        <article class="redes">
+            <h4>Encontrame en las redes</h4>
+            <ul class="">
+                <li>
+                    <a href="https://www.instagram.com/franco.2d/" target="_blank">
+                        <img src="/imagenes/icono-insta.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/franco-guagnini/"  target="_blank">
+                        <img src="/imagenes/icon-linkedin.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ar.pinterest.com/francoguagnini/"  target="_blank">
+                        <img src="/imagenes/icon-pinterest.svg   " alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="inactivo">
+                        <img src="/imagenes/icon-behance.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </article>
+
+
+        <nav class="navegacion-footer">
+            <h4>Mapa del sitio</h4>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/proyectos.html">Proyectos</a></li>
+                <li><a class="inactivo">Tarifas</a></li>
+                <li><a class="inactivo">Exploraciones</a></li>
+                <li><a class="inactivo">Blog</a></li>
+                <li><a class="inactivo">Condiciones de trabajo</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        
+
+        <div class="legales">
+            <div class="linea"></div>
+            <p>Derechos de autor: Franco Guagnini - 2024</p>
+        </div>
+
+
+    </footer>
+</body>
+    
+</html>

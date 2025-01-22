@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Franco Guagnini - Taste Explorer</title>
+    <link rel="icon" href="/imagenes/favico.svg">
+    <link rel="icon" type="image/x-icon" href="/imagenes/favico.ico">
+    
+    <link rel="stylesheet" href="/estilos/stylesheet.css">
+    <script src="/js/menu.js" defer=""></script>
+    
+    <!-- FUENTES -->
+    <link rel="stylesheet" href="https://use.typekit.net/cun3pcd.css">
+
+    
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+
+
+
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="botonera">
+            <button id="menu">
+                <div id="menu-hamb"  alt=""></div>
+            </button>
+            <a class="cta" href="contacto.html">Contactar</a>
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li  ><a href="/proyectos.html">Proyectos</a></li>
+                <li class="inactivo"><a href="#">Tarifas</a></li>
+                <li class="inactivo  flexgrow"><a href="#">Exploraciones</a></li>
+            </ul>
+            
+            <a class="cta" href="/contacto.html">Contactar</a>
+        </nav>
+    </header>
+
+
+
+    <!------------
+    ---- MAIN ----
+    ------------->
+    <main>
+        <article class="p5js hero">
+            
+            <section>
+                <!-- <figure><img src="../imagenes/sendazen-logo.svg" alt=""></figure> -->
+                <h1>Prueba 1</h1>
+                <h2 id="tit-proyectos" class="tit-fondo">*p5js</h2>
+                
+                <div class="detalles">
+                    <div>
+                        <!-- <p class="caption"> Sobre Taste Explorer:</p> -->
+                        <p class="bajada-reg"> Pruebas sobre programacion creativa en p5.js. </p>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <div class="banner" id="p5banner">
+                <script>
+                    // Preloadeamos el elemento padre asi desp sabe donde ir
+                    function preload(){
+                    const p5banner = document.querySelector("#p5banner");
+                    }
+                    const controles = document.querySelector("#controles");
+
+
+                    const rect = p5banner.getBoundingClientRect()
+                    const h = rect.height;
+                    const w = rect.width;
+                    
+
+                    let slider1, slider2;
+                    let container;
+
+
+
+
+                    function setup() {
+                    let cnv = createCanvas(w, h);
+                    cnv.parent(p5banner); //PADRE del CANVAS//
+                    background(255, 204, 0);
+                    video = createCapture(VIDEO);
+                    video.hide()
+
+
+
+                    let parentDiv = select('#controles');
+                    
+                    container = createDiv();
+                    container.position(0, 0);
+                    container.addClass("controles");
+
+                    // Create sliders and append them to the container
+                    
+                    p1 = createP("Diametro").parent(parentDiv).addClass("caption");
+                    s1 = createSlider(100, 1000, 300).parent(parentDiv);
+
+                    
+                    p2 = createP("Color").parent(parentDiv).addClass("caption");
+                    color = createColorPicker('deeppink').parent(parentDiv);
+                    }
+
+                    function draw() {
+                    
+                    image(video, 0, 0, 700, 200, 0, 0, video.width, video.height,  );
+
+                    let c = color.value()
+
+
+                    //when mouse button is pressed, circles turn black
+                    if (mouseIsPressed === true) {
+                        fill(c);
+                        stroke(1);
+                    } else {
+                        fill(0,0);
+                        stroke(0,0);
+                    }
+                    //white circles drawn at mouse position, diametro es el valor del slider
+                    circle(mouseX, mouseY, s1.value());
+
+                    }
+
+
+
+                    //GUARDAR IMAGEN.
+                    function keyTyped() {
+                    if (key === 's' || key === 'S') {
+                        saveCanvas('Prueba 1', 'png');
+                        print("saving image");
+                    }
+                    return false;
+                    }
+
+
+
+
+
+
+                </script>
+            </div>
+            <div id="controles">
+            </div>
+        </article>
+
+
+
+
+        
+    </main>
+
+
+   <!--############
+    #### FOOTER ####
+    #############-->
+    <footer>
+        <article class="empresa">
+                <h3>Franco Guagnini, <br> Diseño gráfico</h3>
+                <p class="bajada-small">Estudiante de diseño grafico en FADU, UBA. Diseño gráfico simple y moderno, Buenos aires, Argentina.</p>
+        </article>
+
+
+        <article class="contacto-footer">
+            <h4>Contacto</h4>
+            <ul>
+                <li>
+                    <a href="mailto:guagninifrancotobias@gmail.com">Email</a>
+                    <p>Guagninifrancotobias@gmail.com</p>
+                </li>
+                <li>
+                    <a href="tel:1153286431" >Teléfono</a>
+                    <p>11 5328-6431</p>
+                </li>
+            </ul>
+        </article>
+
+        <article class="redes">
+            <h4>Encontrame en las redes</h4>
+            <ul class="">
+                <li>
+                    <a href="https://www.instagram.com/franco.2d/" target="_blank">
+                        <img src="imagenes/icono-insta.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/franco-guagnini/"  target="_blank">
+                        <img src="imagenes/icon-linkedin.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ar.pinterest.com/francoguagnini/"  target="_blank">
+                        <img src="imagenes/icon-pinterest.svg   " alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="inactivo">
+                        <img src="imagenes/icon-behance.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </article>
+
+
+        <nav class="navegacion-footer">
+            <h4>Mapa del sitio</h4>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/proyectos.html">Proyectos</a></li>
+                <li><a class="inactivo">Tarifas</a></li>
+                <li><a class="inactivo">Exploraciones</a></li>
+                <li><a class="inactivo">Blog</a></li>
+                <li><a class="inactivo">Condiciones de trabajo</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        
+
+        <div class="legales">
+            <div class="linea"></div>
+            <p>Derechos de autor: Franco Guagnini - 2024</p>
+        </div>
+
+
+    </footer>
+</body>
+    
+</html>
