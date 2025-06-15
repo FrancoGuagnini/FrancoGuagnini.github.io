@@ -149,7 +149,7 @@ function myFunction() {
 
 // FILTRO
 const filterButtons = document.querySelectorAll(".filtro button");
-const filtrableCards = document.querySelectorAll(".detalles-curso .proyecto");
+const filtrableCards = document.querySelectorAll(".detalles-curso .proyecto, .articulos .proyecto");
 
 console.log(filterButtons, filtrableCards);
 
@@ -170,8 +170,6 @@ const filterCards = e => {
 }
 
 filterButtons.forEach(button => button.addEventListener("click", filterCards));
-
-
 
 
 
