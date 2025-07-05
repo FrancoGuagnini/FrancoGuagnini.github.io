@@ -1961,6 +1961,15 @@ footer .linea{
 .align-bott{
     align-self: flex-end;
 }
+.align-top{
+    align-self: flex-start;
+}
+.solodesk{
+    display: none;
+}
+.solomobile{
+    display: initial;
+}
 
 
 
@@ -3094,7 +3103,7 @@ footer .linea{
     backdrop-filter: blur(2px);
 }
 .modulo.inactivo{
-    opacity: 100%;
+    opacity: 75%;
 }
 .proyecto:has(.modulo.inactivo){
     order: 99;
@@ -3750,8 +3759,8 @@ footer .linea{
     max-width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 310px), 1fr));
+    gap: 3rem;
 }
 .articulos .maxwidth section{
     display: flex;
@@ -5295,7 +5304,12 @@ footer .linea{
 
 
 
-
+    .solodesk{
+    display: initial;
+    }
+    .solomobile{
+        display: none;
+    }
 
 
 
