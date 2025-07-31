@@ -2030,9 +2030,19 @@ footer .linea{
     .dstart4{
         grid-column-start: 4;
     }
+    .dstart5{
+        grid-column-start: 5;
+    }
     .align-top{
         justify-content: flex-start !important;
     }
+    .solodesk{
+    display: initial;
+    }
+    .solomobile{
+        display: none;
+    }
+
 
     .nuevodp .acordion {
         display: flex;
@@ -3704,7 +3714,7 @@ footer .linea{
     height: 1px;
     width: 100%;
     margin-top: 2rem;
-    background-color: var(--transparente-contraste);
+    background-color: var(--contraste);
 }
 .articulos > :nth-child(1){
     display: grid;
@@ -3791,6 +3801,7 @@ footer .linea{
 }
 .articulos .modulo > figure img {
     mix-blend-mode: difference;
+    background-image: linear-gradient(var(--fondo), var(--fondo-menor-c));
 }
 
 
