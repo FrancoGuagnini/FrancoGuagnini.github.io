@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2500 2500">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #ff7262;
+      }
+
+      .st1 {
+        fill: none;
+        opacity: 0;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .st2 {
+        fill: #a259ff;
+      }
+
+      .st3 {
+        fill: #1abcfe;
+      }
+
+      .st4 {
+        fill: #f24e1e;
+      }
+
+      .st5 {
+        fill: #0acf83;
+      }
+    </style>
+  </defs>
+  <rect class="st1" width="2500" height="2500"/>
+  <path id="path0_fill" class="st5" d="M843.6,2469.3c224.3,0,406.4-182.1,406.4-406.4v-406.4h-406.4c-224.3,0-406.4,182.1-406.4,406.4s182.1,406.4,406.4,406.4Z"/>
+  <path id="path1_fill" class="st2" d="M437.2,1250c0-224.3,182.1-406.4,406.4-406.4h406.4v812.8h-406.4c-224.3,0-406.4-182.1-406.4-406.4Z"/>
+  <path id="path1_fill1" data-name="path1_fill" class="st4" d="M437.2,437.2c0-224.3,182.1-406.4,406.4-406.4h406.4v812.8h-406.4c-224.3,0-406.4-182.1-406.4-406.4Z"/>
+  <path id="path2_fill" class="st0" d="M1250,30.7h406.4c224.3,0,406.4,182.1,406.4,406.4s-182.1,406.4-406.4,406.4h-406.4V30.7Z"/>
+  <path id="path3_fill" class="st3" d="M2062.8,1250c0,224.3-182.1,406.4-406.4,406.4s-406.4-182.1-406.4-406.4,182.1-406.4,406.4-406.4,406.4,182.1,406.4,406.4Z"/>
+</svg>
