@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheetTracker - Finanzas Personales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .app-container {
+            max-width: 450px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+        }
+        .input-field {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            background: white;
+        }
+        .type-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            color: #64748b;
+        }
+        /* Dinámica de colores según el tipo */
+        .type-gasto.active { background: #fee2e2; color: #ef4444; border-color: #fecaca; }
+        .type-ingreso.active { background: #dcfce7; color: #22c55e; border-color: #bbf7d0; }
+        .type-ahorro.active { background: #dbeafe; color: #3b82f6; border-color: #bfdbfe; }
+
+        .category-btn {
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+        .category-btn.selected {
+            border-color: transparent;
+            color: white;
+        }
+
+        /* Temas dinámicos para el botón principal y categorías */
+        .theme-gasto .category-btn.selected { background-color: #ef4444; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+        .theme-gasto .main-btn { background-color: #ef4444; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4); }
+        .theme-gasto .input-focus:focus { border-color: #fca5a5; ring: 2px solid #fee2e2; }
+
+        .theme-ingreso .category-btn.selected { background-color: #22c55e; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3); }
+        .theme-ingreso .main-btn { background-color: #22c55e; box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4); }
+        
+        .theme-ahorro .category-btn.selected { background-color: #3b82f6; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+        .theme-ahorro .main-btn { background-color: #3b82f6; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); }
+
+        /* Spinner para carga */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #statusMessage {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            display: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="app-container" id="appBody">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">Movimientos</h1>
+            <p class="text-slate-500 text-sm mt-1">Registra tus movimientos financieros</p>
+        </div>
+
+        <!-- Toggles de Tipo -->
+        <div class="flex gap-2 bg-slate-50 p-1 rounded-2xl mb-8">
+            <button onclick="setType('gasto')" id="btn-gasto" class="type-btn type-gasto active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 12 8"/><polyline points="8 12 12 16 16 12"/></svg>
+                Gasto
+            </button>
+            <button onclick="setType('ingreso')" id="btn-ingreso" class="type-btn type-ingreso">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 16"/><polyline points="16 12 12 8 8 12"/></svg>
+                Ingreso
+            </button>
+            <button onclick="setType('ahorro')" id="btn-ahorro" class="type-btn type-ahorro">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                Ahorro
+            </button>
+        </div>
+
+        <!-- Monto -->
+        <div class="mb-6">
+            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                <span class="text-lg">$</span> MONTO
+            </label>
+            <input type="number" id="monto" value="0.00" step="0.01" class="input-field text-4xl font-bold text-slate-700 text-center input-focus" onfocus="this.value=''">
+        </div>
+
+        <!-- Fecha y Origen -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    FECHA
+                </label>
+                <input type="date" id="fecha" class="input-field text-sm">
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    ORIGEN
+                </label>
+                <select id="origen" class="input-field text-sm">
+                    <option value="Liquido">Liquido</option>
+                    <option value="Ingreso">Ingreso</option>
+                    <option value="Rendimiento">Rendimiento</option>
+                    <option value="Ahorro">Ahorro</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Categorías Dinámicas -->
+        <div class="mb-6">
+            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+                CATEGORÍA
+            </label>
+            <div id="category-container" class="flex flex-wrap gap-2">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-8">
+            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 block">DESCRIPCIÓN (OPCIONAL)</label>
+            <textarea id="descripcion" rows="2" placeholder="Ej. Supermercado, Alquiler..." class="input-field text-sm input-focus"></textarea>
+        </div>
+
+        <!-- Botón de Registro -->
+        <button id="submitBtn" onclick="sendData()" class="main-btn w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-3 transition-all active:scale-95">
+            <div class="loader" id="btnLoader"></div>
+            <span id="btnText" class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="16"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+                Registrar Transacción
+            </span>
+        </button>
+
+        <div class="text-center mt-6">
+            <p class="text-[10px] text-slate-400 tracking-widest font-bold">CONECTADO A GOOGLE SHEETS</p>
+        </div>
+    </div>
+
+    <!-- Feedback UI -->
+    <div id="statusMessage"></div>
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzU4wwzgAWhwzm8Ek6gVqV6VBlBhL7l9fNs9lwzLSJ202MoQonG7th-AwgwytCe1I9EBQ/exec"; // REEMPLAZA ESTO
+        
+        let currentType = 'gasto';
+        let currentCategory = '';
+
+        const categories = {
+            gasto: ['Suscripciones', 'Salidas', 'Salud', 'Compras', 'Ejercicio', 'Otros', 'Comida', 'Transporte'],
+            ingreso: ['Freelance', 'Mesada', 'Sueldo', 'Inversion', 'Ahorro', 'Otro'],
+            ahorro: ['Ahorro', 'Rendimientos', 'Dolares']
+        };
+
+        // Inicializar fecha
+        document.getElementById('fecha').valueAsDate = new Date();
+
+        function setType(type) {
+            currentType = type;
+            
+            // Actualizar botones de tipo
+            document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${type}`).classList.add('active');
+
+            // Actualizar tema visual del contenedor
+            const body = document.getElementById('appBody');
+            body.classList.remove('theme-gasto', 'theme-ingreso', 'theme-ahorro');
+            body.classList.add(`theme-${type}`);
+
+            // Actualizar categorías
+            renderCategories(type);
+            currentCategory = ''; // Reset selección
+        }
+
+        function renderCategories(type) {
+            const container = document.getElementById('category-container');
+            container.innerHTML = '';
+            
+            categories[type].forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'category-btn';
+                btn.textContent = cat;
+                btn.onclick = () => selectCategory(btn, cat);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectCategory(element, cat) {
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+            currentCategory = cat;
+        }
+
+        async function sendData() {
+            const monto = document.getElementById('monto').value;
+            const fecha = document.getElementById('fecha').value;
+            const origen = document.getElementById('origen').value;
+            const descripcion = document.getElementById('descripcion').value;
+
+            if (monto <= 0) return showStatus("Por favor ingresa un monto válido", "#ef4444");
+            if (!currentCategory) return showStatus("Selecciona una categoría", "#ef4444");
+            if (SCRIPT_URL.includes("AQUÍ")) return showStatus("Configura la URL de Apps Script primero", "#f59e0b");
+
+            // UI Loading
+            const btn = document.getElementById('submitBtn');
+            const loader = document.getElementById('btnLoader');
+            const btnText = document.getElementById('btnText');
+            
+            btn.disabled = true;
+            loader.style.display = 'block';
+            btnText.style.opacity = '0.5';
+
+            const payload = {
+                tipo: currentType.toUpperCase(),
+                monto: parseFloat(monto),
+                fecha: fecha,
+                origen: origen,
+                categoria: currentCategory,
+                descripcion: descripcion
+            };
+
+            try {
+                // Usamos mode: 'no-cors' para evitar problemas de pre-flight si no está configurado el CORS en Apps Script
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    body: JSON.stringify(payload)
+                });
+
+                showStatus("¡Transacción registrada con éxito!", "#22c55e");
+                resetForm();
+            } catch (error) {
+                console.error(error);
+                showStatus("Error al conectar con la hoja", "#ef4444");
+            } finally {
+                btn.disabled = false;
+                loader.style.display = 'none';
+                btnText.style.opacity = '1';
+            }
+        }
+
+        function showStatus(msg, color) {
+            const status = document.getElementById('statusMessage');
+            status.textContent = msg;
+            status.style.backgroundColor = color;
+            status.style.display = 'block';
+            setTimeout(() => { status.style.display = 'none'; }, 3000);
+        }
+
+        function resetForm() {
+            document.getElementById('monto').value = "0.00";
+            document.getElementById('descripcion').value = "";
+            document.getElementById('fecha').valueAsDate = new Date();
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('selected'));
+            currentCategory = '';
+        }
+
+        // Ejecutar estado inicial
+        setType('gasto');
+
+    </script>
+</body>
+</html>
