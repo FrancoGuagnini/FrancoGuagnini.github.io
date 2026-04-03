@@ -261,8 +261,11 @@
             loader.style.display = 'block';
             btnText.style.opacity = '0.5';
 
+            // Formatear tipo: "gasto" -> "Gasto"
+            const tipoFormateado = currentType.charAt(0).toUpperCase() + currentType.slice(1);
+
             const payload = {
-                tipo: currentType.toUpperCase(),
+                tipo: tipoFormateado,
                 monto: parseFloat(monto),
                 fecha: fecha,
                 origen: origen,
